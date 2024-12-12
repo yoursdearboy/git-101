@@ -18,6 +18,9 @@ output:
 
 # Установите Git {.tabset .tabset-pills}
 
+Выберите вариант для вашей операционной системы.
+После установки перезапустите RStudio и повторите проверку.
+
 ## Windows
 
 Загрузите инсталлятор по ссылке [git-scm.com/downloads/win](https://git-scm.com/downloads/win)
@@ -62,7 +65,7 @@ git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
 
-# Создайте токен (пароль) для GitHub
+# Создайте токен для GitHub
 
 Для работы с GitHub вам нужно создать так называемый **Personal Access Token** -
 отдельный многоразовый пароль.
