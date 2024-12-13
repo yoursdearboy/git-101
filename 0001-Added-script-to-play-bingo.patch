@@ -1,0 +1,57 @@
+From 253e63b163b5888c6b6ce8d80fb50fe8d8a6c98e Mon Sep 17 00:00:00 2001
+From: Kirill Voronin <yoursdearboy@gmail.com>
+Date: Fri, 6 Dec 2024 17:11:02 +0300
+Subject: [PATCH 1/1] Added script to play bingo
+
+---
+ bingo.R   |  8 ++++++++
+ renv.lock | 18 ++++++++++++++++++
+ 2 files changed, 26 insertions(+)
+ create mode 100644 bingo.R
+
+diff --git a/bingo.R b/bingo.R
+new file mode 100644
+index 0000000..66ebab4
+--- /dev/null
++++ b/bingo.R
+@@ -0,0 +1,8 @@
++library(bingo)
++library(readr)
++
++artists <- read_csv("artists.txt", col_names = c("name"))
++
++bc <- bingo(n_cards = 5, words = artists$name)
++
++plot(bc)
+diff --git a/renv.lock b/renv.lock
+index cfdce2d..f3abc0a 100644
+--- a/renv.lock
++++ b/renv.lock
+@@ -83,6 +83,24 @@
+       ],
+       "Hash": "78dfe2b21e523358871eea1601b04b56"
+     },
++    "bingo": {
++      "Package": "bingo",
++      "Version": "0.0.0.9007",
++      "Source": "GitHub",
++      "RemoteType": "github",
++      "RemoteHost": "api.github.com",
++      "RemoteUsername": "jennybc",
++      "RemoteRepo": "bingo",
++      "RemoteRef": "master",
++      "RemoteSha": "3b1166ef467ca57562d778a68f57befab7df0c16",
++      "Requirements": [
++        "R",
++        "grDevices",
++        "grid",
++        "utils"
++      ],
++      "Hash": "f7cf3af5b4cb8f78b0fe2942c5093c64"
++    },
+     "bit": {
+       "Package": "bit",
+       "Version": "4.5.0.1",
+-- 
+2.37.0 (Apple Git-136)
+
