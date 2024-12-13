@@ -1,0 +1,45 @@
+---
+title: "Hello"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+library(readr)
+library(dplyr)
+
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+top <- read_csv("billboard.csv") |>
+  select(date = "Date",
+         song = "Song",
+         artist = "Artist")
+head(top)
+```
+
+```{r}
+modern <- top |>
+  filter(date >= "1980-01-01")
+head(modern)
+```
+
+```{r}
+artists <- modern |>
+  count(artist) |>
+  arrange(-n) |>
+  filter(! artist %in% c("Soundtrack", "Various Artists"))
+head(artists)
+```
+
+```{r}
+set.seed(37)
+xs <- sample(1:100, 25)
+xs
+```
+
+```{r}
+me <- median(xs)
+```
+
+Median is `r me`.
