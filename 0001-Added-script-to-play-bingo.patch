@@ -18,9 +18,9 @@ index 0000000..66ebab4
 +library(bingo)
 +library(readr)
 +
-+artists <- read_csv("artists.txt", col_names = c("name"))
++movies <- read_csv("movies.txt", col_names = c("name"))
 +
-+bc <- bingo(n_cards = 5, words = artists$name)
++bc <- bingo(n_cards = 5, words = movies)
 +
 +plot(bc)
 diff --git a/renv.lock b/renv.lock
