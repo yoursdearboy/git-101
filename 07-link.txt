@@ -1,1 +1,1 @@
-https://yoursdearboy.github.io/git-101/data/billboard100.csv
+https://yoursdearboy.github.io/git-101/data/imdb250.csv
