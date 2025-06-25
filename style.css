@@ -16,3 +16,11 @@ pre code {
 .alert p:last-child {
   margin-bottom: 0;
 }
+
+.inline-figure {
+  border: none;
+}
+
+footer {
+  display: none;
+}
