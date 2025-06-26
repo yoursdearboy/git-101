@@ -1,0 +1,16 @@
+введение-в-git
+about
+install
+terminal
+windows
+mac-os
+linux
+setup
+git-init
+git-clone
+git-commit
+git-log
+faq
+references
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
+проверка-заданий
