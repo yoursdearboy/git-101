@@ -6,6 +6,9 @@ windows
 mac-os
 linux
 setup
-basics
+git-init
+git-clone
+git-commit
+git-log
 faq
 references
