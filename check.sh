@@ -19,13 +19,13 @@ function cleanup() {
 function check-step() {
   # $1 - our commit
   # $2 - user commit
-  git diff --quiet --exit-code $1 $2
+  git diff -b --quiet --exit-code $1 $2
 }
 
 function echo-diff() {
   # $1 - our commit
   # $2 - filter
-  files=$(git diff --no-renames --name-only --diff-filter=$2 $1 HEAD)
+  files=$(git diff -b --no-renames --name-only --diff-filter=$2 $1 HEAD)
   if [[ "$files" ]]; then
     echo "$3"
     while IFS= read -r file; do
