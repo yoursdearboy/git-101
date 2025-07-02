@@ -24,3 +24,7 @@ pre code {
 footer {
   display: none;
 }
+
+figcaption {
+  margin-bottom: 10px;
+}
