@@ -28,3 +28,26 @@ footer {
 figcaption {
   margin-bottom: 10px;
 }
+
+summary {
+  margin-bottom: 10px;
+}
+
+details {
+  margin-bottom: 10px;
+}
+
+.figtext {
+  text-wrap: nowrap;
+  border-radius: 0.2rem;
+  color: #212529;
+  background-color: #eee;
+  /* font-size: 87.5%; */
+  padding: .125rem .40rem;
+  /* font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; */
+}
+
+.figref {
+  font-weight: bold;
+  color: red;
+}
