@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 7 Запись изменений (add, commit) | Введение в Git</title>
+<title>Глава 6 Отслеживание изменений | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Термины: staging Сделать пару коммитов, чтобы почувствовали, что это. Объяснить понятия рабочей области (working tree), staging и commit. git add git commit Скопируйте файл check.sh из предыдущего...">
+<meta name="description" content="Git отслеживает изменения в файлах, находящихся внутри репозитория. Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды “Отменить”, Ctrl+Z), а только то, что поменялось с...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 7 Запись изменений (add, commit) | Введение в Git">
+<meta property="og:title" content="Глава 6 Отслеживание изменений | Введение в Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-commit.html">
-<meta property="og:description" content="Термины: staging Сделать пару коммитов, чтобы почувствовали, что это. Объяснить понятия рабочей области (working tree), staging и commit. git add git commit Скопируйте файл check.sh из предыдущего...">
+<meta property="og:description" content="Git отслеживает изменения в файлах, находящихся внутри репозитория. Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды “Отменить”, Ctrl+Z), а только то, что поменялось с...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 7 Запись изменений (add, commit) | Введение в Git">
-<meta name="twitter:description" content="Термины: staging Сделать пару коммитов, чтобы почувствовали, что это. Объяснить понятия рабочей области (working tree), staging и commit. git add git commit Скопируйте файл check.sh из предыдущего...">
+<meta name="twitter:title" content="Глава 6 Отслеживание изменений | Введение в Git">
+<meta name="twitter:description" content="Git отслеживает изменения в файлах, находящихся внутри репозитория. Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды “Отменить”, Ctrl+Z), а только то, что поменялось с...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -50,12 +50,15 @@
 <li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
 <li><a class="" href="setup.html"><span class="header-section-number">4</span> Настройка</a></li>
 <li class="book-part">Основы</li>
-<li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория (init)</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">6</span> Клонирование репозитория (clone)</a></li>
-<li><a class="active" href="git-commit.html"><span class="header-section-number">7</span> Запись изменений (add, commit)</a></li>
+<li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
+<li><a class="active" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
+<li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Практика</a></li>
 <li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории (log, diff)</a></li>
-<li><a class="" href="faq.html"><span class="header-section-number">9</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">10</span> Ссылки</a></li>
+<li class="book-part">GitHub</li>
+<li><a class="" href="github.html"><span class="header-section-number">9</span> GitHub</a></li>
+<li><a class="" href="git-clone.html"><span class="header-section-number">10</span> Clone</a></li>
+<li class="book-part">Best practices</li>
+<li><a class="" href="references.html"><span class="header-section-number">12</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -63,48 +66,56 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-commit" class="section level1" number="7">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-commit" class="section level1" number="6">
 <h1>
-<span class="header-section-number">Глава 7</span> Запись изменений (add, commit)<a class="anchor" aria-label="anchor" href="#git-commit"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 6</span> Отслеживание изменений<a class="anchor" aria-label="anchor" href="#git-commit"><i class="fas fa-link"></i></a>
 </h1>
-<p>Термины:</p>
-<ul>
-<li>staging</li>
-</ul>
-<p><em>Сделать пару коммитов, чтобы почувствовали, что это.</em>
-<em>Объяснить понятия рабочей области (working tree), staging и commit.</em>
-<em><code>git add</code> <code>git commit</code></em></p>
+<p>Git отслеживает изменения в файлах, находящихся внутри репозитория.
+Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды “Отменить”, Ctrl+Z),
+а только то, что поменялось с последней версии.
+Поэтому периодически необходимо фиксировать изменения в версии — так называемые коммиты <strong>(commit)</strong>.</p>
+<p>Для работы с Git в RStudio предусмотрена панель с соответствующим названием <span class="figtext">Git</span> (по умолчанию в верхнем правом углу).</p>
+<details><summary>
+Нет панели Git?
+</summary>
+Значит, вы не отметили галочку <span class="figtext">Create a git repository</span> <a href="git-init.html#git-init">при создании проекта</a> или <a href="install.html#install">не установили Git</a>.
+Исправьте ошибку и создайте проект заново.
+</details><div class="inline-figure"><img src="img/02-02-01-git-pane.png" width="400"></div>
+<p>В отличие от списка файлов на этой панели выводятся только те файлы, которые были изменены с последнего коммита (версии).
+Так как мы еще не создали ни одной версии, то в списке выведены оба файла, созданных с проектом: <code>.gitignore</code> и <code>hello-git.Rproj</code></p>
+<p>Для создания коммита (версии) необходимо отметить изменения, которые вы хотите зафиксировать, проверить их, снабдить небольшим описанием и зафиксировать.</p>
+<p>Итак, отметьте файлы галочкой в столбце <span class="figtext">Staged</span> на панели <span class="figtext">Git</span> <span class="figref">(A)</span>.
+Обратите внимание на название столбца (staged) — мы поместили отмеченные файлы в так называемую <strong>промежуточную область (staging)</strong>, и только они будут зафиксированы, остальные файлы останутся в папке, но не будут добавлены в коммит (версию).
+Нажмите кнопку <strong>Commit</strong> <span class="figref">(B)</span>.</p>
+<div class="inline-figure"><img src="img/02-02-02-staging.png" width="400"></div>
+<p>В открывшемся окне можно подробнее ознакомиться с фиксируемыми изменениями.
+Введите краткое описание в поле <span class="figtext">Commit message</span>, которое характеризует сделанные изменения
+<span class="figref">(C)</span>.
+В нашем случае был создан проект — это и будет хорошим описанием внесенных изменений.</p>
+<div class="inline-figure"><img src="img/02-02-03-commit.png" width="600"></div>
+<p>Нажмите кнопку <span class="figtext">Commit</span> <span class="figref">(D)</span>.
+В появившемся окне не должно быть ошибок, но должно быть сообщение, как на изображении.</p>
+<div class="inline-figure"><img src="img/02-02-04-message.png" width="600"></div>
+<p>Можно закрыть оба окна и вернуться к RStudio.
+Обратите внимание, теперь панель <span class="figtext">Git</span> со списком измененных файлов пуста — у нас нет изменений относительно последней версии, которую мы только что создали.</p>
+<div class="inline-figure"><img src="img/02-02-05-git-pane.png" width="400"></div>
+<p>Итак, мы добавили файлы в <strong>промежуточную область (staging)</strong> и создали из них первый <strong>коммит (версию)</strong> нашего проекта. И теперь имеем версию, к которой всегда можно вернуться и начать работу с этого места. Процесс работы с Git схематично выглядит следующим образом.</p>
+<div class="inline-figure"><img src="img/02-02-06-workflow.png" width="350"></div>
 <hr>
-<p>Скопируйте файл <code>check.sh</code> из предыдущего шага в свою рабочую директорию.</p>
-<p>Проверим статус:</p>
-<div class="sourceCode" id="cb16"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb16-1"><a href="git-commit.html#cb16-1" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb16-2"><a href="git-commit.html#cb16-2" tabindex="-1"></a><span class="co"># Untracked files:</span></span>
-<span id="cb16-3"><a href="git-commit.html#cb16-3" tabindex="-1"></a><span class="co">#   (use "git add &lt;file&gt;..." to include in what will be committed)</span></span>
-<span id="cb16-4"><a href="git-commit.html#cb16-4" tabindex="-1"></a><span class="co">#       check.sh</span></span></code></pre></div>
-<p>Untracked files означает, что это новый файл, который ранее не отслеживался.
-Добавим его при помощи команды <code>git add</code> как предлагает Git.</p>
-<div class="sourceCode" id="cb17"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb17-1"><a href="git-commit.html#cb17-1" tabindex="-1"></a><span class="fu">git</span> add check.sh</span></code></pre></div>
-<p>Проверим статус теперь:</p>
-<div class="sourceCode" id="cb18"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb18-1"><a href="git-commit.html#cb18-1" tabindex="-1"></a><span class="co"># Changes to be committed:</span></span>
-<span id="cb18-2"><a href="git-commit.html#cb18-2" tabindex="-1"></a><span class="co">#   (use "git rm --cached &lt;file&gt;..." to unstage)</span></span>
-<span id="cb18-3"><a href="git-commit.html#cb18-3" tabindex="-1"></a><span class="co">#       new file:   check.sh</span></span></code></pre></div>
-<p>Супер, мы добавили файл в область staging и теперь можем зафиксировать изменения.</p>
-<div class="sourceCode" id="cb19"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb19-1"><a href="git-commit.html#cb19-1" tabindex="-1"></a><span class="fu">git</span> commit <span class="at">-m</span> <span class="st">"Добавили файл для проверки заданий"</span></span></code></pre></div>
-<p>Используем его для проверки:</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"></code></pre></div>
+<p><em>(Выбрать один термин - коммит или версия, а не указывать в скобках?)</em></p>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="git-clone.html"><span class="header-section-number">6</span> Клонирование репозитория (clone)</a></div>
-<div class="next"><a href="git-log.html"><span class="header-section-number">8</span> Просмотр истории (log, diff)</a></div>
+<div class="prev"><a href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></div>
+<div class="next"><a href="git-commit2.html"><span class="header-section-number">7</span> Практика</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-commit"><span class="header-section-number">7</span> Запись изменений (add, commit)</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-commit"><span class="header-section-number">6</span> Отслеживание изменений</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/yoursdearboy/git-101/blob/master/02-03-commit.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/yoursdearboy/git-101/edit/master/02-03-commit.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/yoursdearboy/git-101/blob/master/02-02-commit.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/yoursdearboy/git-101/edit/master/02-02-commit.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

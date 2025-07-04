@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 5 Создание репозитория (init) | Введение в Git</title>
+<title>Глава 5 Создание репозитория | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Термины: Рабочая директория Репозиторий Показать, что это просто папка, в которой есть папка .git и в ней работают команды git. Открыли терминал. Чтобы понять где мы находимя выполним следующую...">
+<meta name="description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для начала работы достаточно инициализировать Git в этой папке, и вся история и версии будет храниться прямо в ней. Такая папка...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 5 Создание репозитория (init) | Введение в Git">
+<meta property="og:title" content="Глава 5 Создание репозитория | Введение в Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-init.html">
-<meta property="og:description" content="Термины: Рабочая директория Репозиторий Показать, что это просто папка, в которой есть папка .git и в ней работают команды git. Открыли терминал. Чтобы понять где мы находимя выполним следующую...">
+<meta property="og:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для начала работы достаточно инициализировать Git в этой папке, и вся история и версии будет храниться прямо в ней. Такая папка...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 5 Создание репозитория (init) | Введение в Git">
-<meta name="twitter:description" content="Термины: Рабочая директория Репозиторий Показать, что это просто папка, в которой есть папка .git и в ней работают команды git. Открыли терминал. Чтобы понять где мы находимя выполним следующую...">
+<meta name="twitter:title" content="Глава 5 Создание репозитория | Введение в Git">
+<meta name="twitter:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для начала работы достаточно инициализировать Git в этой папке, и вся история и версии будет храниться прямо в ней. Такая папка...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -50,12 +50,15 @@
 <li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
 <li><a class="" href="setup.html"><span class="header-section-number">4</span> Настройка</a></li>
 <li class="book-part">Основы</li>
-<li><a class="active" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория (init)</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">6</span> Клонирование репозитория (clone)</a></li>
-<li><a class="" href="git-commit.html"><span class="header-section-number">7</span> Запись изменений (add, commit)</a></li>
+<li><a class="active" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
+<li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
+<li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Практика</a></li>
 <li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории (log, diff)</a></li>
-<li><a class="" href="faq.html"><span class="header-section-number">9</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">10</span> Ссылки</a></li>
+<li class="book-part">GitHub</li>
+<li><a class="" href="github.html"><span class="header-section-number">9</span> GitHub</a></li>
+<li><a class="" href="git-clone.html"><span class="header-section-number">10</span> Clone</a></li>
+<li class="book-part">Best practices</li>
+<li><a class="" href="references.html"><span class="header-section-number">12</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -65,61 +68,94 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-init" class="section level1" number="5">
 <h1>
-<span class="header-section-number">Глава 5</span> Создание репозитория (init)<a class="anchor" aria-label="anchor" href="#git-init"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 5</span> Создание репозитория<a class="anchor" aria-label="anchor" href="#git-init"><i class="fas fa-link"></i></a>
 </h1>
-<p>Термины:</p>
+<p>Git может отслеживать изменения в любой папке на вашем компьютере.
+Для начала работы достаточно инициализировать Git в этой папке, и вся история и версии будет храниться прямо в ней.
+Такая папка называется <strong>Git репозиторием</strong>.</p>
+<p>Самый простой способ создать репозиторий — вместе с проектом RStudio.<br>
+В верхнем меню выберите <span class="figtext">File → New Project</span>.
+В появившемся окне выберите <span class="figtext">New directory</span> и далее <span class="figtext">New Project</span>.
+На последнем шаге введите, как должна называться папка, в поле <span class="figtext">Directory name</span>.
+Папка будет создана по адресу, указанному ниже в поле <span class="figtext">… subdirectory of</span>.<br>
+‼️ Обязательно поставьте галочку напротив опции <span class="figtext"><input type="checkbox" disabled> Create a git repository</span>. Иначе проект будет создан без Git репозитория.<br>
+После нажатия кнопки <span class="figtext">Create Project</span> окно RStudio перезагрузится с открытым проектом.</p>
+<div class="inline-table"><table class="table table-borderless">
+<tr>
+<td>
+<img src="img/02-01-01-new-project.png" width="320">
+</td>
+<td>
+<img src="img/02-01-02-new-project.png" width="320">
+</td>
+</tr>
+<tr>
+<td>
+<img src="img/02-01-03-new-project.png" width="320">
+</td>
+<td>
+<img src="img/02-01-04-new-project.png" width="320">
+</td>
+</tr>
+</table></div>
+<p>Чтобы убедиться, что проект загружен, обратите внимание на следующие элементы:
+В правом верхнем углу должно быть указано название проекта <span class="figref">(A)</span>.
+На панели файлов (по умолчанию она находится в нижнем правом углу) должна быть открыта папка с файлами проекта <span class="figref">(B)</span>.</p>
+<div class="inline-figure"><img src="img/02-01-05-window.png" width="680"></div>
+<p>Когда в RStudio загружен проект, R и Git ищут файлы в этой папке — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
+<details><summary>
+Подробнее про рабочую папку.
+</summary><p>На разных компьютерах у разных участников проекта сама папка может находиться в разных местах.
+Например, в зависимости от имени участника, скажем <code>/Users/kvoronin/hello-git</code>.</p>
+Тогда полный адрес файла <code>/Users/kvoronin/hello-git/data/sample.csv</code> не будет работать на компьютере другого пользователя, например с именем <code>alebedeva</code>.
+Но адрес относительно рабочей папки, т.е. просто <code>data/sample.csv</code> будет работать.
+</details><p>Рассмотрим созданные RStudio файлы:</p>
 <ul>
-<li>Рабочая директория</li>
-<li>Репозиторий</li>
+<li>
+<code>hello-git.Rproj</code> (или соответствующий названию проекта, что вы ввели) — содержит настройки проекта</li>
+<li>
+<code>.gitignore</code> — содержит некоторые настройки Git, а именно список файлов, которые Git должен игнорировать; <a href="faq.html#gitignore">подробнее см. в отдельном разделе</a>
+</li>
 </ul>
-<p>Показать, что это просто папка, в которой есть папка <code>.git</code> и в ней работают команды <code>git</code>.</p>
-<p>Открыли терминал. Чтобы понять где мы находимя выполним следующую команду</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="git-init.html#cb7-1" tabindex="-1"></a><span class="bu">pwd</span> <span class="co"># в моем случае /Users/kvoronin</span></span></code></pre></div>
-<p>Создадим и перейдем в новую папку:</p>
-<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="git-init.html#cb8-1" tabindex="-1"></a><span class="fu">mkdir</span> gitfun</span>
-<span id="cb8-2"><a href="git-init.html#cb8-2" tabindex="-1"></a><span class="bu">cd</span> gitfun</span></code></pre></div>
-<p>Попробуем вызвать команду <code>git status</code>:</p>
-<div class="sourceCode" id="cb9"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb9-1"><a href="git-init.html#cb9-1" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb9-2"><a href="git-init.html#cb9-2" tabindex="-1"></a><span class="co"># fatal: not a git repository (or any of the parent directories): .git</span></span></code></pre></div>
-<p>Действительно пусто</p>
-<div class="sourceCode" id="cb10"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb10-1"><a href="git-init.html#cb10-1" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-A</span> <span class="co"># не выведет ничего, потому что нет файлов</span></span></code></pre></div>
-<p>Инициализируем Git:</p>
-<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="git-init.html#cb11-1" tabindex="-1"></a><span class="fu">git</span> init</span>
-<span id="cb11-2"><a href="git-init.html#cb11-2" tabindex="-1"></a><span class="co"># Initialized empty Git repository in /Users/kvoronin/gitfun/.git/</span></span></code></pre></div>
-<p>Проверим, что появилась папка <code>.git</code>:</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="git-init.html#cb12-1" tabindex="-1"></a><span class="fu">ls</span> <span class="at">-A</span></span>
-<span id="cb12-2"><a href="git-init.html#cb12-2" tabindex="-1"></a><span class="co"># .git</span></span></code></pre></div>
-<div class="inline-figure"><img src="img/02-01-git-init.png" style="border: 1px solid #ddd; border-radius: 5px" width="400"></div>
-<p>И снова попробуем вызвать команду <code>git status</code>:</p>
-<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="git-init.html#cb13-1" tabindex="-1"></a><span class="fu">git</span> status</span>
-<span id="cb13-2"><a href="git-init.html#cb13-2" tabindex="-1"></a><span class="co"># On branch main</span></span>
-<span id="cb13-3"><a href="git-init.html#cb13-3" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb13-4"><a href="git-init.html#cb13-4" tabindex="-1"></a><span class="co"># No commits yet</span></span>
-<span id="cb13-5"><a href="git-init.html#cb13-5" tabindex="-1"></a><span class="co">#</span></span>
-<span id="cb13-6"><a href="git-init.html#cb13-6" tabindex="-1"></a><span class="co"># nothing to commit (create/copy files and use "git add" to track)</span></span></code></pre></div>
-<p>В последней строке Git сообщает, что нет файлов и предлагает созданные / скопированные файлы отслеживать командой <code>git add</code>.</p>
-<h3>
-Вопрос 1
-<a class="anchor" aria-label="anchor" href="#git-init"><i class="fas fa-link"></i></a>
-</h3>
-<p>Чем отличается рабочая область от staging?</p>
+<p>Если в списке файлов отсутствует <code>.gitignore</code>, значит, вы не отметили галочку <span class="figtext"><input type="checkbox" disabled> Create a git repository</span> при создании проекта или не установили Git (<a href="install.html#install">см. предыдущий раздел</a>).
+Исправьте ошибку и создайте проект заново.</p>
+<p>Итак, мы создали проект RStudio с Git репозиторием.
+И то, и другое — просто папка со специальными файлами, в которой мы будем работать дальше.</p>
+<hr>
+<p><strong>Вопрос 1. Что такое Git репозиторий?</strong></p>
 <ul>
-<li>Ничем</li>
-<li><span style="color: green">Файлы помещенные в staging будут зафиксированы.</span></li>
-<li>…</li>
-<li>Еще вариант</li>
+<li>Любая папка на компьютере с установленным Git</li>
+<li>Любая папка в которой инициализирован Git</li>
+<li>Любой проект RStudio</li>
+<li>Папка в которую установлен Git</li>
 </ul>
+<p><strong>Вопрос 2. Что такое рабочая папка?</strong></p>
+<ul>
+<li>Папка в которой R и Git ищут файлы</li>
+<li>Любая папка в которой может работать Git</li>
+<li>Та в которой я храню файлы связанные с работой</li>
+<li>Все варианты неправильные</li>
+</ul>
+<p><strong>Вопрос 3. Сколько файлов вы видите на панели Files в RStudio?</strong></p>
+<p><em>(Для проверки, что все идет по плану.)</em></p>
+<ul>
+<li>Ни одного</li>
+<li>Два файла</li>
+<li>Три или четыре файла</li>
+<li>Гораздо больше</li>
+</ul>
+<hr>
+<p><em>(Как-будто сложно? Какие-то репозитории и рабочие папки, можно упростить до “создайте проект” без объяснений. Но возможно термины пригодятся.)</em></p>
+<p><em>(Рассказать что репозиторий это просто папка с папкой .git? Как-будто сложно и необязательно, хотя полезно.)</em></p>
+<p><em>(Не папка, а директория?)</em></p>
+
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="setup.html"><span class="header-section-number">4</span> Настройка</a></div>
-<div class="next"><a href="git-clone.html"><span class="header-section-number">6</span> Клонирование репозитория (clone)</a></div>
+<div class="next"><a href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li>
-<a class="nav-link" href="#git-init"><span class="header-section-number">5</span> Создание репозитория (init)</a><ul class="nav navbar-nav"><li><a class="nav-link" href="#git-init">
-Вопрос 1
-</a></li></ul>
-</li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-init"><span class="header-section-number">5</span> Создание репозитория</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

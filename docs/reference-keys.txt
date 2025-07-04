@@ -7,8 +7,12 @@ mac-os
 linux
 setup
 git-init
-git-clone
 git-commit
+git-commit2
+как-отменить-изменения
 git-log
+github
+git-clone
 faq
+gitignore
 references
