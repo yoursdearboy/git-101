@@ -47,6 +47,12 @@ details {
   /* font-family: SFMono-Regular,Menlo,Monaco,Consolas,"Liberation Mono","Courier New",monospace; */
 }
 
+code {
+  border-radius: 0.2rem;
+  color: #212529;
+  background-color: #eee;
+}
+
 .figref {
   font-weight: bold;
   color: red;
