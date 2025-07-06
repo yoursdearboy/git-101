@@ -14,7 +14,7 @@
 
 ![](./img/penguins.png){width=400px}
 
-Скачайте файл с данными [penguins.csv](https://raw.githubusercontent.com/yoursdearboy/git-101/tutorial/penguins.csv) и положите в папку проекта.
+Скачайте файл с данными [penguins.csv](https://github.com/yoursdearboy/git-101/releases/download/penguins/penguins.csv) и положите в папку проекта.
 Для этого откройте папку в файловом менеджере или воспользуйтесь меню на панели [Files]{.figtext} в RStudio [More → Show Folder in New Window]{.figtext}
 
 ![](./img/02-03-01-show-folder.png){width=400px}
