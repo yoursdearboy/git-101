@@ -10,9 +10,9 @@ git-init
 git-commit
 git-commit2
 git-log
+git-branch
 github
 git-clone
 faq
 gitignore
 references
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg

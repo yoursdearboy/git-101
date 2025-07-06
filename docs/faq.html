@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 11 Best practices | Введение в Git</title>
+<title>Глава 12 Best practices | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="11.1 .gitignore">
+<meta name="description" content="12.1 .gitignore">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 11 Best practices | Введение в Git">
+<meta property="og:title" content="Глава 12 Best practices | Введение в Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/faq.html">
-<meta property="og:description" content="11.1 .gitignore">
+<meta property="og:description" content="12.1 .gitignore">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 11 Best practices | Введение в Git">
-<meta name="twitter:description" content="11.1 .gitignore">
+<meta name="twitter:title" content="Глава 12 Best practices | Введение в Git">
+<meta name="twitter:description" content="12.1 .gitignore">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -53,13 +53,15 @@
 <li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
 <li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
 <li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></li>
-<li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории (log, diff)</a></li>
+<li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории</a></li>
+<li class="book-part">Ветки</li>
+<li><a class="" href="git-branch.html"><span class="header-section-number">9</span> Ветки</a></li>
 <li class="book-part">GitHub</li>
-<li><a class="" href="github.html"><span class="header-section-number">9</span> GitHub</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">10</span> Clone</a></li>
+<li><a class="" href="github.html"><span class="header-section-number">10</span> GitHub</a></li>
+<li><a class="" href="git-clone.html"><span class="header-section-number">11</span> Clone</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="active" href="faq.html"><span class="header-section-number">11</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">12</span> Ссылки</a></li>
+<li><a class="active" href="faq.html"><span class="header-section-number">12</span> Best practices</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">13</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -67,26 +69,26 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="faq" class="section level1" number="11">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="faq" class="section level1" number="12">
 <h1>
-<span class="header-section-number">Глава 11</span> Best practices<a class="anchor" aria-label="anchor" href="#faq"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 12</span> Best practices<a class="anchor" aria-label="anchor" href="#faq"><i class="fas fa-link"></i></a>
 </h1>
-<div id="gitignore" class="section level2" number="11.1">
+<div id="gitignore" class="section level2" number="12.1">
 <h2>
-<span class="header-section-number">11.1</span> .gitignore<a class="anchor" aria-label="anchor" href="#gitignore"><i class="fas fa-link"></i></a>
+<span class="header-section-number">12.1</span> .gitignore<a class="anchor" aria-label="anchor" href="#gitignore"><i class="fas fa-link"></i></a>
 </h2>
 
 
 </div>
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="git-clone.html"><span class="header-section-number">10</span> Clone</a></div>
-<div class="next"><a href="references.html"><span class="header-section-number">12</span> Ссылки</a></div>
+<div class="prev"><a href="git-clone.html"><span class="header-section-number">11</span> Clone</a></div>
+<div class="next"><a href="references.html"><span class="header-section-number">13</span> Ссылки</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#faq"><span class="header-section-number">11</span> Best practices</a></li>
-<li><a class="nav-link" href="#gitignore"><span class="header-section-number">11.1</span> .gitignore</a></li>
+<li><a class="nav-link" href="#faq"><span class="header-section-number">12</span> Best practices</a></li>
+<li><a class="nav-link" href="#gitignore"><span class="header-section-number">12.1</span> .gitignore</a></li>
 </ul>
 
       <div class="book-extra">
