@@ -9,7 +9,6 @@ setup
 git-init
 git-commit
 git-commit2
-как-отменить-изменения
 git-log
 github
 git-clone
