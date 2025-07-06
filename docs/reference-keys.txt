@@ -15,3 +15,4 @@ git-clone
 faq
 gitignore
 references
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg

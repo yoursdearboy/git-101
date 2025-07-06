@@ -43,24 +43,7 @@
 </form>
 
       <nav aria-label="Table of contents"><h2>Table of contents</h2>
-        <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Введение в Git</a></li>
-<li class="book-part">Введение</li>
-<li><a class="" href="about.html"><span class="header-section-number">2</span> Что такое Git</a></li>
-<li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
-<li><a class="" href="setup.html"><span class="header-section-number">4</span> Настройка</a></li>
-<li class="book-part">Основы</li>
-<li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
-<li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
-<li><a class="active" href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></li>
-<li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории (log, diff)</a></li>
-<li class="book-part">GitHub</li>
-<li><a class="" href="github.html"><span class="header-section-number">9</span> GitHub</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">10</span> Clone</a></li>
-<li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">11</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">12</span> Ссылки</a></li>
-</ul>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Глава 7</span> Рабочий процесс</a></li></ul>
 
         <div class="book-extra">
           <p><a id="book-repo" href="https://github.com/yoursdearboy/git-101">View book source <i class="fab fa-github"></i></a></p>
@@ -77,8 +60,8 @@
 <div class="inline-figure"><img src="img/02-02-06-workflow.png" width="350"></div>
 <p>Анализ данных хорошо укладывается в этот процесс, потому что легко разделяется на шаги.
 Шаги превращаются в коммиты, которые можно проконтролировать, вернуться к ним или поделиться с другими участниками.</p>
-<div class="inline-figure"><img src="img/penguins.png" width="400"></div>
 <p>Попробуем на практике — проанализируем длину клюва пингвина.</p>
+<div class="inline-figure"><img src="img/penguins.png" width="400"></div>
 <p>Скачайте файл с данными <a href="https://raw.githubusercontent.com/yoursdearboy/git-101/tutorial/penguins.csv">penguins.csv</a> и положите в папку проекта.
 Для этого откройте папку в файловом менеджере или воспользуйтесь меню на панели <span class="figtext">Files</span> в RStudio <span class="figtext">More → Show Folder in New Window</span></p>
 <div class="inline-figure"><img src="img/02-03-01-show-folder.png" width="400"></div>
@@ -86,7 +69,7 @@
 <p>Теперь создадим скрипт для анализа. Для этого на панели <span class="figtext">Files</span> выберите в меню <span class="figtext">New File → R Script</span> и введите название файла <code>penguins.R</code></p>
 <div class="inline-figure"><img src="img/02-03-02-new-file.png" width="400"></div>
 <p>Введите следующий код и сохраните файл:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span></code></pre></div>
 <p>Запустите код и убедитесь, что он работает.
@@ -95,7 +78,7 @@
 <div class="inline-figure"><img src="img/02-03-03-git-pane.png" width="400"></div>
 <p>После создания коммита убедитесь, что список измененных файлов на панели <span class="figtext">Git</span> пуст.</p>
 <p>Начиная работать с новыми данными, хорошая идея первым делом исследовать их при помощи графика. Построим гистограмму (несколько вариантов с разной шириной столбца). Перепишите скрипт следующим образом:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
@@ -106,7 +89,7 @@
 <em>Не забудьте убедиться, что измененная версия скрипта работает.</em></p>
 <p>Ширина столбца 2 подходит лучше всего. Такую гистограмму можно и опубликовать. Для этого сохраним изображение в файл.
 Перепишите скрипт следующим образом:</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
@@ -150,16 +133,15 @@
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></div>
-<div class="next"><a href="git-log.html"><span class="header-section-number">8</span> Просмотр истории (log, diff)</a></div>
+<div class="empty"></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-commit2"><span class="header-section-number">7</span> Рабочий процесс</a></li></ul>
+      <div id="book-on-this-page"></div>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/yoursdearboy/git-101/blob/master/02-03-practice.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/yoursdearboy/git-101/edit/master/02-03-practice.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+          
         </ul>
 </div>
     </nav>
