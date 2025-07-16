@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 12 Best practices | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="12.1 .gitignore">
+<meta name="description" content="12.1 .gitignore   12.2 feature бранчи   12.3 Принудительный push Это может привести к потери изменений загруженных на сервер ранее, например вашим коллегой. Никогда не делайте так в команде, не...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 12 Best practices | Введение в Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/faq.html">
-<meta property="og:description" content="12.1 .gitignore">
+<meta property="og:description" content="12.1 .gitignore   12.2 feature бранчи   12.3 Принудительный push Это может привести к потери изменений загруженных на сервер ранее, например вашим коллегой. Никогда не делайте так в команде, не...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 12 Best practices | Введение в Git">
-<meta name="twitter:description" content="12.1 .gitignore">
+<meta name="twitter:description" content="12.1 .gitignore   12.2 feature бранчи   12.3 Принудительный push Это может привести к потери изменений загруженных на сервер ранее, например вашим коллегой. Никогда не делайте так в команде, не...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -62,6 +62,7 @@
 <li class="book-part">Дополнительные материалы</li>
 <li><a class="active" href="faq.html"><span class="header-section-number">12</span> Best practices</a></li>
 <li><a class="" href="references.html"><span class="header-section-number">13</span> Ссылки</a></li>
+<li><a class="" href="%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%BE%D0%B2.html"><span class="header-section-number">14</span> Список терминов</a></li>
 </ul>
 
         <div class="book-extra">
@@ -77,7 +78,42 @@
 <h2>
 <span class="header-section-number">12.1</span> .gitignore<a class="anchor" aria-label="anchor" href="#gitignore"><i class="fas fa-link"></i></a>
 </h2>
-
+</div>
+<div id="feature-branch" class="section level2" number="12.2">
+<h2>
+<span class="header-section-number">12.2</span> feature бранчи<a class="anchor" aria-label="anchor" href="#feature-branch"><i class="fas fa-link"></i></a>
+</h2>
+</div>
+<div id="force-push" class="section level2" number="12.3">
+<h2>
+<span class="header-section-number">12.3</span> Принудительный push<a class="anchor" aria-label="anchor" href="#force-push"><i class="fas fa-link"></i></a>
+</h2>
+<p>Это может привести к потери изменений загруженных на сервер ранее, например вашим коллегой.
+Никогда не делайте так в команде, не уточнив у других.</p>
+</div>
+<div id="commits-to-branch" class="section level2" number="12.4">
+<h2>
+<span class="header-section-number">12.4</span> Создание ветки из коммитов<a class="anchor" aria-label="anchor" href="#commits-to-branch"><i class="fas fa-link"></i></a>
+</h2>
+<p>Идея рецепта в том,
+что мы создаем новую ветку из текущего набора коммитов,
+переключаемся на оригинальную и в ней ненужные коммиты откатываем.</p>
+<div class="alert alert-warning">
+<p>Из-за откатывания коммитов этот подход не сработает,
+если вы загрузили коммиты на сервер или
+потребует выполнения команды <code>git push --force</code>.
+<a href="faq.html#force-push">Почему это плохо?</a></p>
+</div>
+<p>Создайте новую ветку - она будет содержать набор коммитов, который вы имеете сейчас.
+При помощи RStudio или при помощи команды ниже.</p>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="faq.html#cb11-1" tabindex="-1"></a><span class="fu">git</span> branch some</span></code></pre></div>
+<p>Важно - убедитесь в том, что создали ветку. Для этого посмотрите журнал или команду <code>git log</code> и найдите напротив текущего коммита надпись с названием созданной ветки.</p>
+<p>Вернитесь на оригинальную ветку, как правило это <code>main</code> при помощи RStudio или команды ниже.</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="faq.html#cb12-1" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code></pre></div>
+<p>Отмените нужное количество комитов, скажем <code>3</code>.
+Опция <code>--hard</code> удалит все изменения.
+Ничего страшного, ведь они остались в ветке, созданной на предыдущем шаге.</p>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="faq.html#cb13-1" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~3</span></code></pre></div>
 
 </div>
 </div>
@@ -89,6 +125,9 @@
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#faq"><span class="header-section-number">12</span> Best practices</a></li>
 <li><a class="nav-link" href="#gitignore"><span class="header-section-number">12.1</span> .gitignore</a></li>
+<li><a class="nav-link" href="#feature-branch"><span class="header-section-number">12.2</span> feature бранчи</a></li>
+<li><a class="nav-link" href="#force-push"><span class="header-section-number">12.3</span> Принудительный push</a></li>
+<li><a class="nav-link" href="#commits-to-branch"><span class="header-section-number">12.4</span> Создание ветки из коммитов</a></li>
 </ul>
 
       <div class="book-extra">
