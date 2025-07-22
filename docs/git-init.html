@@ -81,7 +81,7 @@
 В верхнем меню выберите <span class="figtext">File → New Project</span>.
 В появившемся окне выберите <span class="figtext">New directory</span> и далее <span class="figtext">New Project</span>.
 На последнем шаге введите, как должна называться папка, в поле <span class="figtext">Directory name</span>.
-Папка будет создана по адресу, указанному ниже в поле <span class="figtext">… subdirectory of</span>.<br>
+Папка будет создана по адресу, указанному ниже в поле <span class="figtext">Create project as subdirectory of</span>.<br>
 ‼️ Обязательно поставьте галочку напротив опции <span class="figtext"><input type="checkbox" disabled> Create a git repository</span>. Иначе проект будет создан без Git репозитория.<br>
 После нажатия кнопки <span class="figtext">Create Project</span> окно RStudio перезагрузится с открытым проектом.</p>
 <div class="inline-table"><table class="table table-borderless">
@@ -109,10 +109,10 @@
 <p>Когда в RStudio загружен проект, R и Git ищут файлы в этой папке — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
 <details><summary>
 Подробнее про рабочую папку.
-</summary><p>На разных компьютерах у разных участников проекта сама папка может находиться в разных местах.
-Например, в зависимости от имени участника, скажем <code>/Users/kvoronin/hello-git</code>.</p>
-Тогда полный адрес файла <code>/Users/kvoronin/hello-git/data/sample.csv</code> не будет работать на компьютере другого пользователя, например с именем <code>alebedeva</code>.
-Но адрес относительно рабочей папки, т.е. просто <code>data/sample.csv</code> будет работать.
+</summary><p>На разных компьютерах у разных участников сама папка проекта может находиться в разных местах.
+Например, у пользователя с именем <code>kvoronin</code> папка может находиться по адресу <code>/Users/kvoronin/hello-git</code>.</p>
+<p>Но если в скрипте указать полный адрес файла <code>/Users/kvoronin/hello-git/data/sample.csv</code>, то он не будет работать на компьютере другого пользователя, например с именем <code>alebedeva</code>.</p>
+Зато будет работать адрес относительно рабочей папки, т.е. просто <code>data/sample.csv</code>.
 </details><p>Рассмотрим созданные RStudio файлы:</p>
 <ul>
 <li>
@@ -151,7 +151,6 @@
 <hr>
 <p><em>(Как-будто сложно? Какие-то репозитории и рабочие папки, можно упростить до “создайте проект” без объяснений. Но возможно термины пригодятся.)</em></p>
 <p><em>(Рассказать что репозиторий это просто папка с папкой .git? Как-будто сложно и необязательно, хотя полезно.)</em></p>
-<p><em>(Не папка, а директория?)</em></p>
 
 </div>
   <div class="chapter-nav">

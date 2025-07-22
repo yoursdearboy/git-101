@@ -11,7 +11,8 @@ git-commit
 git-commit2
 git-log
 git-branch
-создание-ветвей
+создание-ветки
+переключение-между-ветками
 слияние-ветвей
 section
 вопросы
@@ -26,6 +27,3 @@ commits-to-branch
 references
 список-терминов
 cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
-создание-ветки
-переключение-между-ветками
-ошибка-при-переключении-ветвей

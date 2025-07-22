@@ -29,12 +29,16 @@ figcaption {
   margin-bottom: 10px;
 }
 
-summary {
+details {
+  border: 1px solid #ccc;
+  padding: 10px 20px;
+  margin: 10px 0;
+  border-radius: 4px;
   margin-bottom: 10px;
 }
 
-details {
-  margin-bottom: 10px;
+details > p {
+  margin-top: 1rem;
 }
 
 .figtext {
