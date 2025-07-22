@@ -27,3 +27,6 @@ commits-to-branch
 references
 список-терминов
 cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
+советы-при-работе-с-ветками
+слияние-веток
+git-checkout

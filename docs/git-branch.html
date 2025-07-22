@@ -62,8 +62,8 @@ Git позволяет создавать параллельные версии.
 Таким образом участники могут создавать и обмениваться различными вариантами изменений.
 Git позволяет эффективно объединять эти изменения, делая совместную работу комфортной,
 чего, к слову, не умеют облачные сервисы вроде Google Drive.</p>
-<p>Для этого используются так называемые ветви (branch).
-Почему ветви? Потому что начиная с выбранной версии история разветвляется.</p>
+<p>Для этого используются так называемые ветки (branch).
+Почему ветки? Потому что начиная с выбранной версии история разветвляется.</p>
 <p>По умолчанию, мы работаем в ветке <code>main</code>
 (ранее ветка по умолчанию называлась <code>master</code>, будьте готовы встретить и такое название).
 Ее можно сравнить со стволом дерева.
@@ -105,9 +105,9 @@ Git позволяет эффективно объединять эти изме
 Обратите внимание, что удаление файла — это так же изменение, которое надо отметить для фиксации на панели <span class="figtext">Git</span>.</p>
 <div class="inline-figure"><img src="img/03-01-05-commit.png" width="400"></div>
 </div>
-<div id="переключение-между-ветками" class="section level2" number="9.2">
+<div id="git-checkout" class="section level2" number="9.2">
 <h2>
-<span class="header-section-number">9.2</span> Переключение между ветками<a class="anchor" aria-label="anchor" href="#%D0%BF%D0%B5%D1%80%D0%B5%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-%D0%BC%D0%B5%D0%B6%D0%B4%D1%83-%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.2</span> Переключение между ветками<a class="anchor" aria-label="anchor" href="#git-checkout"><i class="fas fa-link"></i></a>
 </h2>
 <p>Для переключения нажмите на название текущей ветки на панели <span class="figtext">Git</span> <span class="figref">(A)</span>.
 В выпадающем списке выберите нужную ветку, в нашем случае <code>main</code>.</p>
@@ -115,7 +115,7 @@ Git позволяет эффективно объединять эти изме
 <p>Убедитесь, что код скрипта вернулся к прежнему состоянию и строит гистограмму,
 а в списке файлов находится файл с гистограммой <code>penguins-hist.png</code> и нету файла <code>penguins-boxplot.png</code>.</p>
 <div class="inline-figure"><img src="img/03-02-02-files.png" width="400"></div>
-<p>Git откажется переключать ветви, если это приведет к потере данных.</p>
+<p>Git откажется переключать ветку, если это приведет к потере данных.</p>
 <p>Например, замените содержимое скрипта <code>penguins.R</code> на следующее:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
@@ -130,16 +130,47 @@ Git позволяет эффективно объединять эти изме
 Поэтому, чтобы не потерять изменения при переключении, сначала необходимо их зафиксировать создав коммит.</p>
 <div class="inline-figure"><img src="img/03-02-03-error.png" width="690"></div>
 </div>
-<div id="слияние-ветвей" class="section level2" number="9.3">
+<div id="слияние-веток" class="section level2" number="9.3">
 <h2>
-<span class="header-section-number">9.3</span> Слияние ветвей<a class="anchor" aria-label="anchor" href="#%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%B2%D0%B5%D1%82%D0%B2%D0%B5%D0%B9"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.3</span> Слияние веток<a class="anchor" aria-label="anchor" href="#%D1%81%D0%BB%D0%B8%D1%8F%D0%BD%D0%B8%D0%B5-%D0%B2%D0%B5%D1%82%D0%BE%D0%BA"><i class="fas fa-link"></i></a>
 </h2>
-<p>Показать как решать merge конфликты.
-<code>git merge</code></p>
+<p>В окне истории можно наблюдать как происходит ветвление.</p>
+<p><a href="git-log.html#git-log">Откройте окно истории</a> и выберите в фильтре сверху показывать все ветки <span class="figtext">(all branches)</span>.
+Найдите ветку <code>boxplot</code> как на изображении ниже.</p>
+<div class="inline-figure"><img src="img/03-03-01-log.png" width="690"></div>
+<p>Если мы, или другой участник проекта, решим принять эти изменения в основную ветку <code>main</code>,
+нам нужно выполнить операцию «слияния» (merge).</p>
+<p>В RStudio нет встроенной возможности слияния веток, это необходимо делать в терминале.
+К счастью, команда совсем не сложная.</p>
+<p>Для начала переключитесь на ветку в которую будут вливаться изменения,
+в нашем случае это <code>main</code> (<a href="git-branch.html#git-checkout">см. переключение веток</a>).
+Откройте терминал <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;В меню RStudio выберите Tools → Terminal → New Terminal&lt;/p&gt;"><sup>1</sup></a> и введите команду</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="git-branch.html#cb3-1" tabindex="-1"></a><span class="fu">git</span> merge boxplot</span></code></pre></div>
+<p>Git попытается автоматически объединить изменения в новый общий коммит.</p>
+<p>Если в обеих ветках была отредактирована одна и та же строка, Git выдаст сообщение о конфликте -
+его нужно устранить, отредактировав эту строку предпочтительным образом и создать коммит вручную.</p>
+<p>Это как раз наш случай.
+На панели <span class="figtext">Git</span> в списке изменений мы видим,
+что Git автоматически выбрал изменения связанные с новым и старым файлом для графика
+<code>penguins-hist.png</code> и <code>penguins-boxplot.png</code>,
+но лишь частично для скрипта <code>penguins.R</code>.
+Причина в том, что мы меняли этот файл в ветке <code>main</code> после коммита сделанного в ветке <code>boxplot</code>.</p>
+<div class="inline-figure"><img src="img/03-03-02-git-pane.png" width="400"></div>
+<p>Откройте файл <code>penguins.R</code>.
+Git любезно оставил для нас обе версии кода разделив специальными символами.
+После строки <code>&lt;&lt;&lt; HEAD</code> идет версия из текущей ветки,
+строка <code>===</code> отделяет две версии друг от друга,
+а строка <code>&gt;&gt;&gt; boxplot</code> завершает версию из ветки <code>boxplot</code>.</p>
+<div class="inline-figure"><img src="img/03-03-03-merge-conflict.png" width="690"></div>
+<p>Наша задача переписать выделенный участок в одну версию, как мы считаем нужным, и убрать спецсимволы.
+Важно понимать, что Git просто вставил в скрипт кусок текста,
+но это все еще обычный R скрипт, с которым мы работали и должны привести его в рабочее состояние.</p>
+<p>Нам нужна версия из ветки <code>boxplot</code>, но мы хотим добавить в нее подпись оси, как это было сделано в ветке <code>main</code>.
+Для этого оставим только нужную версию и удалим лишние строки (4-8 и 12).</p>
 </div>
-<div id="section" class="section level2" number="9.4">
+<div id="советы-при-работе-с-ветками" class="section level2" number="9.4">
 <h2>
-<span class="header-section-number">9.4</span> -<a class="anchor" aria-label="anchor" href="#section"><i class="fas fa-link"></i></a>
+<span class="header-section-number">9.4</span> Советы при работе с ветками<a class="anchor" aria-label="anchor" href="#%D1%81%D0%BE%D0%B2%D0%B5%D1%82%D1%8B-%D0%BF%D1%80%D0%B8-%D1%80%D0%B0%D0%B1%D0%BE%D1%82%D0%B5-%D1%81-%D0%B2%D0%B5%D1%82%D0%BA%D0%B0%D0%BC%D0%B8"><i class="fas fa-link"></i></a>
 </h2>
 <p>Хорошая практика каждое изменение делать в свой ветке, см. <a href="faq.html#feature-branch">feature бранчи</a>.
 Не всегда это удобно, особенно когда работаешь один.
@@ -157,6 +188,7 @@ Git позволяет эффективно объединять эти изме
 </div>
 </div>
 </div>
+
 
 
 
