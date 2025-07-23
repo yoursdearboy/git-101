@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 10 Создание ветки | Введение в Git</title>
+<title>Глава 11 Переключение веток | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Чтобы спокойно поэкспериментировать создадим новую ветку. Так будет проще удалить изменения и они не будут мешать, если мы захотим поправить что-то действительно важное в основной ветке main. В...">
+<meta name="description" content="Для переключения ветки нажмите на название текущей ветки (A) на панели Git. В выпадающем списке выберите ветку на которую хотите переключиться (main). Убедитесь, что код скрипта вернулся к...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 10 Создание ветки | Введение в Git">
+<meta property="og:title" content="Глава 11 Переключение веток | Введение в Git">
 <meta property="og:type" content="book">
-<meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-branch.html">
-<meta property="og:description" content="Чтобы спокойно поэкспериментировать создадим новую ветку. Так будет проще удалить изменения и они не будут мешать, если мы захотим поправить что-то действительно важное в основной ветке main. В...">
+<meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-checkout.html">
+<meta property="og:description" content="Для переключения ветки нажмите на название текущей ветки (A) на панели Git. В выпадающем списке выберите ветку на которую хотите переключиться (main). Убедитесь, что код скрипта вернулся к...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 10 Создание ветки | Введение в Git">
-<meta name="twitter:description" content="Чтобы спокойно поэкспериментировать создадим новую ветку. Так будет проще удалить изменения и они не будут мешать, если мы захотим поправить что-то действительно важное в основной ветке main. В...">
+<meta name="twitter:title" content="Глава 11 Переключение веток | Введение в Git">
+<meta name="twitter:description" content="Для переключения ветки нажмите на название текущей ветки (A) на панели Git. В выпадающем списке выберите ветку на которую хотите переключиться (main). Убедитесь, что код скрипта вернулся к...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -56,8 +56,8 @@
 <li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории</a></li>
 <li class="book-part">Ветки</li>
 <li><a class="" href="branch.html"><span class="header-section-number">9</span> Введение</a></li>
-<li><a class="active" href="git-branch.html"><span class="header-section-number">10</span> Создание ветки</a></li>
-<li><a class="" href="git-checkout.html"><span class="header-section-number">11</span> Переключение веток</a></li>
+<li><a class="" href="git-branch.html"><span class="header-section-number">10</span> Создание ветки</a></li>
+<li><a class="active" href="git-checkout.html"><span class="header-section-number">11</span> Переключение веток</a></li>
 <li><a class="" href="git-merge.html"><span class="header-section-number">12</span> Слияние веток</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">13</span> GitHub</a></li>
@@ -73,52 +73,46 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-branch" class="section level1" number="10">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-checkout" class="section level1" number="11">
 <h1>
-<span class="header-section-number">Глава 10</span> Создание ветки<a class="anchor" aria-label="anchor" href="#git-branch"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 11</span> Переключение веток<a class="anchor" aria-label="anchor" href="#git-checkout"><i class="fas fa-link"></i></a>
 </h1>
-<p>Чтобы спокойно поэкспериментировать создадим новую ветку.
-Так будет проще удалить изменения и они не будут мешать, если мы захотим поправить что-то действительно важное в основной ветке <code>main</code>.</p>
-<p>В RStudio нажмите кнопку <span class="figtext">New Branch</span> <span class="figref">(A)</span></p>
-<div class="inline-figure"><img src="img/03-01-01-new-branch.png" width="400"></div>
-<p>В появившемся окне введите название, например <code>boxplot</code> и нажмите кнопку <span class="figtext">Create</span>.
-Откроется окно с сообщением, что мы переключились на ветку <code>boxplot</code>,
-можете закрыть его кнопкой <span class="figtext">Close</span>.</p>
-<div class="inline-figure"><img src="img/03-01-02-new-branch.png" width="200"></div>
-<div class="inline-figure"><img src="img/03-01-03-new-branch.png" width="400"></div>
-<p>Обратите внимание, что название ветки на панели <span class="figtext">Git</span>, рядом с кнопкой создания ветки <span class="figref">(A)</span>, поменялось с <code>main</code> на <code>boxplot</code>.</p>
-<p>Вернемся к пингвинам.
-Замените содержимое скрипта <code>penguins.R</code> на следующее:</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<p>Для переключения ветки нажмите на название текущей ветки <span class="figref">(A)</span> на панели <span class="figtext">Git</span>.
+В выпадающем списке выберите ветку на которую хотите переключиться (<code>main</code>).</p>
+<div class="inline-figure"><img src="img/03-02-01-branch.png" width="400"></div>
+<p>Убедитесь, что код скрипта вернулся к прежнему состоянию и строит гистограмму,
+а в списке файлов находится файл с гистограммой <code>penguins-hist.png</code> и нету файла <code>penguins-boxplot.png</code>.</p>
+<div class="inline-figure"><img src="img/03-02-02-files.png" width="400"></div>
+<p>Это было просто.
+Но есть один случай, когда
+Git откажется переключать ветку — если это приведет к потере данных.</p>
+<p>Например, замените содержимое скрипта <code>penguins.R</code> на следующее (добавилась подпись оси X):</p>
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"penguins-boxplot.png"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"penguins-hist.png"</span><span class="op">)</span></span>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">2</span><span class="op">)</span>, xlab <span class="op">=</span> <span class="st">"Bill length, mm"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>Сохраните файл и выполните скрипт.
-Обратите внмание, что мы поменяли название файла.
-Старый файл <code>penguins-hist.png</code> в этой версии нам не нужен и его необходимо удалить.
-Не переживайте, благодаря Git, в основной ветке <code>main</code> он останется.
-На панели <span class="figtext">Files</span> отметьте галочкой файл <code>penguins-hist.png</code> <span class="figref">(A)</span> и нажмите кнопку <span class="figtext">Delete</span> <span class="figref">(B)</span>.</p>
-<div class="inline-figure"><img src="img/03-01-04-delete-files.png" width="400"></div>
-<p>Отметьте все изменения для фиксации и создайте коммит.
-Обратите внимание, что удаление файла это тоже изменение, которое надо отметить.</p>
-<div class="inline-figure"><img src="img/03-01-05-commit.png" width="400"></div>
-<p>Теперь отложим эксперименты и вернемся к прежней версии.</p>
+<p>Сохраните файл и попробуйте переключиться на ветку <code>boxplot</code>.
+Вы получите сообщение как на скриншоте ниже.
+Если бы Git переключил ветку, ему бы пришлось перезаписать файл <code>penguins.R</code>, в который мы внесли изменения, но не зафиксировали.
+Поэтому, чтобы не потерять изменения при переключении, сначала необходимо их зафиксировать создав коммит.</p>
+<div class="inline-figure"><img src="img/03-02-03-error.png" width="690"></div>
+<p>Создайте коммит и попробуйте переключиться на ветку <code>boxplot</code>.</p>
 
 </div>
   <div class="chapter-nav">
-<div class="prev"><a href="branch.html"><span class="header-section-number">9</span> Введение</a></div>
-<div class="next"><a href="git-checkout.html"><span class="header-section-number">11</span> Переключение веток</a></div>
+<div class="prev"><a href="git-branch.html"><span class="header-section-number">10</span> Создание ветки</a></div>
+<div class="next"><a href="git-merge.html"><span class="header-section-number">12</span> Слияние веток</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-branch"><span class="header-section-number">10</span> Создание ветки</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-checkout"><span class="header-section-number">11</span> Переключение веток</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
-<li><a id="book-source" href="https://github.com/yoursdearboy/git-101/blob/master/03-01-branches.Rmd">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="https://github.com/yoursdearboy/git-101/edit/master/03-01-branches.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
+<li><a id="book-source" href="https://github.com/yoursdearboy/git-101/blob/master/03-02-checkout.Rmd">View source <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="https://github.com/yoursdearboy/git-101/edit/master/03-02-checkout.Rmd">Edit this page <i class="fab fa-github"></i></a></li>
         </ul>
 </div>
     </nav>

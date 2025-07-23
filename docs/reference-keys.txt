@@ -10,13 +10,10 @@ git-init
 git-commit
 git-commit2
 git-log
+branch
 git-branch
-создание-ветки
-переключение-между-ветками
-слияние-ветвей
-section
-вопросы
-сколько-файлов-вы-сейчас-видите
+git-checkout
+git-merge
 github
 git-clone
 faq
@@ -27,6 +24,4 @@ commits-to-branch
 references
 список-терминов
 cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
-советы-при-работе-с-ветками
-слияние-веток
-git-checkout
+комитьте-и-пушьте-чаще
