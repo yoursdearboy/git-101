@@ -25,3 +25,4 @@ references
 список-терминов
 cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
 комитьте-и-пушьте-чаще
+заключение
