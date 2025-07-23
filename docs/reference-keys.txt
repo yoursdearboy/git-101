@@ -14,15 +14,14 @@ branch
 git-branch
 git-checkout
 git-merge
+заключение
 github
 git-clone
 faq
 gitignore
 feature-branch
+комитьте-и-пушьте-чаще
 force-push
 commits-to-branch
 references
 список-терминов
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
-комитьте-и-пушьте-чаще
-заключение
