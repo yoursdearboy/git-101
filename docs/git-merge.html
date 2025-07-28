@@ -127,7 +127,20 @@ Git любезно оставил для нас обе версии кода р�
 в том числе обновившийся файл <code>penguins-boxplot.png</code>, который теперь содержит подпись оси.
 Обычно сообщение коммита о слиянии веток содержит следующий текст «Merge branch название-ветки», но можете придумать свое.</p>
 <div class="inline-figure"><img src="img/03-03-04-git-pane.png" width="400"></div>
-
+<p>Итак, мы успешно слили изменения из ветки <code>boxplot</code> в основную ветку <code>main</code>.
+Теперь можно продолжить работу в основной ветке.
+Еще лучше будет создать очередную ветку для новых изменений, выполнить работу в ней и точно так же слить в основную.</p>
+<div class="inline-figure"><img src="img/03-03-05-log.png" width="690"></div>
+<details><summary>
+Как удалить ветку?
+</summary><p>Слитую ветку можно удалить.
+В RStudio для этого нет встроенных средств, поэтому придется использовать терминал.
+Выполните команду:</p>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="git-merge.html#cb14-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> boxplot</span></code></pre></div>
+<p>Если ветка не была слита, Git откажется ее удалять, ведь могут быть потеряны сделанные в ней изменения.
+Если вы действительно уверены, что они вам не нужны и вы хотите удалить не слитую ветку, выполните команду:</p>
+<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="git-merge.html#cb15-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-D</span> boxplot</span></code></pre></div>
+</details>
 </div>
 
   <div class="chapter-nav">

@@ -15,6 +15,9 @@ git-branch
 git-checkout
 git-merge
 заключение
+тематические-ветки-feature-branch
+долгоживущие-ветки-long-running-branches
+когда-не-стоит-использовать-ветки
 github
 git-clone
 faq

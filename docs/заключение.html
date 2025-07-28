@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 13 Заключение | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Ветки можно делать от веток. Ветки это не способ одновременно держать несколько версий анализа, а способ держать изменения в анализ. Предполагается, что рано или поздно вы их сольете. Если есть...">
+<meta name="description" content="Теперь вы умеете создавать и объединять ветки — это одни из ключевых функций Git, особенно при совместной работе. Благодаря простоте работы с ветками, рекомендуется создавать их чаще. Чем меньше в...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 13 Заключение | Введение в Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/заключение.html">
-<meta property="og:description" content="Ветки можно делать от веток. Ветки это не способ одновременно держать несколько версий анализа, а способ держать изменения в анализ. Предполагается, что рано или поздно вы их сольете. Если есть...">
+<meta property="og:description" content="Теперь вы умеете создавать и объединять ветки — это одни из ключевых функций Git, особенно при совместной работе. Благодаря простоте работы с ветками, рекомендуется создавать их чаще. Чем меньше в...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 13 Заключение | Введение в Git">
-<meta name="twitter:description" content="Ветки можно делать от веток. Ветки это не способ одновременно держать несколько версий анализа, а способ держать изменения в анализ. Предполагается, что рано или поздно вы их сольете. Если есть...">
+<meta name="twitter:description" content="Теперь вы умеете создавать и объединять ветки — это одни из ключевых функций Git, особенно при совместной работе. Благодаря простоте работы с ветками, рекомендуется создавать их чаще. Чем меньше в...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -78,13 +78,60 @@
 <h1>
 <span class="header-section-number">Глава 13</span> Заключение<a class="anchor" aria-label="anchor" href="#%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5"><i class="fas fa-link"></i></a>
 </h1>
-<p>Ветки можно делать от веток.</p>
-<p>Ветки это не способ одновременно держать несколько версий анализа,
-а способ держать изменения в анализ.
-Предполагается, что рано или поздно вы их сольете.
-Если есть две конкурирующие модели, то это не две ветки, а два файла.</p>
-<p>feature бранчи</p>
+<p>Теперь вы умеете создавать и объединять ветки —
+это одни из ключевых функций Git, особенно при совместной работе.
+Благодаря простоте работы с ветками, рекомендуется создавать их чаще.
+Чем меньше в ветке изменений, тем проще ее слить, и тем ниже вероятность конфликтов из-за одновременных правок одной и той же части проекта. Это отражает известную идею, что при работе в команде лучше синхронизироваться чаще.</p>
+<p>Рассмотрим продвинутые способы использования веток, а также для чего их использовать не стоит.</p>
+<p>Для начала уточним, что можно создать ветку от любой другой, а не только от основной ветки <code>main</code>. Уровень вложенности и количество веток не ограничены.
+После слияния ветки она не прекращает свое существование — в ней можно продолжить работу, а после слить еще раз.
+На практике вам вряд ли понадобится больше 3-х уровней вложенности, а ветки лучше периодически удалять, чтобы не запутаться.</p>
+<div id="тематические-ветки-feature-branch" class="section level2" number="13.1">
+<h2>
+<span class="header-section-number">13.1</span> Тематические ветки (feature branch)<a class="anchor" aria-label="anchor" href="#%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D0%B2%D0%B5%D1%82%D0%BA%D0%B8-feature-branch"><i class="fas fa-link"></i></a>
+</h2>
+<p>Тематическая ветка содержит изменения, связанные с конкретной задачей или направлением работы.
+Это может быть новый этап анализа или изменения в уже сделанные этапы, например:</p>
+<ul>
+<li>ветка в которой мы визуализировали данные при помощи графиков, может называться <code>visualize</code> или <code>plot</code>;</li>
+<li>ветка в которой добавляются модели, может называться <code>model</code> или, если это более специфическая модель, например нелинейная, то <code>model-nle</code>;</li>
+<li>ветка в которой обновлены данные для уже выполненного анализа <code>update-data</code>;</li>
+<li>в нашем репозитории, когда мы заменили график на ящик с усами, ветка называлась <code>boxplot</code>.</li>
+</ul>
+<p>Если в проекте используется трекер задач или ошибок,
+то зачастую работа выполняется в отдельной ветке с названием соответствующим номеру из трекера,
+например <code>issue42</code> или <code>ticket58</code>.</p>
+<p>Это самый частый способ использования веток, применяемый независимо от размеров проекта и количества участников.</p>
+</div>
+<div id="долгоживущие-ветки-long-running-branches" class="section level2" number="13.2">
+<h2>
+<span class="header-section-number">13.2</span> Долгоживущие ветки (long-running branches)<a class="anchor" aria-label="anchor" href="#%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B6%D0%B8%D0%B2%D1%83%D1%89%D0%B8%D0%B5-%D0%B2%D0%B5%D1%82%D0%BA%D0%B8-long-running-branches"><i class="fas fa-link"></i></a>
+</h2>
+<p>Этот подход часто применяется для крупных проектов, когда нужно обеспечить высокую стабильность продукта, как правило при разработке программного обеспечения.</p>
+<p>Ветка <code>main</code> содержит стабильную версию.
+От нее создается ветка <code>develop</code> в которой ведется разработка.
+Тематические ветки создаются от ветки <code>develop</code> и вливаются в нее.
+Когда разработка очередной версии завершилась,
+изменения из ветки <code>develop</code> стабилизируются — проходят тестирование и ревью,
+после чего вливаются в стабильную ветку <code>main</code>.</p>
+<p>Далее цикл повторяется — разработка следующей версии продолжается в ветке <code>develop</code> с использованием тематических веток, после чего она снова сливается с веткой <code>main</code>.</p>
+</div>
+<div id="когда-не-стоит-использовать-ветки" class="section level2" number="13.3">
+<h2>
+<span class="header-section-number">13.3</span> Когда не стоит использовать ветки<a class="anchor" aria-label="anchor" href="#%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%BD%D0%B5-%D1%81%D1%82%D0%BE%D0%B8%D1%82-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2%D0%B5%D1%82%D0%BA%D0%B8"><i class="fas fa-link"></i></a>
+</h2>
+<p>Выше описаны лишь некоторые наиболее часто используемые процессы работы построенные вокруг веток.
+Существует и можно придумать много других, подходящих для вас или вашей команды.</p>
+<p>Но у всех применений веток есть общая черта — это способ организации внесения изменений в проект и рано или поздно эти изменения должны быть слиты или удалены.</p>
+<p>Ветки это не способ структурирования самого анализа или программы.
+Например, если у вас есть несколько моделей и вы собираетесь поддерживать их все, то вероятно они должны быть в одной ветке, а не в отдельных.
+Иначе потребуется следить за тем, чтобы изменения вносились в каждую ветку — это утомительно и чревато ошибками.
+Для работы с несколькими моделями одновременно придется переключаться и работать с несколькими ветками, что противоречит большинству способов их использования, например описанных выше.</p>
+<p>Другая частая ошибка — участники создают ветки с собственным именем (<code>ivan</code>, <code>masha-work</code>) и используют их как личные папки для хранения своих файлов не связанных с файлами других участников.
+Ветки предназначены для внесения изменений в один общий проект. Следует либо интегрировать эти файлы в проект, возможно отдельной веткой, либо хранить в другом месте.</p>
+<p>В следующей части мы посмотрим как организовать совместную работу при помощи «удаленных» (remote) веток и сервиса GitHub.</p>
 
+</div>
 </div>
 
 
@@ -94,7 +141,12 @@
 <div class="next"><a href="github.html"><span class="header-section-number">14</span> GitHub</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5"><span class="header-section-number">13</span> Заключение</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5"><span class="header-section-number">13</span> Заключение</a></li>
+<li><a class="nav-link" href="#%D1%82%D0%B5%D0%BC%D0%B0%D1%82%D0%B8%D1%87%D0%B5%D1%81%D0%BA%D0%B8%D0%B5-%D0%B2%D0%B5%D1%82%D0%BA%D0%B8-feature-branch"><span class="header-section-number">13.1</span> Тематические ветки (feature branch)</a></li>
+<li><a class="nav-link" href="#%D0%B4%D0%BE%D0%BB%D0%B3%D0%BE%D0%B6%D0%B8%D0%B2%D1%83%D1%89%D0%B8%D0%B5-%D0%B2%D0%B5%D1%82%D0%BA%D0%B8-long-running-branches"><span class="header-section-number">13.2</span> Долгоживущие ветки (long-running branches)</a></li>
+<li><a class="nav-link" href="#%D0%BA%D0%BE%D0%B3%D0%B4%D0%B0-%D0%BD%D0%B5-%D1%81%D1%82%D0%BE%D0%B8%D1%82-%D0%B8%D1%81%D0%BF%D0%BE%D0%BB%D1%8C%D0%B7%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-%D0%B2%D0%B5%D1%82%D0%BA%D0%B8"><span class="header-section-number">13.3</span> Когда не стоит использовать ветки</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
