@@ -19,6 +19,11 @@ git-merge
 долгоживущие-ветки-long-running-branches
 когда-не-стоит-использовать-ветки
 github
+регистрация-на-github
+создание-токена
+git-remote
+git-push-pull
+pr
 git-clone
 faq
 gitignore
