@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 18 Клонирование репозитория | Введение в Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Сейчас ваш репозиторий доступен публично и вы можете поделиться им скопировав ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации или например в чате, если вы...">
+<meta name="description" content="Сейчас репозиторий доступен публично и чтобы поделиться проектом достаточно скопировать ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации, если репозиторий...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 18 Клонирование репозитория | Введение в Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-clone.html">
-<meta property="og:description" content="Сейчас ваш репозиторий доступен публично и вы можете поделиться им скопировав ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации или например в чате, если вы...">
+<meta property="og:description" content="Сейчас репозиторий доступен публично и чтобы поделиться проектом достаточно скопировать ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации, если репозиторий...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 18 Клонирование репозитория | Введение в Git">
-<meta name="twitter:description" content="Сейчас ваш репозиторий доступен публично и вы можете поделиться им скопировав ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации или например в чате, если вы...">
+<meta name="twitter:description" content="Сейчас репозиторий доступен публично и чтобы поделиться проектом достаточно скопировать ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации, если репозиторий...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -66,10 +66,11 @@
 <li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
 <li><a class="active" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">20</span> Ссылки</a></li>
-<li><a class="" href="%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%BE%D0%B2.html"><span class="header-section-number">21</span> Список терминов</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
+<li><a class="" href="%D1%81%D0%BF%D0%B8%D1%81%D0%BE%D0%BA-%D1%82%D0%B5%D1%80%D0%BC%D0%B8%D0%BD%D0%BE%D0%B2.html"><span class="header-section-number">22</span> Список терминов</a></li>
 </ul>
 
         <div class="book-extra">
@@ -81,12 +82,22 @@
 <h1>
 <span class="header-section-number">Глава 18</span> Клонирование репозитория<a class="anchor" aria-label="anchor" href="#git-clone"><i class="fas fa-link"></i></a>
 </h1>
-<p>Сейчас ваш репозиторий доступен публично и вы можете поделиться им скопировав ссылку из адресной строки браузера. Отличная идея приложить ее к тексту публикации или например в чате, если вы просите помощи в решении проблемы.</p>
-<p>Как человек интересующийся пингвинами, я не могу пройти мимо и хочу загрузить ваш репозиторий себе на компьютер, сделаем это вместе.</p>
+<p>Сейчас репозиторий доступен публично и
+чтобы поделиться проектом достаточно скопировать ссылку из адресной строки браузера.
+Отличная идея приложить ее к тексту публикации, если репозиторий содержит данные и код для воспроизведения результатов.
+Используйте GitHub чтобы делиться примерами кода. Например, если просите помощи, так другим будет легче понять проблему и предложить решение.</p>
+<p>Чтобы загрузить удаленный репозиторий на компьютер выполните команду <strong>клонирования (clone)</strong>.
+Для этого понадобится адрес репозитория.
+Нажмите кнопку <span class="figtext">Code</span> на странице репозитория,
+убедитесь что выбрана опция <strong>HTTPS</strong> и скопируйте адрес.</p>
+<div class="inline-figure"><img src="img/04-03-05-new-project.png" width="600"></div>
 <p>Создадим проект RStudio.
 В верхнем меню выберите <span class="figtext">File → New Project</span>.
 В появившемся окне выберите <span class="figtext">Version Control</span> и далее <span class="figtext">Git</span>.
-В поле <span class="figtext">Repository URL</span> вставьте адрес вашего репозитория, который можно скопировать нажав кнопку <span class="figtext">Code</span> на странице репозитория (обратите внимание, чтобы была выбрана опция <strong>HTTPS</strong>). В поле <span class="figtext">Project directory name</span> укажите название папки для проекта, т.к. папка <code>penguins</code> у вас уже существует, назовите ее <code>penguins2</code>.</p>
+В поле <span class="figtext">Repository URL</span> вставьте адрес репозитория.
+В поле <span class="figtext">Project directory name</span> укажите название папки для проекта —
+т.к. папка <code>penguins</code> уже существует, используем название <code>penguins2</code>.
+Откроется окно проекта, RStudio готова к работе.</p>
 <div class="inline-table"><table class="table table-borderless">
 <tr>
 <td>
@@ -104,23 +115,13 @@
 <img src="img/04-03-04-new-project.png" width="320">
 </td>
 </tr>
-<tr>
-<td>
-<img src="img/04-03-05-new-project.png" width="320">
-</td>
-<td>
-</td>
-</tr>
 </table></div>
-<p>Мы загрузили копию удаленного репозитория на компьютер, теперь с ней можно работать как с нашим оригинальным проектом.</p>
+<p>Мы склонировали удаленный репозиторий на компьютер и теперь можем работать с ним как с оригинальным проектом — делать коммиты, загружать изменения в удаленный репозиторий (push) и из него (pull).</p>
 
 </div>
-
-
-
   <div class="chapter-nav">
 <div class="prev"><a href="pr.html"><span class="header-section-number">17</span> Pull Request</a></div>
-<div class="next"><a href="faq.html"><span class="header-section-number">19</span> Best practices</a></div>
+<div class="next"><a href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-clone"><span class="header-section-number">18</span> Клонирование репозитория</a></li></ul>
