@@ -1,4 +1,4 @@
-введение-в-git
+основы-git
 about
 install
 terminal
