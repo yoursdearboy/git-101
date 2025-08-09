@@ -92,7 +92,7 @@
 <p>Для начала переключитесь на ветку, в которую будут вливаться изменения —
 в нашем случае это <code>main</code> (<a href="git-checkout.html#git-checkout">см. переключение веток</a>).
 Откройте терминал <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;В меню RStudio выберите Tools → Terminal → New Terminal&lt;/p&gt;"><sup>2</sup></a> и введите команду для слияния с веткой <code>boxplot</code>.</p>
-<div class="sourceCode" id="cb12"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb12-1"><a href="git-merge.html#cb12-1" tabindex="-1"></a><span class="fu">git</span> merge boxplot</span></code></pre></div>
+<div class="sourceCode" id="cb11"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb11-1"><a href="git-merge.html#cb11-1" tabindex="-1"></a><span class="fu">git</span> merge boxplot</span></code></pre></div>
 <p>Git попытается автоматически объединить изменения из обеих веток и создать новый коммит.
 В большинстве случаев этого достаточно,
 но любая совместная работа может приводить к конфликтам —
@@ -118,7 +118,7 @@ Git любезно оставил для нас обе версии кода р�
 Для этого оставим нижнюю версию (строки 9-11) и удалим лишние строки (4-8 и 12)
 и добавим подпись, только для ящика с усами это должна быть подпись оси Y.
 В итоге должен получиться следующий код.</p>
-<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
@@ -140,10 +140,10 @@ Git любезно оставил для нас обе версии кода р�
 </summary><p>Слитую ветку можно удалить.
 В RStudio для этого нет встроенных средств, поэтому придется использовать терминал.
 Выполните команду:</p>
-<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="git-merge.html#cb14-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> boxplot</span></code></pre></div>
+<div class="sourceCode" id="cb13"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb13-1"><a href="git-merge.html#cb13-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-d</span> boxplot</span></code></pre></div>
 <p>Если ветка не была слита, Git откажется ее удалять, ведь могут быть потеряны сделанные в ней изменения.
 Если вы действительно уверены, что они вам не нужны и вы хотите удалить не слитую ветку, выполните команду:</p>
-<div class="sourceCode" id="cb15"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb15-1"><a href="git-merge.html#cb15-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-D</span> boxplot</span></code></pre></div>
+<div class="sourceCode" id="cb14"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb14-1"><a href="git-merge.html#cb14-1" tabindex="-1"></a><span class="fu">git</span> branch <span class="at">-D</span> boxplot</span></code></pre></div>
 </details>
 </div>
 

@@ -25,7 +25,7 @@ footer {
   display: none;
 }
 
-figcaption {
+figcaption, .figcaption {
   margin-bottom: 10px;
 }
 
