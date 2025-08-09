@@ -61,3 +61,17 @@ code {
   font-weight: bold;
   color: red;
 }
+
+.callout {
+  padding: 1.25rem;
+  margin-top: 1.25rem;
+  margin-bottom: 1.25rem;
+  color: #055160;
+  background-color: #f8f9fa;
+  border-left: .25rem solid #dee2e6;
+}
+
+.callout-info {
+  background-color: #CFF4FC;
+  border-color: #9DEAF9;
+}
