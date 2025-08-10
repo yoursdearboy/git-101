@@ -87,7 +87,7 @@
         <a href="index.html" title="$subtitle$">$title$</a>$if(subtitle)$:
         <small class="text-muted">$subtitle$</small>$endif$
       </h1>
-      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Show table of contents</span></button>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Показать содержание</span></button>
     </div>
 
     <div id="main-nav" class="collapse-lg">
@@ -95,12 +95,12 @@
         <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
       </form>
 
-      <nav aria-label="Table of contents">
-        <h2>Table of contents</h2>
+      <nav aria-label="Содержание">
+        <h2>Содержание</h2>
         <div id="book-toc"></div>
 
         <div class="book-extra">
-          <p><a id="book-repo" href="#">View book source <i class="fab fa-github"></i></a></li></p>
+          <p><a id="book-repo" href="#">Исходный код<i class="fab fa-github"></i></a></li></p>
         </div>
       </nav>
     </div>
@@ -126,8 +126,8 @@ $endfor$
 
       <div class="book-extra">
         <ul class="list-unstyled">
-          <li><a id="book-source" href="#">View source <i class="fab fa-github"></i></a></li>
-          <li><a id="book-edit" href="#">Edit this page <i class="fab fa-github"></i></a></li>
+          <li><a id="book-source" href="#">Исходный код <i class="fab fa-github"></i></a></li>
+          <li><a id="book-edit" href="#">Редактировать <i class="fab fa-github"></i></a></li>
         </ul>
       </div>
     </nav>
@@ -136,15 +136,11 @@ $endfor$
 </div>
 </div> <!-- .container -->
 
-<footer class="bg-primary text-light mt-5">
+<footer class="mt-3">
   <div class="container"><div class="row">
 
   <div class="col-12 col-md-6 mt-3">
-    <p>"<strong>$title$</strong>$if(subtitle)$: $subtitle$$endif$" was written by $for(author)$$author$$sep$, $endfor$. $if(date)$It was last built on $date$.$endif$</p>
-  </div>
-
-  <div class="col-12 col-md-6 mt-3">
-    <p>This book was built by the <a class="text-light" href="https://bookdown.org">bookdown</a> R package.</p>
+    <p>This book was built by the <a href="https://bookdown.org">bookdown</a> R package.</p>
   </div>
 
 </div></div>
@@ -184,6 +180,7 @@ for (let popover of popovers) {
 }
 </script>
 $endif$
+<!-- Cloudflare Web Analytics --><script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "afdb80068f6f4b6687d55d834b10fc4f"}'></script><!-- End Cloudflare Web Analytics -->
 </body>
 
 </html>
