@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 2 Что такое Git | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Git — это программа, выполняющая функции Системы Контроля Версий (VCS, Version Control System). Многие люди используют примитивную систему контроля версий, просто копируя файлы и иногда добавляя...">
+<meta name="description" content="Git — это программа, выполняющая функции Системы Контроля Версий (VCS, Version Control System). Многие применяют простую систему контроля версий, вручную копируя файлы и добавляя дату в названия....">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 2 Что такое Git | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/about.html">
-<meta property="og:description" content="Git — это программа, выполняющая функции Системы Контроля Версий (VCS, Version Control System). Многие люди используют примитивную систему контроля версий, просто копируя файлы и иногда добавляя...">
+<meta property="og:description" content="Git — это программа, выполняющая функции Системы Контроля Версий (VCS, Version Control System). Многие применяют простую систему контроля версий, вручную копируя файлы и добавляя дату в названия....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 2 Что такое Git | Основы Git">
-<meta name="twitter:description" content="Git — это программа, выполняющая функции Системы Контроля Версий (VCS, Version Control System). Многие люди используют примитивную систему контроля версий, просто копируя файлы и иногда добавляя...">
+<meta name="twitter:description" content="Git — это программа, выполняющая функции Системы Контроля Версий (VCS, Version Control System). Многие применяют простую систему контроля версий, вручную копируя файлы и добавляя дату в названия....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -83,22 +83,23 @@
 <span class="header-section-number">Глава 2</span> Что такое Git<a class="anchor" aria-label="anchor" href="#about"><i class="fas fa-link"></i></a>
 </h1>
 <p><strong>Git</strong> — это программа, выполняющая функции <strong>Системы Контроля Версий (VCS, Version Control System)</strong>.
-Многие люди используют примитивную систему контроля версий, просто копируя файлы и иногда добавляя дату в названия.
+Многие применяют простую систему контроля версий, вручную копируя файлы и добавляя дату в названия.
 Git автоматически отслеживает изменения во время редактирования файлов, позволяет фиксировать состояние файлов в версии, хранить и переключаться между ними.
 Вы сможете оценить, какие изменения внесли, а также посмотреть историю изменений — когда, кем и с какой целью они были сделаны.</p>
 <div class="text-center">
 <div class="inline-figure"><img src="img/notFinal.gif" style="border: 1px solid #ddd" width="400"></div>
 </div>
 <p>Важная особенность Git в том, что участники могут работать и создавать версии независимо друг от друга на своих компьютерах. Каждый может работать над своей задачей, не мешая другим, даже если все редактируют один и тот же файл. Git поможет объединить изменения в одну общую версию.</p>
-<p>Файлы, версионированные при помощи Git, можно загрузить на сервер для надежного хранения, передачи на другие устройства, совместной работы или публикации. Самым популярным сервисом для этого является GitHub.
+<p>Проект Git можно загрузить на сервер для надежного хранения и передачи файлов, совместной работы и публикации.
+Самым популярным сервисом для этого является GitHub.
 Он похож на облачные хранилища, такие как Google Drive или Dropbox, но с более продвинутым отслеживанием и объединением изменений, а также другими полезными функциями.
 Вместо GitHub можно использовать другой сервер, например корпоративный во внутренней сети организации или использовать Git оффлайн — только на своем компьютере.</p>
 <p>Если это всё ещё не убедило вас начать использовать Git, вот несколько примеров, когда он будет полезен:</p>
 <ul>
 <li><p>Возможно, вы оказывались в следующей ситуации. Вы вносите изменения в работающую программу или файл. Оцениваете результат и решаете отменить изменения. Вот только у вас нет копии оригинального файла, а вернуть прежнее состояние почему-то не получается — программа никак не работает или работает иначе. С Git это делается одной командой, а экспериментальную версию можно сохранить и вернуться к ней позже.</p></li>
-<li><p>Если вам понадобилась помощь, вы можете одной командой загрузить сделанные изменения на GitHub. Другой участник увидит, что вы пытаетесь изменить и аналогично может загрузить решение проблемы на GitHub.</p></li>
+<li><p>Если вам понадобилась помощь, вы можете одной командой загрузить сделанные изменения на GitHub. Другой участник увидит, что вы пытаетесь сделать, и может загрузить решение проблемы, а вы так же одной командой получите исправленную версию.</p></li>
 </ul>
-<p>Таким образом, Git помогает организовать процесс анализа данных, обеспечить воспроизводимость исследований и упрощает совместную работу над проектом.</p>
+<p>Благодаря последовательному внесению и отслеживанию изменений Git помогает организовать процесс анализа данных, обеспечивает воспроизводимость и упрощает совместную работу над проектом.</p>
 <div class="callout callout-info">
 <p>Существуют другие системы контроля версий, например Mercurial и Subversion и вероятно, в будущем появятся новые.
 Но благодаря простоте, эффективности и приобретенной популярности в основном используется Git.</p>
