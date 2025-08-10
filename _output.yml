@@ -3,6 +3,7 @@ bookdown::bs4_book:
   theme:
     primary: "#096B72"
   repo: https://github.com/yoursdearboy/git-101
+  template: template.html
 bookdown::pdf_book:
   includes:
     in_header: preamble.tex
