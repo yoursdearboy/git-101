@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 3 Установка | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="3.1 Проверьте наличие Git Откройте Rstudio. В верхнем меню выберите Tools → Terminal → New Terminal. В терминале введите команду git и нажмите клавишу Enter. Если вы видите результат как на...">
+<meta name="description" content="3.1 Проверьте наличие Git В комплекте с дистрибутивом Git устанавливается программа для терминала. Чтобы её запустить, откройте Rstudio и в верхнем меню выберите Tools → Terminal → New Terminal. В...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 3 Установка | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/install.html">
-<meta property="og:description" content="3.1 Проверьте наличие Git Откройте Rstudio. В верхнем меню выберите Tools → Terminal → New Terminal. В терминале введите команду git и нажмите клавишу Enter. Если вы видите результат как на...">
+<meta property="og:description" content="3.1 Проверьте наличие Git В комплекте с дистрибутивом Git устанавливается программа для терминала. Чтобы её запустить, откройте Rstudio и в верхнем меню выберите Tools → Terminal → New Terminal. В...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 3 Установка | Основы Git">
-<meta name="twitter:description" content="3.1 Проверьте наличие Git Откройте Rstudio. В верхнем меню выберите Tools → Terminal → New Terminal. В терминале введите команду git и нажмите клавишу Enter. Если вы видите результат как на...">
+<meta name="twitter:description" content="3.1 Проверьте наличие Git В комплекте с дистрибутивом Git устанавливается программа для терминала. Чтобы её запустить, откройте Rstudio и в верхнем меню выберите Tools → Terminal → New Terminal. В...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -86,9 +86,9 @@
 <h2>
 <span class="header-section-number">3.1</span> Проверьте наличие Git<a class="anchor" aria-label="anchor" href="#terminal"><i class="fas fa-link"></i></a>
 </h2>
-<p>Откройте Rstudio.
-В верхнем меню выберите <strong>Tools → Terminal → New Terminal</strong>.
-В терминале введите команду <code>git</code> и нажмите клавишу Enter.</p>
+<p>В комплекте с дистрибутивом Git устанавливается программа для терминала.
+Чтобы её запустить, откройте Rstudio и в верхнем меню выберите <strong>Tools → Terminal → New Terminal</strong>.
+В появившемся окне терминала введите команду <code>git</code> и нажмите клавишу Enter.</p>
 <p>Если вы видите результат как на скриншоте ниже, то Git установлен.<br>
 Иначе нужно его установить — см. инструкцию для вашей операционной системы ниже.
 После установки перезапустите RStudio и повторите проверку.</p>
@@ -99,8 +99,7 @@
 <span class="header-section-number">3.2</span> Windows<a class="anchor" aria-label="anchor" href="#windows"><i class="fas fa-link"></i></a>
 </h2>
 <p>Загрузите инсталлятор по ссылке <a href="https://git-scm.com/downloads/win">git-scm.com/downloads/win</a>
-(используйте <strong>Standalone</strong>, а не <strong>Portable</strong> версию, если в этом нет необходимости).
-Далее следуйте инструкциям на экране, можете везде оставить опции, выбранные по умолчанию.</p>
+(используйте <strong>Standalone</strong>, а не <strong>Portable</strong> версию, если в этом нет необходимости), запустите и следуйте инструкциям на экране, можете везде оставить опции, выбранные по умолчанию.</p>
 </div>
 <div id="mac-os" class="section level2" number="3.3">
 <h2>
@@ -109,18 +108,22 @@
 <p><strong>Вариант 1.</strong> Git входит в инструменты разработчика от Apple, которые предоставляются бесплатно. Для установки введите в терминал следующую команду:</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="install.html#cb1-1" tabindex="-1"></a><span class="ex">xcode-select</span> <span class="at">--install</span></span></code></pre></div>
 <p>В появившемся окне нажмите кнопку <strong>Install</strong>.</p>
-<p><strong>Вариант 2.</strong> Последнюю версию Git можно установить при помощи стороннего менеджера программ <a href="https://brew.sh">Homebrew</a>. Если он у вас установлен, введите в терминал следующую команду:</p>
+<p><strong>Вариант 2.</strong> Последнюю версию Git можно установить используя сторонний менеджер программ <a href="https://brew.sh">Homebrew</a>. Если он у вас установлен, введите в терминал следующую команду:</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="install.html#cb2-1" tabindex="-1"></a><span class="ex">brew</span> install git</span></code></pre></div>
 </div>
 <div id="linux" class="section level2" number="3.4">
 <h2>
 <span class="header-section-number">3.4</span> Linux<a class="anchor" aria-label="anchor" href="#linux"><i class="fas fa-link"></i></a>
 </h2>
-<p>Для Ubuntu или Debian:</p>
+<p>Используйте в терминале одну из следующих команд, в зависимости от вашего дистрибутива Linux.</p>
+<p><strong>Ubuntu или Debian</strong></p>
 <div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="install.html#cb3-1" tabindex="-1"></a><span class="fu">sudo</span> apt-get update</span>
 <span id="cb3-2"><a href="install.html#cb3-2" tabindex="-1"></a><span class="fu">sudo</span> apt-get install git</span></code></pre></div>
-<p>Для других дистрибутивов см. <a href="https://git-scm.com/downloads/linux">git-scm.com/downloads/linux</a>
-(не забудьте запустить команду с правами администратора, т.е. начав с <code>sudo</code>, как в примере выше).</p>
+<p><strong>Fedora</strong></p>
+<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="install.html#cb4-1" tabindex="-1"></a><span class="fu">sudo</span> dnf install git</span></code></pre></div>
+<p><strong>Arch Linux</strong></p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="install.html#cb5-1" tabindex="-1"></a><span class="fu">sudo</span> pacman <span class="at">-S</span> git</span></code></pre></div>
+<p>Для других дистрибутивов см. <a href="https://git-scm.com/downloads/linux">git-scm.com/downloads/linux</a>. Не забудьте, что команды нужно запускать с правами администратора, т.е. начав с <code>sudo</code>, как в примере выше.</p>
 
 </div>
 </div>

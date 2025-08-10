@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 4 Настройка | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Есть много способов работы с Git: Через терминал — при помощи команды git, которую мы запустили в предыдущей главе; Через графический интерфейс — либо встроенный в программы для разработки...">
+<meta name="description" content="Основной и универсальный способ работы с Git — это команда git, с которой мы познакомились в предыдущей главе. Кроме терминала есть много других способов и их даже можно использовать одновременно....">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 4 Настройка | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/setup.html">
-<meta property="og:description" content="Есть много способов работы с Git: Через терминал — при помощи команды git, которую мы запустили в предыдущей главе; Через графический интерфейс — либо встроенный в программы для разработки...">
+<meta property="og:description" content="Основной и универсальный способ работы с Git — это команда git, с которой мы познакомились в предыдущей главе. Кроме терминала есть много других способов и их даже можно использовать одновременно....">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 4 Настройка | Основы Git">
-<meta name="twitter:description" content="Есть много способов работы с Git: Через терминал — при помощи команды git, которую мы запустили в предыдущей главе; Через графический интерфейс — либо встроенный в программы для разработки...">
+<meta name="twitter:description" content="Основной и универсальный способ работы с Git — это команда git, с которой мы познакомились в предыдущей главе. Кроме терминала есть много других способов и их даже можно использовать одновременно....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -82,23 +82,25 @@
 <h1>
 <span class="header-section-number">Глава 4</span> Настройка<a class="anchor" aria-label="anchor" href="#setup"><i class="fas fa-link"></i></a>
 </h1>
-<p>Есть много способов работы с Git:</p>
+<p>Основной и универсальный способ работы с Git — это команда <code>git</code>, с которой мы познакомились в предыдущей главе. Кроме терминала есть много других способов и их даже можно использовать одновременно.</p>
 <ul>
-<li>Через терминал — при помощи команды <code>git</code>, которую мы запустили в предыдущей главе;</li>
-<li>Через графический интерфейс — либо встроенный в программы для разработки (например, <a href="https://docs.posit.co/ide/user/ide/guide/tools/version-control.html">RStudio</a>, <a href="https://www.jetbrains.com/help/pycharm/using-git-integration.html">Pycharm</a>, <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">VS Code</a>), либо самостоятельный (<a href="https://github.com/apps/desktop">GitHub Desktop</a>, <a href="https://www.gitkraken.com">GitKraken</a>, <a href="https://git-scm.com/downloads/guis">и так далее</a>);</li>
-<li>Через веб-интерфейс (например, отдельные файлы можно редактировать прямо на сайте GitHub).</li>
+<li><p>Терминал — команды для терминала вы встретите в документации и в интернете, ими легко поделиться и использовать в скриптах;</p></li>
+<li><p>Графические интерфейсы — все они имеют ограничения и реализуют только часть возможностей Git, но достаточны для решения большинства задач. Это может быть интерфейс, встроенный в другие программы (например <a href="https://docs.posit.co/ide/user/ide/guide/tools/version-control.html">RStudio</a>, <a href="https://www.jetbrains.com/help/pycharm/using-git-integration.html">Pycharm</a>, <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">VS Code</a>) или самостоятельная программа (например <a href="https://github.com/apps/desktop">GitHub Desktop</a>, <a href="https://www.gitkraken.com">GitKraken</a> <a href="https://git-scm.com/downloads/guis">и многие другие</a>);</p></li>
+<li><p>Веб-интерфейсы — отдельные файлы можно редактировать прямо на сайте GitHub, а также выполнять некоторые команды.</p></li>
 </ul>
-<p>Не обязательно выбирать какой-то один из способов. В этой инструкции, как и в повседневной практике большинства пользователей, мы будем одновременно работать с Git и средствами RStudio, и в терминале.</p>
-<p>При этом универсальным и наиболее распространенным способом является терминал. Команды для него вы встретите в документации и в интернете, ими легче поделиться и использовать в скриптах.</p>
-<p><em>(перенести куда-то?)</em></p>
-<p>Первое что нам необходимо сделать — сообщить Git свое имя и email, чтобы он мог верно записать, кто вносит изменения.</p>
-<p>Для этого откройте терминал встроенный в RStudio <a href="install.html#terminal">как мы делали в предыдущей главе</a>.
-<!-- ^[В верхнем меню выберите **Tools → Terminal → New Terminal**] -->
-В терминале выполните следующие команды, заменив <strong>Your Name</strong> на свое имя и <strong><a href="mailto:your@email.com" class="email">your@email.com</a></strong> на свой e-mail, не стирая кавычки.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="setup.html#cb4-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
-<span id="cb4-2"><a href="setup.html#cb4-2" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your@email.com"</span></span></code></pre></div>
-<p>А также заранее настроим способ объединения изменений, чтобы не возвращаться к этому позже:</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="setup.html#cb5-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase false</span></code></pre></div>
+<p>В этом курсе мы будем работать с Git одновременно в интерфейсе RStudio и в терминале, как это делает большинство пользователей R каждый день, а также через GitHub.
+Поэтому запомните, как запустить терминал в RStudio —
+в верхнем меню выберите <strong>Tools → Terminal → New Terminal</strong> (<a href="install.html#terminal">см. скриншот в предыдущей главе</a>).</p>
+<p>Первое, что необходимо настроить — указать свое имя и адрес электронной почты, чтобы Git верно записывал информацию об авторе изменений.
+В терминале выполните следующие команды, заменив <strong>Your Name</strong> на свое имя и <strong><a href="mailto:your@email.com" class="email">your@email.com</a></strong> на свой email, не стирая кавычки.</p>
+<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="setup.html#cb6-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
+<span id="cb6-2"><a href="setup.html#cb6-2" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your@email.com"</span></span></code></pre></div>
+<p>Также заранее настроим способ объединения изменений, чтобы не возвращаться к этому позже:</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="setup.html#cb7-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase false</span></code></pre></div>
+<p>Опция <code>--global</code> означает, что эти настройки будут использованы для всех проектов на компьютере и их достаточно сделать один раз.
+Чтобы изменить настройки для отдельного проекта, выполните в нем эти же команды без опции <code>--global</code>. Например, иногда требуется указать корпоративный email для рабочего проекта на персональном компьютере.</p>
+<p>Это все настройки, которые понадобятся для курса.
+Всего через команду <code>git config</code> их доступно более 800.</p>
 
 </div>
 

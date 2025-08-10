@@ -97,7 +97,7 @@
 <p>Теперь создадим скрипт для анализа. Для этого на панели <span class="figtext">Files</span> выберите в меню <span class="figtext">New File → R Script</span> и введите название файла <code>penguins.R</code></p>
 <div class="inline-figure"><img src="img/02-03-02-new-file.png" width="400"></div>
 <p>Введите следующий код и сохраните файл:</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span></code></pre></div>
 <p>Запустите код и убедитесь, что он работает.
@@ -106,7 +106,7 @@
 <div class="inline-figure"><img src="img/02-03-03-git-pane.png" width="400"></div>
 <p>После создания коммита убедитесь, что список измененных файлов на панели <span class="figtext">Git</span> пуст.</p>
 <p>Начиная работать с новыми данными, хорошая идея первым делом исследовать их при помощи графика. Построим гистограмму (несколько вариантов с разной шириной столбца). Перепишите скрипт следующим образом:</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
@@ -117,7 +117,7 @@
 <em>Не забудьте убедиться, что измененная версия скрипта работает.</em></p>
 <p>Ширина столбца 2 подходит лучше всего. Такую гистограмму можно и опубликовать. Для этого сохраним изображение в файл.
 Перепишите скрипт следующим образом:</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
