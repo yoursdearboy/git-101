@@ -33,4 +33,3 @@ feature-branch
 force-push
 commits-to-branch
 references
-список-терминов
