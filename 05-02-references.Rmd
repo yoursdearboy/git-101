@@ -1,1 +1,5 @@
 # Ссылки {#references}
+
+- [Pro Git](https://git-scm.com/book/en/v2) --- небольшая книга рекомендованная разработчиками Git. Из нее вы узнаете о внутреннем устройстве Git и научитесь работать с командой `git` в терминале. Пригодятся главы 1-3 и глава 6.
+- [Happy Git and GitHub for the useR](https://happygitwithr.com/) --- материалы практического курса по Git с конференции Posit.
+- [Git Cheatsheet](https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo;) - интерактивная шпаргалка.
