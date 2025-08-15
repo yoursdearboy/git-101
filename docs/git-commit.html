@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 6 Отслеживание изменений | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Git отслеживает изменения в файлах, находящихся внутри рабочей папки. Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды «Отменить», Ctrl+Z), а только то, что поменялось...">
+<meta name="description" content="Git отслеживает изменения в файлах, находящихся внутри рабочей папки. Но не все подряд, как это делают Блокнот или Word при помощи команд «Отменить» и «Повторить», а при помощи версий — или, в...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 6 Отслеживание изменений | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-commit.html">
-<meta property="og:description" content="Git отслеживает изменения в файлах, находящихся внутри рабочей папки. Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды «Отменить», Ctrl+Z), а только то, что поменялось...">
+<meta property="og:description" content="Git отслеживает изменения в файлах, находящихся внутри рабочей папки. Но не все подряд, как это делают Блокнот или Word при помощи команд «Отменить» и «Повторить», а при помощи версий — или, в...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 6 Отслеживание изменений | Основы Git">
-<meta name="twitter:description" content="Git отслеживает изменения в файлах, находящихся внутри рабочей папки. Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды «Отменить», Ctrl+Z), а только то, что поменялось...">
+<meta name="twitter:description" content="Git отслеживает изменения в файлах, находящихся внутри рабочей папки. Но не все подряд, как это делают Блокнот или Word при помощи команд «Отменить» и «Повторить», а при помощи версий — или, в...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -82,38 +82,38 @@
 <span class="header-section-number">Глава 6</span> Отслеживание изменений<a class="anchor" aria-label="anchor" href="#git-commit"><i class="fas fa-link"></i></a>
 </h1>
 <p>Git отслеживает изменения в файлах, находящихся внутри рабочей папки.
-Но не все подряд, как скажем, это делает блокнот или Word (при помощи команды «Отменить», Ctrl+Z),
-а только то, что поменялось с последней версии.
-Поэтому периодически необходимо фиксировать изменения в версии — так называемые <strong>«коммиты» (commit)</strong>.</p>
-<p>Для работы с Git в RStudio предусмотрена панель с соответствующим названием <span class="figtext">Git</span> (по умолчанию находится в верхнем правом углу).</p>
+Но не все подряд, как это делают Блокнот или Word при помощи команд «Отменить» и «Повторить»,
+а при помощи версий — или, в терминах Git, <strong>коммитов (commit)</strong>.
+Коммиты нужно создавать вручную, выбирая, какие файлы вы хотите зафиксировать.</p>
+<p>Откройте в RStudio панель с названием <span class="figtext">Git</span> (по умолчанию она в верхнем правом углу).
+В отличие от списка файлов, на ней выводятся только те файлы, которые были изменены по сравнению с последней версией (коммитом).
+Так как мы еще не создали ни одной версии, то в списке выводятся оба файла, созданных с проектом: <code>.gitignore</code> и <code>hello-git.Rproj</code></p>
+<div class="inline-figure"><img src="img/02-02-01-window.png" width="680"></div>
 <details><summary>
 Нет панели Git?
 </summary>
 Значит, вы не отметили галочку <span class="figtext">Create a git repository</span> при создании проекта или не установили Git.
 <a href="install.html#install">Проверьте наличие Git</a> и <a href="git-init.html#git-init">создайте проект заново</a>.
-</details><div class="inline-figure"><img src="img/02-02-01-window.png" width="680"></div>
-<p>В отличие от списка файлов на этой панели выводятся только те файлы, которые были изменены с последнего коммита (версии).
-Так как мы еще не создали ни одной версии, то в списке выведены оба файла, созданных с проектом: <code>.gitignore</code> и <code>hello-git.Rproj</code></p>
-<p>Для создания коммита (версии) необходимо отметить изменения, которые вы хотите зафиксировать, проверить их, снабдить небольшим описанием и зафиксировать.</p>
-<p>Итак, отметьте файлы галочкой в столбце <span class="figtext">Staged</span> на панели <span class="figtext">Git</span> <span class="figref">(A)</span>.
-Обратите внимание на название столбца (staged) — мы поместили отмеченные файлы в так называемый <strong>индекс (staging)</strong>, и только они будут зафиксированы, остальные файлы останутся в папке, но не будут добавлены в коммит (версию).
-Нажмите кнопку <strong>Commit</strong> <span class="figref">(B)</span>.</p>
+</details><p>Чтобы создать коммит (версию), отметьте файлы галочкой в столбце <span class="figtext">Staged</span> —
+это означает, что они добавлены в <strong>индекс (staging)</strong>,
+промежуточную область для выбора файлов, которые будут зафиксированы.
+Остальные файлы останутся в рабочей папке, но в коммит не попадут.
+Нажмите кнопку <span class="figtext">Commit</span>.</p>
 <div class="inline-figure"><img src="img/02-02-02-staging.png" width="400"></div>
-<p>В открывшемся окне можно подробнее ознакомиться с фиксируемыми изменениями.
-Введите краткое описание в поле <span class="figtext">Commit message</span>, которое характеризует сделанные изменения
-<span class="figref">(C)</span>.
-В нашем случае был создан проект — это и будет хорошим описанием внесенных изменений.</p>
+<p>В открывшемся окне можно подробнее посмотреть, что изменилось в файлах.
+После этого введите краткое описание сделанных изменений в поле <span class="figtext">Commit message</span>.
+В нашем примере был создан проект, это и будет описанием.
+Нажмите кнопку <span class="figtext">Commit</span> под текстовым полем.</p>
 <div class="inline-figure"><img src="img/02-02-03-commit.png" width="600"></div>
-<p>Нажмите кнопку <span class="figtext">Commit</span> <span class="figref">(D)</span>.
-В появившемся окне не должно быть ошибок, но должно быть сообщение, как на изображении.</p>
+<p>В открывшемся окне не должно быть ошибок, но должно быть сообщение как на изображении ниже.</p>
 <div class="inline-figure"><img src="img/02-02-04-message.png" width="600"></div>
-<p>Можно закрыть оба окна и вернуться к RStudio.
-Обратите внимание, теперь панель <span class="figtext">Git</span> со списком измененных файлов пуста — у нас нет изменений относительно последней версии, которую мы только что создали.</p>
+<p>Закройте окно с сообщением и окно создания коммита и вернитесь к RStudio.
+Обратите внимание, теперь панель <span class="figtext">Git</span> со списком измененных файлов пуста —
+это значит, что изменений по сравнению с последней версией, которую мы только что создали, нет.</p>
 <div class="inline-figure"><img src="img/02-02-05-git-pane.png" width="400"></div>
-<p>Мы добавили файлы в <strong>индекс (staging)</strong> и создали из них первый <strong>коммит</strong>.
-Теперь у нас есть версия проекта, к которой всегда можно вернуться и начать работу с этого места.
-Работа с Git схематично выглядит следующим образом.</p>
-<div class="inline-figure"><img src="img/02-02-06-workflow.png" width="600"></div>
+<p>Теперь у нас есть версия проекта, к которой можно вернуться в любой момент и начать работу с этого места.
+Схематично процесс работы с Git показан на диаграмме.</p>
+<div class="inline-figure"><img src="img/02-02-06-workflow.png" width="540"></div>
 
 </div>
   <div class="chapter-nav">
