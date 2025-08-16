@@ -59,15 +59,19 @@ code {
 }
 
 .callout {
-  padding: 1.25rem;
-  margin-top: 1.25rem;
-  margin-bottom: 1.25rem;
-  color: #055160;
+  padding: 1rem;
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  color: #212529;
   background-color: #f8f9fa;
   border-left: .25rem solid #dee2e6;
 }
 
+.callout p:last-child {
+  margin-bottom: 0;
+}
+
 .callout-info {
-  background-color: #CFF4FC;
+  /* background-color: #CFF4FC; */
   border-color: #9DEAF9;
 }
