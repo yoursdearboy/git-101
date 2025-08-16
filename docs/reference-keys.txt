@@ -9,6 +9,9 @@ setup
 git-init
 git-commit
 git-commit2
+загрузка-данных
+визуализация
+экспорт
 git-log
 branch
 git-branch
