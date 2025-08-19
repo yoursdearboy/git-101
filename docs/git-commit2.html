@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 7 Практика | Основы Git</title>
+<title>Глава 7 Рабочий процесс | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="В предыдущей главе мы научились создавать коммиты (версии). При работе с Git это нужно делать регулярно — как правило, после выполнения задачи или её части, или внесения исправлений. Также коммит...">
+<meta name="description" content="В предыдущей главе мы научились создавать коммиты (версии). Работая с Git, это нужно делать регулярно — обычно после выполнения задачи или её части, после внесения исправлений или просто чтобы...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 7 Практика | Основы Git">
+<meta property="og:title" content="Глава 7 Рабочий процесс | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-commit2.html">
-<meta property="og:description" content="В предыдущей главе мы научились создавать коммиты (версии). При работе с Git это нужно делать регулярно — как правило, после выполнения задачи или её части, или внесения исправлений. Также коммит...">
+<meta property="og:description" content="В предыдущей главе мы научились создавать коммиты (версии). Работая с Git, это нужно делать регулярно — обычно после выполнения задачи или её части, после внесения исправлений или просто чтобы...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 7 Практика | Основы Git">
-<meta name="twitter:description" content="В предыдущей главе мы научились создавать коммиты (версии). При работе с Git это нужно делать регулярно — как правило, после выполнения задачи или её части, или внесения исправлений. Также коммит...">
+<meta name="twitter:title" content="Глава 7 Рабочий процесс | Основы Git">
+<meta name="twitter:description" content="В предыдущей главе мы научились создавать коммиты (версии). Работая с Git, это нужно делать регулярно — обычно после выполнения задачи или её части, после внесения исправлений или просто чтобы...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -52,7 +52,7 @@
 <li class="book-part">Основы</li>
 <li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
 <li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
-<li><a class="active" href="git-commit2.html"><span class="header-section-number">7</span> Практика</a></li>
+<li><a class="active" href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></li>
 <li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории</a></li>
 <li class="book-part">Ветки</li>
 <li><a class="" href="branch.html"><span class="header-section-number">9</span> Введение</a></li>
@@ -79,17 +79,25 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-commit2" class="section level1" number="7">
 <h1>
-<span class="header-section-number">Глава 7</span> Практика<a class="anchor" aria-label="anchor" href="#git-commit2"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 7</span> Рабочий процесс<a class="anchor" aria-label="anchor" href="#git-commit2"><i class="fas fa-link"></i></a>
 </h1>
 <p>В предыдущей главе мы научились создавать коммиты (версии).
-При работе с Git это нужно делать регулярно — как правило, после выполнения задачи или её части, или внесения исправлений.
-Также коммит можно создать, когда нужно просто зафиксировать изменения, например, в конце рабочего дня или чтобы поделиться с коллегами.</p>
-<p>Приступая к работе над задачей, мы начинаем с фиксированной версии проекта, которая работает понятно и предсказуемо, а список изменений пуст.
-После выполнения задачи отмечаем нужные изменения для коммита, а лишние убираем.
-Проверяем изменения и создаем коммит.
-В результате получаем очередную версию и чистый список изменений.</p>
+Работая с Git, это нужно делать регулярно —
+обычно после выполнения задачи или её части,
+после внесения исправлений или просто чтобы зафиксировать изменения.
+Коммит сохраняет «стабильную» версию проекта, к которой можно вернуться или сравнить с ней изменения.</p>
+<p>Рассмотрим процесс работы над проектом подробнее:</p>
+<ol style="list-style-type: decimal">
+<li>В рабочей папке загружен коммит и нет посторонних изменений.</li>
+<li>Выполняем задачу и добавляем нужные изменения в индекс, а лишние убираем.</li>
+<li>Перед созданием коммита обязательно проверяем изменения.
+Начинающие пользователи часто либо добавляют ненужный код, не относящийся к задаче, либо забывают добавить код, без которого не будет работать остальная часть проекта.</li>
+<li>Создаём коммит и получаем чистую рабочую папку — без изменений относительно нового коммита.
+Можно переходить к следующей задаче.</li>
+</ol>
 <div class="inline-figure"><img src="img/02-02-06-workflow.png" width="540"></div>
-<p>Такой процесс помогает упорядочить работу и подходит для самых разных проектов, в том числе для анализа данных. Его легко разделить на задачи, результатом выполнения которых будут коммиты.
+<p>Такой процесс помогает упорядочить работу и сделать результат воспроизводимым.
+Он хорошо подходит для анализа данных, потому что его легко разделить на задачи, из которых получатся коммиты.
 Попробуем сделать это на практике и проанализируем длину клюва антарктических пингвинов.</p>
 <div id="загрузка-данных" class="section level2" number="7.1">
 <h2>
@@ -107,11 +115,10 @@
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span></code></pre></div>
-<p>Убедитесь в том, что файл скрипта также появился на панели <span class="figtext">Git</span>.
+<p>Убедитесь, что файл скрипта также появился на панели <span class="figtext">Git</span>.
 Добавьте оба файла в индекс, отметив галочкой в столбце <span class="figtext">Staged</span>, и создайте коммит.
 В окне коммита обязательно проверьте содержимое скрипта <code>penguins.R</code>,
-так как часто пользователи забывают сохранить файл перед добавлением в индекс.
-<a href="git-commit.html#git-commit">Подробную инструкцию по созданию коммита смотри в предыдущей главе.</a></p>
+так как часто пользователи забывают сохранить файл перед добавлением в индекс.</p>
 <div class="inline-figure"><img src="img/02-03-03-git-pane.png" width="690"></div>
 <p>После создания коммита список измененных файлов на панели <span class="figtext">Git</span> должен быть пуст.</p>
 </div>
@@ -119,9 +126,9 @@
 <h2>
 <span class="header-section-number">7.2</span> Визуализация<a class="anchor" aria-label="anchor" href="#%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F"><i class="fas fa-link"></i></a>
 </h2>
-<p>Анализ новых данных полезно начинать с исследования их распределения.
-Мы построим несколько вариантов гистограммы длины клюва с разной шириной столбца.
-Сохраните приведённый ниже код в файл скрипта, запустите его и посмотрите графики.</p>
+<p>Анализ новых данных полезно начинать с исследования распределения.
+Для этого построим несколько вариантов гистограммы длины клюва с разной шириной столбца.
+Сохраните приведённый ниже код в тот же файл, запустите и посмотрите графики.</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
@@ -129,8 +136,8 @@
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>Файл <code>penguins.R</code> снова появился в списке измененных файлов на панели <span class="figtext">Git</span>.
-Добавьте его в индекс, в окне коммита проверьте изменения и создайте новый коммит с описанием
+<p>Файл <code>penguins.R</code> снова появился в списке изменений на панели <span class="figtext">Git</span>.
+Добавьте его в индекс, проверьте изменения в окне коммита и создайте новый коммит с описанием
 «Добавили гистограммы для длины клюва».</p>
 </div>
 <div id="экспорт" class="section level2" number="7.3">
@@ -138,8 +145,8 @@
 <span class="header-section-number">7.3</span> Экспорт<a class="anchor" aria-label="anchor" href="#%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D1%80%D1%82"><i class="fas fa-link"></i></a>
 </h2>
 <p>Гистограмма с шириной столбца 2 выглядит наиболее информативно.
-Такой график можно даже опубликовать.
-Для того чтобы экспортировать изображение, сохраните следующий код в файл скрипта и выполните его.</p>
+Такой график можно и опубликовать.
+Для того чтобы экспортировать изображение, сохраните следующий код в файл скрипта и запустите его.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
@@ -147,20 +154,20 @@
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"penguins-hist.png"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>После выполнения скрипта в списке файлов на панели <span class="figtext">Git</span> появится файл с изображением <code>penguins-hist.png</code>.
-Его мы тоже добавим в коммит.<br>
-Во-первых, так другие участники сразу увидят результат, не запуская скрипт.
+<p>В списке изменений на панели <span class="figtext">Git</span> появится файл с изображением <code>penguins-hist.png</code>.
+Его мы тоже добавим в коммит.
+Во-первых, так другие участники сразу увидят результат, без необходимости запускать скрипт.
 Во-вторых, если вы измените ширину столбца или другие настройки графика, будет удобно сравнить старую и новую версии.</p>
 <p>Добавьте оба файла в индекс и создайте из них коммит с описанием «Сохранили гистограмму длины клюва».</p>
+<p>На этом закончим с созданием коммитов и посмотрим их в журнале Git.</p>
 <div class="callout callout-info">
-<p>Делайте коммиты часто. Не придавайте слишком большое значение планированию. Коммит это не новая версия вашего анализа, а просто шаг или некоторые изменения, которые вы хотите зафиксировать. При необходимости можно объединить несколько коммитов в один (<a href="faq.html#faq">см. в разделе с решением частых задач</a>).</p>
+<p>Делайте коммиты часто и не придавайте слишком большое значение планированию.
+Коммит это не концептуально новая версия проекта, а просто шаг или изменения, которые вы хотите зафиксировать.</p>
 </div>
 <div class="callout callout-info">
-<p>Не обязательно добавлять в коммит все измененные файлы сразу <em>(или отменять изменения)</em> — они могут оставаться в рабочей папке сколько угодно.
-Тем не менее старайтесь не копить изменения, потому что тогда версия, зафиксированная в Git, и версия, с которой вы работаете, будут отличаться, а значит, теряется смысл системы контроля версий.
-Вы всегда можете посмотреть, какие файлы были изменены, и при необходимости отменить изменения в следующем коммите.</p>
+<p>Не обязательно добавлять в коммит все изменения сразу или их отменять — они могут оставаться в рабочей папке сколько угодно.
+Тем не менее старайтесь не копить изменения, потому что тогда версия в репозитории будет отличаться от версии, с которой вы работаете, а значит, теряется смысл системы контроля версий и возникают ошибки.</p>
 </div>
-<p>Мы выполнили несколько шагов и теперь можем посмотреть, как менялся проект средствами Git.</p>
 
 </div>
 </div>
@@ -170,7 +177,7 @@
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
-<li><a class="nav-link" href="#git-commit2"><span class="header-section-number">7</span> Практика</a></li>
+<li><a class="nav-link" href="#git-commit2"><span class="header-section-number">7</span> Рабочий процесс</a></li>
 <li><a class="nav-link" href="#%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"><span class="header-section-number">7.1</span> Загрузка данных</a></li>
 <li><a class="nav-link" href="#%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F"><span class="header-section-number">7.2</span> Визуализация</a></li>
 <li><a class="nav-link" href="#%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D1%80%D1%82"><span class="header-section-number">7.3</span> Экспорт</a></li>

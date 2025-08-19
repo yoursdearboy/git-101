@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 8 Просмотр истории | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="До сих пор мы просматривали изменения только во время работы — относительно последней версии. Git позволяет отследить всю историю, начиная с самого первого коммита. Это полезно, чтобы вспомнить,...">
+<meta name="description" content="До этого мы просматривали изменения только по сравнению с последней версией в момент создания коммита. С помощью журнала (log) можно увидеть все предыдущие коммиты. Это полезно, чтобы вспомнить,...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 8 Просмотр истории | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-log.html">
-<meta property="og:description" content="До сих пор мы просматривали изменения только во время работы — относительно последней версии. Git позволяет отследить всю историю, начиная с самого первого коммита. Это полезно, чтобы вспомнить,...">
+<meta property="og:description" content="До этого мы просматривали изменения только по сравнению с последней версией в момент создания коммита. С помощью журнала (log) можно увидеть все предыдущие коммиты. Это полезно, чтобы вспомнить,...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 8 Просмотр истории | Основы Git">
-<meta name="twitter:description" content="До сих пор мы просматривали изменения только во время работы — относительно последней версии. Git позволяет отследить всю историю, начиная с самого первого коммита. Это полезно, чтобы вспомнить,...">
+<meta name="twitter:description" content="До этого мы просматривали изменения только по сравнению с последней версией в момент создания коммита. С помощью журнала (log) можно увидеть все предыдущие коммиты. Это полезно, чтобы вспомнить,...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -52,7 +52,7 @@
 <li class="book-part">Основы</li>
 <li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
 <li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
-<li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Практика</a></li>
+<li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></li>
 <li><a class="active" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории</a></li>
 <li class="book-part">Ветки</li>
 <li><a class="" href="branch.html"><span class="header-section-number">9</span> Введение</a></li>
@@ -81,33 +81,33 @@
 <h1>
 <span class="header-section-number">Глава 8</span> Просмотр истории<a class="anchor" aria-label="anchor" href="#git-log"><i class="fas fa-link"></i></a>
 </h1>
-<p>До сих пор мы просматривали изменения только во время работы — относительно последней версии.
-Git позволяет отследить всю историю, начиная с самого первого коммита.
-Это полезно, чтобы вспомнить, какие изменения были внесены и по каким причинам (своего рода документация) или найти, в какой момент возникла ошибка и как вернуть код к предыдущему состоянию.</p>
-<p>Чтобы открыть окно истории, нажмите кнопку <span class="figtext">History</span> на панели <span class="figtext">Git</span> <span class="figref">(A)</span></p>
-<div class="inline-figure"><img src="img/02-04-01-git-pane.png" width="400"></div>
-<p>В открывшемся окне выводится список коммитов в обратном порядке с краткой информацией.
+<p>До этого мы просматривали изменения только по сравнению с последней версией в момент создания коммита.
+С помощью <strong>журнала (log)</strong> можно увидеть все предыдущие коммиты.
+Это полезно, чтобы вспомнить, какие изменения были внесены и по каким причинам (поэтому важно писать содержательные описания коммитов) или найти, в какой момент возникла ошибка и как вернуть код к предыдущему состоянию.</p>
+<p>Чтобы открыть журнал, нажмите кнопку <span class="figtext">History</span> на панели <span class="figtext">Git</span>. В открывшемся окне выводится список коммитов в обратном порядке с краткой информацией.
 Под списком находится подробная информация по выбранному коммиту.</p>
-<div class="inline-figure"><img src="img/02-04-02-history.png" width="600"></div>
+<div class="inline-figure"><img src="img/02-04-02-history.png" width="690"></div>
 <ul>
-<li>SHA — так называемый хэш коммита, который служит его уникальным идентификатором в репозитории</li>
-<li>Author — автор коммита &lt;его email&gt;, <a href="setup.html#setup">которые были указаны в главе настройка</a>
+<li>SHA — так называемый хэш коммита, который является его уникальным идентификатором в репозитории</li>
+<li>Author — автор коммита &lt;email&gt;, <a href="setup.html#setup">которые были указаны в настройках</a>
 </li>
-<li>Date — дата и время коммита</li>
-<li>Subject — краткое описание сделанных изменений, написанное автором коммита</li>
+<li>Date — дата и время создания коммита</li>
+<li>Subject — описание коммита</li>
 <li>Parent — хэш (идентификатор) предыдущего коммита</li>
 </ul>
-<p>Еще ниже показаны изменения, сделанные в рамках этого коммита.
-Выводятся только те строки, которые были изменены, а также несколько строк выше и ниже, чтобы был понятен контекст.
+<p>Еще ниже показаны изменения, сделанные в этом коммите по сравнению с предыдущим.
+Для больших файлов выводятся только те строки, которые поменялись, а также несколько строк выше и ниже, чтобы был понятен контекст.
 Добавленные строки выделены зеленым цветом, а удаленные — красным.
 Неизмененные строки, приведенные для контекста, не выделяются.
-Такой формат вывода изменений называется <strong>«дифф» (diff)</strong> и часто используется для отображения изменений.</p>
-<p>Выберите в списке следующий коммит (на изображении выше он называется <span class="figtext">Построили гистограммы для длины клюва</span>) и изучите изменения.
-Обратите внимание, что Git анализирует строки целиком, а не отдельные слова или символы.
-Поэтому получился следующий дифф, где старая вторая строка была удалена, а новая вторая строка добавлена (см. номера строк слева), хотя мы всего лишь добавили <code>x &lt;-</code> в ее начало.</p>
-<div class="inline-figure"><img src="img/02-04-03-diff.png" width="600"></div>
-<p>Даже если вы работаете в одиночку, очень удобно иметь под рукой историю.
-Но по настоящему эта функция полезна, когда приходится работать с несколькими версиями одновременно, например при работе в команде.
+Такой формат записи изменений называется <strong>diff</strong>.</p>
+<p>Выберите в списке коммит «Построили гистограммы для длины клюва» и изучите изменения.
+Обратите внимание, что по умолчанию Git анализирует строки целиком, а не отдельные слова или символы.
+Поэтому получился следующий дифф: старая вторая строка была удалена, новая вторая строка добавлена (см. номера строк слева), хотя мы всего лишь добавили <code>x &lt;-</code> в ее начало.</p>
+<div class="inline-figure"><img src="img/02-04-03-diff.png" width="690"></div>
+<p>Даже если вы работаете один, полезно иметь под рукой историю изменений.
+Но по настоящему эта функция полезна,
+когда приходится работать с несколькими версиями одновременно,
+например при работе в команде.
 <a href="git-branch.html#git-branch">Об этом далее</a>.</p>
 
 </div>
@@ -115,7 +115,7 @@ Git позволяет отследить всю историю, начиная 
 
 
   <div class="chapter-nav">
-<div class="prev"><a href="git-commit2.html"><span class="header-section-number">7</span> Практика</a></div>
+<div class="prev"><a href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></div>
 <div class="next"><a href="branch.html"><span class="header-section-number">9</span> Введение</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
