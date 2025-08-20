@@ -2,7 +2,9 @@ bookdown::bs4_book:
   css: style.css
   theme:
     primary: "#096B72"
-  repo: https://github.com/yoursdearboy/git-101
+  repo:
+    base: https://github.com/yoursdearboy/git-101
+    branch: tutorial
   template: template.html
 bookdown::pdf_book:
   includes:
