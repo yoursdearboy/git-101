@@ -23,9 +23,9 @@
 
 ## Загрузка данных
 
-Загрузите файл с данными [penguins.csv](https://github.com/yoursdearboy/git-101/releases/download/penguins/penguins.csv) и поместите в папку проекта.
-Чтобы открыть папку в файловом менеджере, в меню на панели [Files]{.figtext} выберите [More → Show Folder in New Window]{.figtext}.
-Когда вернётесь в RStudio, убедитесь, что файл `penguins.csv` появился на панели [Git]{.figtext}.
+Загрузите файл с данными [penguins.csv](https://github.com/yoursdearboy/git-101/releases/download/penguins/penguins.csv) в папку проекта.
+Если нужно открыть папку в файловом менеджере операционной системы, в меню на панели [Files]{.figtext} выберите [More → Show Folder in New Window]{.figtext}.
+Вернитесь в RStudio и убедитесь, что файл `penguins.csv` появился на панели [Git]{.figtext}.
 
 ![](./img/02-03-01-show-folder.png){width=400px}
 
