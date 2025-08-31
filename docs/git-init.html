@@ -6,15 +6,15 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>Глава 5 Создание репозитория | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого достаточно один раз его инициализировать в этой папке. В ней будет создана скрытая подпапка .git — репозиторий, в...">
+<meta name="description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
 <meta property="og:title" content="Глава 5 Создание репозитория | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-init.html">
-<meta property="og:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого достаточно один раз его инициализировать в этой папке. В ней будет создана скрытая подпапка .git — репозиторий, в...">
+<meta property="og:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Глава 5 Создание репозитория | Основы Git">
-<meta name="twitter:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого достаточно один раз его инициализировать в этой папке. В ней будет создана скрытая подпапка .git — репозиторий, в...">
+<meta name="twitter:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -82,14 +82,14 @@
 <span class="header-section-number">Глава 5</span> Создание репозитория<a class="anchor" aria-label="anchor" href="#git-init"><i class="fas fa-link"></i></a>
 </h1>
 <p>Git может отслеживать изменения в любой папке на вашем компьютере.
-Для этого достаточно один раз его инициализировать в этой папке.
-В ней будет создана скрытая подпапка <code>.git</code> — <strong>репозиторий</strong>, в котором будут храниться версии проекта и информация об изменениях.
-Всё необходимое для работы Git содержится непосредственно в этой папке.</p>
+Для этого нужно инициализировать в ней Git репозиторий.
+<strong>Репозиторий</strong> — это скрытая подпапка <code>.git</code>, в которой хранятся версии проекта и информация об изменениях.
+Всё необходимое для работы Git содержится непосредственно в ней.</p>
 <p>Самый простой способ создать репозиторий — вместе с проектом RStudio.<br>
 В верхнем меню выберите <span class="figtext">File → New Project</span>.
 В появившемся окне выберите <span class="figtext">New directory</span>, а затем <span class="figtext">New Project</span>.
 На последнем шаге в поле <span class="figtext">Directory name</span> введите название папки для проекта: <span class="figtext">penguins</span>.
-Папка будет создана по адресу, указанному в поле <span class="figtext">Create project as subdirectory of</span>.<br>
+Она будет создана на вашем компьютере по адресу, указанному в поле <span class="figtext">Create project as subdirectory of</span>.<br>
 ‼️ Не забудьте поставить галочку напротив опции <span class="figtext"><input type="checkbox" checked disabled> Create a git repository</span>, иначе проект будет создан без Git репозитория.<br>
 После нажатия кнопки <span class="figtext">Create Project</span> окно RStudio перезагрузится с открытым проектом.</p>
 <div class="inline-table"><table class="table table-borderless">
@@ -118,11 +118,18 @@
 <div class="inline-figure"><img src="img/02-01-05-window.png" width="680"></div>
 <p>Когда в RStudio открыт проект, R и Git ищут файлы в папке проекта — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
 <details><summary>
-Подробнее зачем нужна рабочая папка.
-</summary><p>На разных компьютерах или у разных участников папка проекта может находиться в разных местах.
-Например, у пользователя с именем <code>kvoronin</code> папка может находиться по адресу <code>/Users/kvoronin/hello-git</code>.</p>
-<p>Если в скрипте указать полный адрес файла <code>/Users/kvoronin/hello-git/data/sample.csv</code>, то он не будет работать на компьютере другого пользователя, например с именем <code>alebedeva</code>.</p>
-Зато будет работать адрес относительно рабочей папки, т.е. просто <code>data/sample.csv</code>.
+Подробнее про поиск и адреса файлов.
+</summary><p>На разных компьютерах, например у разных участников, проект может находиться в разных местах.
+У пользователя с именем <code>mjordan</code> это может быть <code>/Users/mjordan/penguins</code>,
+а у пользователя <code>scruz</code> допустим<br><code>C:\Users\scruz\penguins</code>.</p>
+<p>Если в скрипте использовать полный адрес файла, например:</p>
+<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="st">"/Users/mjordan/penguins/data/sample.csv"</span><span class="op">)</span></span></code></pre></div>
+<p>то он будет работать только у пользователя <code>mjordan</code>.
+У других полный адрес будет отличаться, и код «сломается».
+Чтобы он работал у всех, нужно указывать адрес файла относительно рабочей папки.</p>
+<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/sample.csv"</span><span class="op">)</span></span></code></pre></div>
 </details><p>Рассмотрим созданные RStudio файлы:</p>
 <ul>
 <li>
@@ -134,8 +141,11 @@
 <code>.git</code> — репозиторий; это скрытая папка, чтобы ее увидеть, в меню на панели файлов выберите <span class="figtext">More → Show Hidden Files</span>
 </li>
 </ul>
-<p>Если в папке проекта нет файла <code>.gitignore</code>, значит, вы не отметили галочку <span class="figtext"><input type="checkbox" checked disabled> Create a git repository</span> при создании проекта или не установили Git.
+<p>Если файл <code>.gitignore</code> отсутствует, значит, вы не отметили галочку <span class="figtext"><input type="checkbox" checked disabled> Create a git repository</span> при создании проекта или не установили Git.
 <a href="install.html#install">Проверьте наличие Git</a> и создайте проект заново.</p>
+<p>Итак, у нас есть проект RStudio — папка, в которой мы будем работать, и
+внутри нее Git репозиторий — скрытая папка, в которой будут храниться версии проекта.
+Приступим к созданию первой версии.</p>
 
 </div>
   <div class="chapter-nav">

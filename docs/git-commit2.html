@@ -85,12 +85,12 @@
 Работая с Git, это нужно делать регулярно —
 обычно после выполнения задачи или её части,
 после внесения исправлений или просто чтобы зафиксировать изменения.
-Коммит сохраняет «стабильную» версию проекта, к которой можно вернуться или сравнить с ней изменения.</p>
+Коммит сохраняет «стабильную» версию проекта, к которой можно вернуться или сравнить с ней сделанные изменения.</p>
 <p>Рассмотрим процесс работы над проектом подробнее:</p>
 <ol style="list-style-type: decimal">
-<li>В рабочей папке загружен коммит и нет посторонних изменений.</li>
-<li>Выполняем задачу и добавляем нужные изменения в индекс, а лишние убираем.</li>
-<li>Перед созданием коммита обязательно проверяем изменения.
+<li>Мы создали коммит, и с тех пор в рабочей папке не было изменений.</li>
+<li>Выполняем задачу и добавляем нужные для ее решения изменения в индекс, а лишние, например код для отладки или временные файлы, удаляем.</li>
+<li>Перед созданием коммита обязательно проверяем изменения, которые в него попадут.
 Начинающие пользователи часто либо добавляют ненужный код, не относящийся к задаче, либо забывают добавить код, без которого не будет работать остальная часть проекта.</li>
 <li>Создаём коммит и получаем чистую рабочую папку — без изменений относительно нового коммита.
 Можно переходить к следующей задаче.</li>
@@ -98,21 +98,22 @@
 <div class="inline-figure"><img src="img/02-02-06-workflow.png" width="540"></div>
 <p>Такой процесс помогает упорядочить внесение изменений и сделать результат воспроизводимым.
 Он хорошо подходит для анализа данных, потому что его легко разделить на задачи, из которых получатся коммиты.
-Попробуем сделать это на практике и проанализируем длину клюва антарктических пингвинов.</p>
-<div id="загрузка-данных" class="section level2" number="7.1">
+Попробуем сделать это на практике и проанализируем длину клюва антарктических пингвинов.
+Каждая подглава этой главы соответствует одной задаче и завершается одним коммитом.</p>
+<div id="импорт-данных" class="section level2" number="7.1">
 <h2>
-<span class="header-section-number">7.1</span> Загрузка данных<a class="anchor" aria-label="anchor" href="#%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"><i class="fas fa-link"></i></a>
+<span class="header-section-number">7.1</span> Импорт данных<a class="anchor" aria-label="anchor" href="#%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"><i class="fas fa-link"></i></a>
 </h2>
-<p>Загрузите файл с данными <a href="https://github.com/yoursdearboy/git-101/releases/download/penguins/penguins.csv">penguins.csv</a> и поместите в папку проекта.
-Чтобы открыть папку в файловом менеджере, в меню на панели <span class="figtext">Files</span> выберите <span class="figtext">More → Show Folder in New Window</span>.
-Когда вернётесь в RStudio, убедитесь, что файл <code>penguins.csv</code> появился на панели <span class="figtext">Git</span>.</p>
+<p>Загрузите файл с данными <a href="https://github.com/yoursdearboy/git-101/releases/download/penguins/penguins.csv">penguins.csv</a> в папку проекта.
+Если нужно открыть папку в файловом менеджере операционной системы, в меню на панели <span class="figtext">Files</span> выберите <span class="figtext">More → Show Folder in New Window</span>.
+Вернитесь в RStudio и убедитесь, что файл <code>penguins.csv</code> появился на панели <span class="figtext">Git</span>.</p>
 <div class="inline-figure"><img src="img/02-03-01-show-folder.png" width="400"></div>
 <p>Создайте скрипт для анализа. В меню на панели <span class="figtext">Files</span> выберите <span class="figtext">New File → R Script</span> и введите название файла <code>penguins.R</code></p>
 <div class="inline-figure"><img src="img/02-03-02-new-file.png" width="400"></div>
-<p>Скопируйте следующий код для импорта данных и сохраните его в созданном скрипте.
+<p>Скопируйте следующий код для импорта данных и сохраните его в созданном файле.
 Выделите обе строки и запустите, нажав кнопку <span class="figtext">Run</span> в правом верхнем углу редактора RStudio.
 Если импорт данных работает, в консоли появится вектор из чисел.</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span></code></pre></div>
 <p>Убедитесь, что файл скрипта также появился на панели <span class="figtext">Git</span>.
@@ -127,18 +128,24 @@
 <span class="header-section-number">7.2</span> Визуализация<a class="anchor" aria-label="anchor" href="#%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F"><i class="fas fa-link"></i></a>
 </h2>
 <p>Анализ новых данных полезно начинать с исследования распределения.
-Для этого построим несколько вариантов гистограммы длины клюва с разной шириной столбца.
+Для этого присвоим данные с длиной клюва переменной <code>x</code> и построим несколько вариантов гистограммы с разной шириной столбца.
 Сохраните приведённый ниже код в тот же файл, запустите и посмотрите графики.</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb12"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">4</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">1</span><span class="op">)</span><span class="op">)</span></span></code></pre></div>
-<p>Файл <code>penguins.R</code> снова появился в списке изменений на панели <span class="figtext">Git</span>.
-Добавьте его в индекс, проверьте изменения в окне коммита и создайте новый коммит с описанием
-«Добавили гистограммы для длины клюва».</p>
+<p>После сохранения файл <code>penguins.R</code> снова появился в списке изменений на панели <span class="figtext">Git</span>.
+Добавьте его в индекс и проверьте изменения в окне коммита.</p>
+<p>Вы уже могли заметить, что новые строки выделяются зеленым цветом.
+Красным цветом выделяются удаленные строки, а неизмененные остаются белыми.
+Такой формат записи изменений называется <strong>«дифф» (diff)</strong>.<br>
+Обратите внимание, что по умолчанию Git анализирует строки, а не отдельные слова или символы.
+Поэтому получился следующий дифф: старая вторая строка была удалена, новая вторая строка добавлена (см. номера строк слева), хотя мы всего лишь добавили присвоение <code>x &lt;-</code> в начало строки.</p>
+<div class="inline-figure"><img src="img/02-03-04-git-pane.png" width="690"></div>
+<p>Убедитесь, что сделанные изменения соответствуют диффу на скриншоте выше, и создайте новый коммит с описанием «Добавили гистограммы для длины клюва».</p>
 </div>
 <div id="экспорт" class="section level2" number="7.3">
 <h2>
@@ -146,20 +153,20 @@
 </h2>
 <p>Гистограмма с шириной столбца 2 выглядит наиболее информативно.
 Такой график можно и опубликовать.
-Для того чтобы экспортировать изображение, сохраните следующий код в файл скрипта и запустите его.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
+Чтобы экспортировать изображение, сохраните следующий код в файл скрипта и запустите его.</p>
+<div class="sourceCode" id="cb13"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"penguins-hist.png"</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/graphics/hist.html">hist</a></span><span class="op">(</span><span class="va">x</span>, breaks <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/seq.html">seq</a></span><span class="op">(</span><span class="fl">40</span>, <span class="fl">60</span>, <span class="fl">2</span><span class="op">)</span><span class="op">)</span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>В списке изменений на панели <span class="figtext">Git</span> появится файл с изображением <code>penguins-hist.png</code>.
+<p>После этого в списке изменений на панели <span class="figtext">Git</span>, кроме файла <code>penguins.R</code>, появился файл с изображением <code>penguins-hist.png</code>.
 Его мы тоже добавим в коммит.
-Во-первых, так другие участники сразу увидят результат, без необходимости запускать скрипт.
+Во-первых, так другие участники, загрузив проект, сразу увидят результат без необходимости запускать скрипт.
 Во-вторых, если вы измените ширину столбца или другие настройки графика, будет удобно сравнить старую и новую версии.</p>
-<p>Добавьте оба файла в индекс и создайте из них коммит с описанием «Сохранили гистограмму длины клюва».</p>
-<p>На этом закончим с созданием коммитов и посмотрим их в журнале Git.</p>
+<p>Добавьте оба файла в индекс, проверьте изменения, изучив дифф, и создайте коммит с описанием «Сохранили гистограмму длины клюва».</p>
+<p>На этом остановимся и посмотрим историю версий в журнале Git.</p>
 <div class="callout callout-info">
 <p>Делайте коммиты часто и не придавайте слишком большое значение планированию.
 Коммит это не концептуально новая версия проекта, а просто шаг или изменения, которые вы хотите зафиксировать.</p>
@@ -178,7 +185,7 @@
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav">
 <li><a class="nav-link" href="#git-commit2"><span class="header-section-number">7</span> Рабочий процесс</a></li>
-<li><a class="nav-link" href="#%D0%B7%D0%B0%D0%B3%D1%80%D1%83%D0%B7%D0%BA%D0%B0-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"><span class="header-section-number">7.1</span> Загрузка данных</a></li>
+<li><a class="nav-link" href="#%D0%B8%D0%BC%D0%BF%D0%BE%D1%80%D1%82-%D0%B4%D0%B0%D0%BD%D0%BD%D1%8B%D1%85"><span class="header-section-number">7.1</span> Импорт данных</a></li>
 <li><a class="nav-link" href="#%D0%B2%D0%B8%D0%B7%D1%83%D0%B0%D0%BB%D0%B8%D0%B7%D0%B0%D1%86%D0%B8%D1%8F"><span class="header-section-number">7.2</span> Визуализация</a></li>
 <li><a class="nav-link" href="#%D1%8D%D0%BA%D1%81%D0%BF%D0%BE%D1%80%D1%82"><span class="header-section-number">7.3</span> Экспорт</a></li>
 </ul>

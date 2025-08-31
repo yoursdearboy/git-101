@@ -84,7 +84,7 @@
 <p>На предыдущем шаге мы загрузили изменения из нашего локального репозитория в удаленный репозиторий на GitHub при помощи команды <code>push</code> в терминале.</p>
 <p>Git не синхронизирует изменения автоматически, это необходимо делать вручную, используя команду push ил кнопку <span class="figtext">Push</span> в интерфейсе RStudio на панели <span class="figtext">Git</span>.</p>
 <p>Создадим и загрузим еще один коммит. Например, добавим небольшой комментарий к коду, чтобы человеку открывшему его впервые было легче разобраться.</p>
-<div class="sourceCode" id="cb17"><pre class="downlit sourceCode r">
+<div class="sourceCode" id="cb20"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
 <span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
 <span></span>
@@ -107,19 +107,19 @@
 и нажмите кнопку <span class="figtext">Commit changes</span> в верхнем правом углу.
 Откроется окно создания коммита, оставьте текст по умолчанию и подтвердите создание коммита нажатием кнопки <span class="figtext">Commit changes</span></p>
 <div class="inline-figure"><img src="img/04-03-03-add-readme.png" style="width:100.0%"></div>
-<div class="sourceCode" id="cb18"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb18-1"><a href="git-push-pull.html#cb18-1" tabindex="-1"></a><span class="fu"># Пингвины «Палмер» 🐧</span></span>
-<span id="cb18-2"><a href="git-push-pull.html#cb18-2" tabindex="-1"></a></span>
-<span id="cb18-3"><a href="git-push-pull.html#cb18-3" tabindex="-1"></a>Этот репозиторий был создан в рамках курса от <span class="co">[</span><span class="ot">Института биоинформатики</span><span class="co">](bioinf.me/education/stat)</span>,</span>
-<span id="cb18-4"><a href="git-push-pull.html#cb18-4" tabindex="-1"></a>чтобы познакомиться с основами Git — фиксацией изменений, ветвлением и работой с GitHub.</span>
-<span id="cb18-5"><a href="git-push-pull.html#cb18-5" tabindex="-1"></a></span>
-<span id="cb18-6"><a href="git-push-pull.html#cb18-6" tabindex="-1"></a>В качестве примера использованы данные о длине клюва пингвинов,</span>
-<span id="cb18-7"><a href="git-push-pull.html#cb18-7" tabindex="-1"></a>собранные доктором Кристен Горман на станции «Палмер» в Антарктиде.</span>
-<span id="cb18-8"><a href="git-push-pull.html#cb18-8" tabindex="-1"></a></span>
-<span id="cb18-9"><a href="git-push-pull.html#cb18-9" tabindex="-1"></a>Содержимое репозитория:</span>
-<span id="cb18-10"><a href="git-push-pull.html#cb18-10" tabindex="-1"></a></span>
-<span id="cb18-11"><a href="git-push-pull.html#cb18-11" tabindex="-1"></a><span class="ss">- </span>penguins-boxplot.png — диаграмма ящик с усами, показывающая распределение длины клюва</span>
-<span id="cb18-12"><a href="git-push-pull.html#cb18-12" tabindex="-1"></a><span class="ss">- </span>penguins.R — скрипт для построения диаграммы</span>
-<span id="cb18-13"><a href="git-push-pull.html#cb18-13" tabindex="-1"></a><span class="ss">- </span>penguins.csv — данные</span></code></pre></div>
+<div class="sourceCode" id="cb21"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb21-1"><a href="git-push-pull.html#cb21-1" tabindex="-1"></a><span class="fu"># Пингвины «Палмер» 🐧</span></span>
+<span id="cb21-2"><a href="git-push-pull.html#cb21-2" tabindex="-1"></a></span>
+<span id="cb21-3"><a href="git-push-pull.html#cb21-3" tabindex="-1"></a>Этот репозиторий был создан в рамках курса от <span class="co">[</span><span class="ot">Института биоинформатики</span><span class="co">](bioinf.me/education/stat)</span>,</span>
+<span id="cb21-4"><a href="git-push-pull.html#cb21-4" tabindex="-1"></a>чтобы познакомиться с основами Git — фиксацией изменений, ветвлением и работой с GitHub.</span>
+<span id="cb21-5"><a href="git-push-pull.html#cb21-5" tabindex="-1"></a></span>
+<span id="cb21-6"><a href="git-push-pull.html#cb21-6" tabindex="-1"></a>В качестве примера использованы данные о длине клюва пингвинов,</span>
+<span id="cb21-7"><a href="git-push-pull.html#cb21-7" tabindex="-1"></a>собранные доктором Кристен Горман на станции «Палмер» в Антарктиде.</span>
+<span id="cb21-8"><a href="git-push-pull.html#cb21-8" tabindex="-1"></a></span>
+<span id="cb21-9"><a href="git-push-pull.html#cb21-9" tabindex="-1"></a>Содержимое репозитория:</span>
+<span id="cb21-10"><a href="git-push-pull.html#cb21-10" tabindex="-1"></a></span>
+<span id="cb21-11"><a href="git-push-pull.html#cb21-11" tabindex="-1"></a><span class="ss">- </span>penguins-boxplot.png — диаграмма ящик с усами, показывающая распределение длины клюва</span>
+<span id="cb21-12"><a href="git-push-pull.html#cb21-12" tabindex="-1"></a><span class="ss">- </span>penguins.R — скрипт для построения диаграммы</span>
+<span id="cb21-13"><a href="git-push-pull.html#cb21-13" tabindex="-1"></a><span class="ss">- </span>penguins.csv — данные</span></code></pre></div>
 <p>Чтобы загрузить изменения из удаленного репозитория на компьютер используется команда <strong>pull</strong>.</p>
 <p>Вернитесь в RStudio и на панели <span class="figtext">Git</span> нажмите кнопку <span class="figtext">Pull</span>.
 Если команда выполнилась успешно, в списке файлов появится файл <code>README.md</code>,

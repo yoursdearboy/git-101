@@ -21,6 +21,13 @@ git config --global user.name "Your Name"
 git config --global user.email "your@email.com"
 ```
 
+Если вы уже использовали Git, то чтобы вывести в терминале текущее значение настроек выполните эти же команды, но не указывая новых значений.
+
+```sh
+git config --global user.name
+git config --global user.email
+```
+
 Также заранее настроим способ объединения изменений, чтобы не возвращаться к этому позже.
 
 ```sh

@@ -94,8 +94,11 @@
 В терминале выполните следующие команды, заменив <strong>Your Name</strong> на свое имя и <strong><a href="mailto:your@email.com" class="email">your@email.com</a></strong> на свой email, не стирая кавычки.</p>
 <div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="setup.html#cb6-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name <span class="st">"Your Name"</span></span>
 <span id="cb6-2"><a href="setup.html#cb6-2" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email <span class="st">"your@email.com"</span></span></code></pre></div>
+<p>Если вы уже использовали Git, то чтобы вывести в терминале текущее значение настроек выполните эти же команды, но не указывая новых значений.</p>
+<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="setup.html#cb7-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.name</span>
+<span id="cb7-2"><a href="setup.html#cb7-2" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> user.email</span></code></pre></div>
 <p>Также заранее настроим способ объединения изменений, чтобы не возвращаться к этому позже.</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="setup.html#cb7-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase false</span></code></pre></div>
+<div class="sourceCode" id="cb8"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb8-1"><a href="setup.html#cb8-1" tabindex="-1"></a><span class="fu">git</span> config <span class="at">--global</span> pull.rebase false</span></code></pre></div>
 <p>Опция <code>--global</code> означает, что эти настройки будут использованы для всех проектов на компьютере и их достаточно сделать один раз.
 Чтобы изменить настройки для отдельного проекта, выполните в нем эти же команды без опции <code>--global</code>. Например, иногда требуется указать корпоративный email для рабочего проекта на персональном компьютере.</p>
 <p>Это все настройки, которые понадобятся для курса.

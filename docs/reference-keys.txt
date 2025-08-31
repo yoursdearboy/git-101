@@ -9,7 +9,7 @@ setup
 git-init
 git-commit
 git-commit2
-загрузка-данных
+импорт-данных
 визуализация
 экспорт
 git-log

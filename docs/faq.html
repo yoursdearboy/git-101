@@ -122,14 +122,14 @@
 </div>
 <p>Создайте новую ветку - она будет содержать набор коммитов, который вы имеете сейчас,
 при помощи RStudio или командой ниже.</p>
-<div class="sourceCode" id="cb20"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb20-1"><a href="faq.html#cb20-1" tabindex="-1"></a><span class="fu">git</span> branch some</span></code></pre></div>
+<div class="sourceCode" id="cb23"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb23-1"><a href="faq.html#cb23-1" tabindex="-1"></a><span class="fu">git</span> branch some</span></code></pre></div>
 <p>Важно! Убедитесь в том, что создали ветку. Для этого посмотрите журнал или команду <code>git log</code> и найдите напротив текущего коммита надпись с названием созданной ветки.</p>
 <p>Вернитесь на оригинальную ветку, как правило это <code>main</code>, при помощи RStudio или команды ниже.</p>
-<div class="sourceCode" id="cb21"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb21-1"><a href="faq.html#cb21-1" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code></pre></div>
+<div class="sourceCode" id="cb24"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb24-1"><a href="faq.html#cb24-1" tabindex="-1"></a><span class="fu">git</span> checkout main</span></code></pre></div>
 <p>Отмените нужное количество комитов, скажем <code>3</code>.
 Опция <code>--hard</code> удалит все изменения.
 Ничего страшного, ведь они остались в ветке, созданной на предыдущем шаге.</p>
-<div class="sourceCode" id="cb22"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb22-1"><a href="faq.html#cb22-1" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~3</span></code></pre></div>
+<div class="sourceCode" id="cb25"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb25-1"><a href="faq.html#cb25-1" tabindex="-1"></a><span class="fu">git</span> reset <span class="at">--hard</span> HEAD~3</span></code></pre></div>
 
 </div>
 </div>
