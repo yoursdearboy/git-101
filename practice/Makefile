@@ -127,7 +127,7 @@ step8_2:
 	git add .
 	git commit -m "Посчитал описательные статистики"
 	git push -u --force origin describe
-	echo "$(GITHUB)/pull/new/describe"
+	gh pr create --title "Посчитал описательные статистики" --body ""
 
 step8_3:
 	cd $(USER3)
@@ -136,4 +136,4 @@ step8_3:
 	git add .
 	git commit -m "Нарисовал boxplot"
 	git push -u --force origin boxplot
-	echo "$(GITHUB)/pull/new/boxplot"
+	gh pr create --title "Нарисовал boxplot" --body ""

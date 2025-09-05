@@ -54,12 +54,14 @@ str(data)
 1) Для каждой количественной переменной сделайте боксплоты по группам. Расположите их либо на отдельных рисунках, либо на одном, но читаемо;
 
 ```{r}
-data %>%
-  pivot_longer(where(is.numeric)) %>%
-  filter(!is.na(value)) %>%
-  ggplot(aes(stroke, value)) +
-  geom_boxplot() +
-  facet_wrap(~ name, scales = "free_y")
+ggplot(cleaned_data, aes(stroke, age)) +
+  geom_boxplot()
+
+ggplot(cleaned_data, aes(stroke, avg_glucose_level)) +
+  geom_boxplot()
+
+ggplot(cleaned_data, aes(stroke, bmi)) +
+  geom_boxplot()
 ```
 
 # Статистические оценки
