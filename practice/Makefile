@@ -74,6 +74,7 @@ step6: step5
 
 # Каждый подписывает свои имена напротив заданий
 # TODO: Текст коммита
+
 step7_2:
 	cd $(USER2)
 	git checkout -b user2
@@ -101,4 +102,31 @@ step7_4:
 	git push -u --force origin user4
 	echo "$(GITHUB)/pull/new/user4"
 
-step7: step6 step7_2 step7_3 step7_4
+# Все синкаются, для практики
+step7_pull:
+	cd $(USER2) && git checkout main && git pull
+	cd $(USER3) && git checkout main && git pull
+	cd $(USER4) && git checkout main && git pull
+
+step7: step6 step7_2 step7_3 step7_4 step7_pull
+
+# Каждый делает по заданию
+# TODO: Текст коммита
+
+step8_2:
+	cd $(USER2)
+	git checkout -b describe
+	cp $(ASSETS)/04-02-homework_notebook.Rmd homework_notebook.Rmd
+	git add .
+	git commit -m "Посчитал описательные статистики"
+	git push -u --force origin describe
+	echo "$(GITHUB)/pull/new/describe"
+
+step8_3:
+	cd $(USER3)
+	git checkout -b boxplot
+	cp $(ASSETS)/04-03-homework_notebook.Rmd homework_notebook.Rmd
+	git add .
+	git commit -m "Нарисовал boxplot"
+	git push -u --force origin boxplot
+	echo "$(GITHUB)/pull/new/boxplot"
