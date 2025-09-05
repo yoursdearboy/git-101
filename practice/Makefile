@@ -29,6 +29,10 @@ step2: step1
 	git add .
 	git commit -m "Создали проект R"
 
+# TODO: Создать репозиторий приватный
+# TODO: Добавить участников в репу, в том числе меня
+# Обратить внимание координаторов на то чтобы инвайты были приняты
+
 # Пуш
 step3: step2
 	cd $(USER1)
@@ -46,10 +50,12 @@ step4: step3
 # Делаем push, чтобы пока ведущий импортирует данные,
 # у остальных было время сделать pull.
 # TODO: Учесть практику с проекта и скопировать в data/___
+# Данные и шаблон берем с гугл диска
 step5: step4
 	cd $(USER1)
 	mkdir -p data/raw
 	cp $(ASSETS)/data/raw/data.csv data/raw/
+	cp $(ASSETS)/02-01-homework_notebook.Rmd homework_notebook.Rmd
 	git add .
 	git commit -m "Загрузили данные"
 	git push
@@ -63,7 +69,6 @@ step5: step4
 # и попросить посмотреть лог.
 step6: step5
 	cd $(USER1)
-	cp $(ASSETS)/02-01-homework_notebook.Rmd homework_notebook.Rmd
 	cp $(ASSETS)/02-02-homework_notebook.Rmd homework_notebook.Rmd
 	git add .
 	git commit -m "Импортировали данные"
@@ -118,6 +123,7 @@ step7_pull:
 step7: step6 step7_user2 step7_user3 step7_user4 step7_user1 step7_pull
 
 # Каждый делает по заданию
+# Проговорить, что надо смотреть изменения на вкладке Files.
 # TODO: Текст коммита
 
 step8_user2:
@@ -147,6 +153,11 @@ step8_user4:
 	git push -u --force origin test-normality
 	gh pr create --title "Нарисовал qqplot" --body ""
 
+# Ведущий делает чекаут перед мерджем PR в Github.
+# TODO: checkout describe
+# TODO: checkout boxplot
+# TODO: checkout test-normality
+# TODO: еще бы координатор повзаимодействовал с исполнителем
 step8_user1:
 	cd $(USER1)
 	gh pr merge --merge describe

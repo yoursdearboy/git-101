@@ -12,6 +12,8 @@ library(tidyverse)
 
 # Чтение данных
 
+Считайте датасет в переменную "data".
+
 ```{r}
 data <- read_csv("data/raw/data.csv", na = c("", "N/A"))
 
