@@ -25,10 +25,10 @@ str(data)
 Присвойте получившийся датасет переменной "cleaned_data".
 
 ```{r}
-data <- data %>%
-  mutate(across(where(is.character), function(x) as.factor(x)))
+cleaned_data <- data %>%
+  mutate(across(where(is.character), factor))
 
-str(data)
+str(cleaned_data)
 ```
 
 # Описательные статистики
@@ -60,7 +60,9 @@ ggplot(cleaned_data, aes(stroke, age)) +
 ggplot(cleaned_data, aes(stroke, avg_glucose_level)) +
   geom_boxplot()
 
-ggplot(cleaned_data, aes(stroke, bmi)) +
+cleaned_data %>%
+  filter(!is.na(bmi)) %>%
+  ggplot(aes(stroke, bmi)) +
   geom_boxplot()
 ```
 
@@ -68,7 +70,7 @@ ggplot(cleaned_data, aes(stroke, bmi)) +
 
 ## Проверка на нормальность
 
-2) Постройте для каждой количественной переменной QQ-плот
+1) Постройте для каждой количественной переменной QQ-плот
 
 ```{r}
 

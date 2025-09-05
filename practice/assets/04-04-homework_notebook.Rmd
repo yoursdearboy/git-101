@@ -42,6 +42,7 @@ str(cleaned_data)
 
 ```{r}
 
+# @user1
 # ветка describe
 
 ```
@@ -54,6 +55,7 @@ str(cleaned_data)
 
 ```{r}
 
+# @user2
 # ветка boxplot
 
 ```
@@ -65,8 +67,12 @@ str(cleaned_data)
 1) Постройте для каждой количественной переменной QQ-плот
 
 ```{r}
+qqnorm(cleaned_data$age)
+qqline(cleaned_data$age)
 
-# @user3
-# ветка test-normality
+qqnorm(cleaned_data$avg_glucose_level)
+qqline(cleaned_data$avg_glucose_level)
 
+qqnorm(cleaned_data$bmi)
+qqline(cleaned_data$bmi)
 ```

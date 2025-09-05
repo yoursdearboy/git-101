@@ -25,10 +25,10 @@ str(data)
 Присвойте получившийся датасет переменной "cleaned_data".
 
 ```{r}
-data <- data %>%
-  mutate(across(where(is.character), function(x) as.factor(x)))
+cleaned_data <- data %>%
+  mutate(across(where(is.character), factor))
 
-str(data)
+str(cleaned_data)
 ```
 
 # Описательные статистики
@@ -41,11 +41,15 @@ str(data)
 1.3) Медиану
 
 ```{r}
-data %>%
+cleaned_data %>%
   group_by(stroke) %>%
   summarise(across(
     where(is.numeric),
-    list(mean = mean, median = median, sd = sd)
+    list(
+      mean = ~ mean(.x, na.rm = TRUE),
+      median = ~ median(.x, na.rm = TRUE),
+      sd = ~ sd(.x, na.rm = TRUE)
+    )
   ))
 ```
 
@@ -66,7 +70,7 @@ data %>%
 
 ## Проверка на нормальность
 
-2) Постройте для каждой количественной переменной QQ-плот
+1) Постройте для каждой количественной переменной QQ-плот
 
 ```{r}
 

@@ -120,7 +120,7 @@ step7: step6 step7_user2 step7_user3 step7_user4 step7_user1 step7_pull
 # Каждый делает по заданию
 # TODO: Текст коммита
 
-step8_2:
+step8_user2:
 	cd $(USER2)
 	git checkout -b describe
 	cp $(ASSETS)/04-02-homework_notebook.Rmd homework_notebook.Rmd
@@ -129,7 +129,7 @@ step8_2:
 	git push -u --force origin describe
 	gh pr create --title "Посчитал описательные статистики" --body ""
 
-step8_3:
+step8_user3:
 	cd $(USER3)
 	git checkout -b boxplot
 	cp $(ASSETS)/04-03-homework_notebook.Rmd homework_notebook.Rmd
@@ -137,3 +137,27 @@ step8_3:
 	git commit -m "Нарисовал boxplot"
 	git push -u --force origin boxplot
 	gh pr create --title "Нарисовал boxplot" --body ""
+
+step8_user4:
+	cd $(USER4)
+	git checkout -b test-normality
+	cp $(ASSETS)/04-04-homework_notebook.Rmd homework_notebook.Rmd
+	git add .
+	git commit -m "Нарисовал qqplot"
+	git push -u --force origin test-normality
+	gh pr create --title "Нарисовал qqplot" --body ""
+
+step8_user1:
+	cd $(USER1)
+	gh pr merge --merge describe
+	gh pr merge --merge boxplot
+	gh pr merge --merge test-normality
+
+# Все синкаются, в том числе координатор
+step8_pull:
+	cd $(USER1) && git checkout main && git pull
+	cd $(USER2) && git checkout main && git pull
+	cd $(USER3) && git checkout main && git pull
+	cd $(USER4) && git checkout main && git pull
+
+step8: step7 step8_user2 step8_user3 step8_user4 step8_user1 step8_pull
