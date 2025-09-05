@@ -29,18 +29,21 @@ str(data)
 <!-- TODO: Нужно знать датасеты и как их чистить, потому что -->
 <!-- - id по умолчанию будет числовой -->
 <!-- - булевые будут числовыми -->
+<!-- Можно это сделать с координатором, можно, чтобы это всплыло в процессе работы. -->
+<!-- Тогда им придется взаимодействовать. -->
+<!-- Или оно всплывет само раньше, потому что мы делаем str или из-за пытливости. -->
 
 Приведите переменные к нужному типу (numeric или factor).
 
 Присвойте получившийся датасет переменной "cleaned_data".
 
 ```{r}
-data <- data %>%
+cleaned_data <- data %>%
   mutate(across(where(is.character), factor),
          across(id, as.character),
          across(c(stroke, heart_disease, hypertension), factor))
 
-str(data)
+str(cleaned_data)
 ```
 
 # Описательные статистики
@@ -53,11 +56,15 @@ str(data)
 1.3) Медиану
 
 ```{r}
-data %>%
+cleaned_data %>%
   group_by(stroke) %>%
   summarise(across(
     where(is.numeric),
-    list(mean = mean, median = median, sd = sd)
+    list(
+      mean = ~ mean(.x, na.rm = TRUE),
+      median = ~ median(.x, na.rm = TRUE),
+      sd = ~ sd(.x, na.rm = TRUE)
+    )
   ))
 ```
 
@@ -68,25 +75,43 @@ data %>%
 1) Для каждой количественной переменной сделайте боксплоты по группам. Расположите их либо на отдельных рисунках, либо на одном, но читаемо;
 
 ```{r}
-data %>%
-  pivot_longer(where(is.numeric)) %>%
-  filter(!is.na(value)) %>%
-  ggplot(aes(stroke, value)) +
-  geom_boxplot() +
-  facet_wrap(~ name, scales = "free_y")
+ggplot(cleaned_data, aes(stroke, age)) +
+  geom_boxplot()
+
+ggplot(cleaned_data, aes(stroke, avg_glucose_level)) +
+  geom_boxplot()
+
+cleaned_data %>%
+  filter(!is.na(bmi)) %>%
+  ggplot(aes(stroke, bmi)) +
+  geom_boxplot()
 ```
 
 # Статистические оценки
+
+<!-- Можно предложить посмотреть на графики сначала. -->
 
 ## Проверка на нормальность
 
 2) Постройте для каждой количественной переменной QQ-плот
 
 ```{r}
-data %>%
-  pivot_longer(where(is.numeric)) %>%
-  filter(!is.na(value)) %>%
-  ggplot(aes(stroke, value)) +
-  stat_qq() +
-  facet_wrap(~ name, scales = "free_y")
+qqnorm(cleaned_data$age)
+qqline(cleaned_data$age)
+
+qqnorm(cleaned_data$avg_glucose_level)
+qqline(cleaned_data$avg_glucose_level)
+
+qqnorm(cleaned_data$bmi)
+qqline(cleaned_data$bmi)
+```
+
+## Сравнение групп
+
+1) Сравните группы (переменная **stroke**) по каждой количественной переменной.
+
+```{r}
+t.test(age ~ stroke, cleaned_data)
+wilcox.test(avg_glucose_level ~ stroke, cleaned_data)
+t.test(bmi ~ stroke, cleaned_data)
 ```
