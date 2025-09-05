@@ -75,40 +75,47 @@ step6: step5
 # Каждый подписывает свои имена напротив заданий
 # TODO: Текст коммита
 
-step7_2:
+step7_user2:
 	cd $(USER2)
 	git checkout -b user2
 	cp $(ASSETS)/03-02-homework_notebook.Rmd homework_notebook.Rmd
 	git add .
 	git commit -m "Подписал задания"
 	git push -u --force origin user2
-	echo "$(GITHUB)/pull/new/user2"
+	gh pr create --title "Подписал задания" --body ""
 
-step7_3:
+step7_user3:
 	cd $(USER3)
 	git checkout -b user3
 	cp $(ASSETS)/03-03-homework_notebook.Rmd homework_notebook.Rmd
 	git add .
 	git commit -m "Подписал задания"
 	git push -u --force origin user3
-	echo "$(GITHUB)/pull/new/user3"
+	gh pr create --title "Подписал задания" --body ""
 
-step7_4:
+step7_user4:
 	cd $(USER4)
 	git checkout -b user4
 	cp $(ASSETS)/03-04-homework_notebook.Rmd homework_notebook.Rmd
 	git add .
 	git commit -m "Подписал задания"
 	git push -u --force origin user4
-	echo "$(GITHUB)/pull/new/user4"
+	gh pr create --title "Подписал задания" --body ""
 
-# Все синкаются, для практики
+step7_user1:
+	cd $(USER1)
+	gh pr merge --merge user2
+	gh pr merge --merge user3
+	gh pr merge --merge user4
+
+# Все синкаются, для практики, в том числе координатор
 step7_pull:
+	cd $(USER1) && git checkout main && git pull
 	cd $(USER2) && git checkout main && git pull
 	cd $(USER3) && git checkout main && git pull
 	cd $(USER4) && git checkout main && git pull
 
-step7: step6 step7_2 step7_3 step7_4 step7_pull
+step7: step6 step7_user2 step7_user3 step7_user4 step7_user1 step7_pull
 
 # Каждый делает по заданию
 # TODO: Текст коммита
