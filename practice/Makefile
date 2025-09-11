@@ -18,15 +18,16 @@ clean:
 	gh repo delete --yes $(GITHUB) || true
 
 prompt:
-	@echo -n "Have you merged PRs? [y/N] " && read ans && [ $${ans:-N} = y ]
+	@echo -n "Continue? [y/N] " && read ans && [ $${ans:-N} = y ]
 
-# Все синкаются, для практики, в том числе координатор
+# Все синкаются (в том числе координатор)
 everybody_pull:
 	cd $(USER1) && git checkout main && git pull
 	cd $(USER2) && git checkout main && git pull
 	cd $(USER3) && git checkout main && git pull
 	cd $(USER4) && git checkout main && git pull
 
+# 0. Сетап
 step0:
 	mkdir -p $(ROOT)
 
