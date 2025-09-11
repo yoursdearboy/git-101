@@ -33,7 +33,7 @@ USER4=$ROOT/user4
 ```sh
 rm -fr $ROOT
 mkdir -p $ROOT
-gh repo delete --yes $GITHUB
+gh repo delete $GITHUB
 ```
 
 # Полезные функции
