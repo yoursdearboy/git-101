@@ -31,49 +31,49 @@ step0:
 	mkdir -p $(ROOT)
 
 # 1. Создаем проект
-step1_user1: step0
+step1u1: step0
 	unzip assets/project.zip -d $(ROOT)
 
-step1: step0 step1_user1
+step1: step0 step1u1
 
 # 2. Коммитим проект
-step2_user1: step1
+step2u1: step1
 	cd $(USER1)
 	git add .
 	git commit -m "Создали проект R"
 
-step2: step1 step2_user1
+step2: step1 step2u1
 
 # 3. Создаем ПРИВАТНЫЙ репозиторий
-step3_user1: step2
+step3u1: step2
 	cd $(USER1)
 	gh repo create --private $(GITHUB)
 	git remote add origin $(REMOTE)
 	git branch -M main
 	git push -u --force origin main
 
-step3: step2 step3_user1
+step3: step2 step3u1
 
 # 4. Все получают проект
 
 # Добавляем участников в репу, в том числе меня
 # Обратить внимание координаторов на то, чтобы инвайты были приняты
-step4_user1:
+step4u1:
 
 # Все клонируют (кроме ведущего)
-step4_user234: step3
+step4u234: step3
 	git clone $(REMOTE) $(USER2)
 	git clone $(REMOTE) $(USER3)
 	git clone $(REMOTE) $(USER4)
 
-step4: step3 step4_user1 step4_user234
+step4: step3 step4u1 step4u234
 
 # 5. Добавляем данные и шаблон
 
 # Файлы берем с гугл диска.
 # Делаем push, чтобы пока ведущий импортирует данные,
 # у остальных было время сделать pull.
-step5_user1:
+step5u1:
 	cd $(USER1)
 	mkdir -p data/raw
 	cp $(ASSETS)/data/raw/* data/raw/
@@ -82,12 +82,12 @@ step5_user1:
 	git commit -m "Загрузили данные и шаблон"
 	git push
 
-step5: step4 step5_user1 everybody_pull
+step5: step4 step5u1 everybody_pull
 
 # 6. Все подписывают задания — импорт (кроме ведущего)
 # Проговорить, что надо смотреть изменения на вкладке Files.
 
-step6_user2:
+step6u2:
 	cd $(USER2)
 	git checkout -b user2
 	git apply $(PWD)/06u2.patch
@@ -96,7 +96,7 @@ step6_user2:
 	git push -u --force origin user2
 	gh pr create --title "Подписал задания" --body ""
 
-step6_user3:
+step6u3:
 	cd $(USER3)
 	git checkout -b user3
 	git apply $(PWD)/06u3.patch
@@ -105,7 +105,7 @@ step6_user3:
 	git push -u --force origin user3
 	gh pr create --title "Подписал задания" --body ""
 
-step6_user4:
+step6u4:
 	cd $(USER4)
 	git checkout -b user4
 	git apply $(PWD)/06u4.patch
@@ -114,20 +114,20 @@ step6_user4:
 	git push -u --force origin user4
 	gh pr create --title "Подписал задания" --body ""
 
-step6_user1:
+step6u1:
 	cd $(USER1)
 	gh pr merge --merge user2
 	gh pr merge --merge user3
 	gh pr merge --merge user4
 
-step6: step5 step6_user2 step6_user3 step6_user4 step6_user1 everybody_pull
+step6: step5 step6u2 step6u3 step6u4 step6u1 everybody_pull
 
 # 7. Каждый делает по заданию — импорт (кроме ведущего)
 # Проговорить, что надо не только смотреть изменения, но и делать чекаут.
 # TODO: где-то Дима должен будет сделать push, а я checkout, чтобы показать как это работает
 # TODO: еще бы координатор повзаимодействовал с исполнителем
 
-step7_user2:
+step7u2:
 	cd $(USER2)
 	git checkout -b dm
 	git apply $(PWD)/07u2.patch
@@ -136,7 +136,7 @@ step7_user2:
 	git push -u --force origin dm
 	gh pr create --title "Импортировал демографические данные" --body ""
 
-step7_user3:
+step7u3:
 	cd $(USER3)
 	git checkout -b vs
 	git apply $(PWD)/07u3.patch
@@ -145,7 +145,7 @@ step7_user3:
 	git push -u --force origin vs
 	gh pr create --title "Импортировал vs" --body ""
 
-step7_user4:
+step7u4:
 	cd $(USER4)
 	git checkout -b lb
 	git apply $(PWD)/07u4.patch
@@ -154,17 +154,17 @@ step7_user4:
 	git push -u --force origin lb
 	gh pr create --title "Импортировал лабораторные измерения lb" --body ""
 
-step7_user1:
+step7u1:
 	cd $(USER1)
 	gh pr merge --merge dm
 	gh pr merge --merge vs
 	gh pr merge --merge lb
 
-step7: step6 step7_user2 step7_user3 step7_user4 step7_user1 everybody_pull
+step7: step6 step7u2 step7u3 step7u4 step7u1 everybody_pull
 
 # 8. Ведущий делает join
 
-step8_user1:
+step8u1:
 	cd $(USER1)
 	git checkout -b join
 	git apply $(PWD)/08u1.patch
@@ -174,7 +174,7 @@ step8_user1:
 	gh pr create --title "Объединил данные" --body ""
 	gh pr merge --merge join
 
-step8: step7 step8_user1 everybody_pull
+step8: step7 step8u1 everybody_pull
 
 # 9. Все делают боксплоты (кроме ведущего)
 # TODO:
@@ -182,7 +182,7 @@ step8: step7 step8_user1 everybody_pull
 # Или каждый участник резолвит?
 # TODO: хорошо бы на экране показать как резолвить.
 
-step9_user2:
+step9u2:
 	cd $(USER2)
 	git checkout -b boxplot-temp-sex
 	git apply $(PWD)/09u2.patch
@@ -191,7 +191,7 @@ step9_user2:
 	git push -u --force origin boxplot-temp-sex
 	gh pr create --title "Построил боксплот температуры тела от пола" --body ""
 
-step9_user3:
+step9u3:
 	cd $(USER3)
 	git checkout -b boxplot-temp-actarm
 	git apply $(PWD)/09u3.patch
@@ -200,7 +200,7 @@ step9_user3:
 	git push -u --force origin boxplot-temp-actarm
 	gh pr create --title "Построил боксплот температуры тела от группы" --body ""
 
-step9_user4:
+step9u4:
 	cd $(USER4)
 	git checkout -b boxplot-wbc-actarm
 	git apply $(PWD)/09u4.patch
@@ -211,7 +211,7 @@ step9_user4:
 
 # TODO: у гитхаба инструкция работает не на всех версиях Git
 # на старых нужен fetch
-step9_user1:
+step9u1:
 	cd $(USER1)
 	git fetch
 	gh pr merge --merge boxplot-wbc-actarm
@@ -236,4 +236,4 @@ step9_user1:
 	git push
 	gh pr merge --merge boxplot-temp-sex
 
-step9: step9_user2 step9_user3 step9_user4 step9_user1 everybody_pull
+step9: step8 step9u2 step9u3 step9u4 step9u1 everybody_pull
