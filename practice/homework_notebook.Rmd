@@ -1,0 +1,170 @@
+---
+title: "automatization_notebook"
+author:
+  - User Name 1
+  - User Name 2
+  - User Name 3
+  - User Name 4
+date: "`r Sys.Date()`"
+output: html_document
+---
+
+<!-- TODO: проверить ввод авторов или перенести в конец -->
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+
+library(tidyverse)
+```
+
+В данном задании вы будете использовать датасеты `dm.csv`, `vs.csv` и `lb.xlsx`.
+
+# 1. Чтение и очистка данных
+
+## 1.1. DM (Demographics)
+
+Загрузите датасет `dm.csv` в переменную `dm` и выберите переменные `USUBJID`, `SEX` и `ACTARM`.
+
+Это датасет в широком формате: на каждого субъекта (`USUBJID`) должна приходиться только одна строка.
+Если это не так, исправьте это (может пригодиться функция `distinct`).
+
+```{r}
+dm <- read_csv2("data/raw/mini/dm.csv")
+
+dm <- dm %>%
+  select(USUBJID, SEX, ACTARM)
+
+dm <- dm %>%
+  distinct()
+```
+
+```{r, eval=FALSE}
+dm %>%
+  count(USUBJID) %>%
+  filter(n > 1)
+```
+
+## 1.2. VS (Vital Signs)
+
+Загрузите датасет `vs.csv` в переменную `vs`.
+
+Данные в длинном формате: на каждого субъекта (`USUBJID`) приходится несколько строк с разными измерениями.
+Отфильтруйте измерения температуры на скрининге (`VSTESTCD` равен `TEMP`, `VISTINUM` равен `1`).
+Выберите столбец `USUBJID` и столбец `VSORRES` под именем `TEMP`.
+
+
+```{r}
+vs <- read_csv("data/raw/mini/vs.csv")
+
+vs <- vs %>%
+  filter(VSTESTCD == "TEMP", VISITNUM == 1)
+
+vs <- vs %>%
+  select(USUBJID, TEMP = VSORRES)
+```
+
+Убедитесь, что в итоге на каждого субъекта (`USUBJID`) приходится одна строка.
+
+```{r}
+vs %>%
+  count(USUBJID) %>%
+  filter(n > 1)
+```
+
+## 1.3. LB (Laboratory Test Results)
+
+Загрузите датасет `lb.xlsx` в переменную `lb`;
+
+Данные в длинном формате: на каждого субъекта (`USUBJID`) приходится несколько строк с разными измерениями.
+Отфильтруйте измерения кол-во лейкоцитов на скрининге (`LBTESTCD` равен `WBC`, `VISTINUM` равен `1`).
+Выберите столбец `USUBJID` и столбец `LBORRES` под именем `WBC`.
+
+```{r}
+lb <- readxl::read_excel("data/raw/mini/lb.xlsx")
+
+lb <- lb %>%
+  filter(LBTESTCD == "WBC", VISITNUM == 1)
+
+lb <- lb %>%
+  select(USUBJID, WBC = LBORRES)
+```
+
+Убедитесь, что теперь на каждого субъекта (`USUBJID`) приходится одна строка.
+
+```{r}
+lb %>%
+  count(USUBJID) %>%
+  filter(n > 1)
+```
+
+# 2. Объединение данных
+
+В переменных `dm`, `vs` и `lb` должно быть по 1 строке на 1 субъекта (`USUBJID`).
+Соедините их в один датасет `data` при помощи функции `left_join`.
+
+```{r}
+data <- dm %>%
+  left_join(vs, join_by(USUBJID)) %>%
+  left_join(lb, join_by(USUBJID))
+
+data <- data %>%
+  filter(!is.na(TEMP) & !is.na(WBC))
+```
+
+Убедитесь, что на каждого субъекта (`USUBJID`) приходится одна строка.
+
+```{r}
+data %>%
+  count(USUBJID) %>%
+  filter(n > 1)
+```
+
+# 3. Дальнейшая очистка данных
+
+```{r}
+data <- data %>%
+  mutate(SEX = recode(SEX, "M" = "Male", "F" = "Female"),
+         TEMP = as.numeric(str_replace(TEMP, ",", ".")),
+         WBC = as.numeric(str_replace(WBC, ",", "."))) %>%
+  mutate(TEMP = (TEMP - 32) * 5 / 9)
+```
+
+# 4. Визуализация
+
+<!-- TODO: раскидать очевидней задания -->
+<!-- TODO: написать, что перекодировать в чанке выше -->
+
+1) Постройте боксплот для температуры тела (`TEMP`) в зависимости от пола (`SEX`)
+2) Постройте боксплот для температуры тела (`TEMP`) в зависимости от группы (`ACTARM`)
+3) Постройте боксплот для кол-ва лейкоцитов (`WBC`) в зависимости от группы (`ACTARM`)
+
+```{r}
+ggplot(data, aes(SEX, TEMP)) +
+  geom_boxplot() +
+  labs(y = "Temperature, C")
+
+ggplot(data, aes(ACTARM, TEMP)) +
+  geom_boxplot() +
+  labs(y = "Temperature, C")
+
+ggplot(data, aes(ACTARM, WBC)) +
+  geom_boxplot() +
+  scale_y_log10() +
+  labs(y = "WBC, 10^9/L")
+
+ggplot(data, aes(SEX, fill = ACTARM)) +
+  geom_bar(position = position_dodge())
+```
+
+# Дополнительные задания
+
+1) Перекодируйте пол из кодов в подписи `Male` / `Female`.
+   Постройте столбиковую диаграмму для пола в зависимости от группы (`ACTARM`) в том же чанке, что и боксплоты.
+
+2) Перекодируйте градусы из шкалы Фаренгейта в шкалу Цельсия.
+   Сделайте это в разделе 3, в том же чанке, что и очистка данных.
+   Подпишите оси соответствующих боксплотов.
+
+3) Для боксплота количества лейкоцитов используйте логарифмическую шкалу.
+   Используйте функцию scale_y_log10().
+   Подпишите ось боксплота (единица измерения — 10^9/L).
