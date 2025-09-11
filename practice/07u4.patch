@@ -1,0 +1,20 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index f26d85b..64015ab 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -59,10 +59,13 @@ library(tidyverse)
+ Выберите столбец `USUBJID` и столбец `LBORRES` под именем `WBC`.
+ 
+ ```{r}
++lb <- readxl::read_excel("data/raw/mini/lb.xlsx")
+ 
+-# выполняет user4
+-# ветка lb
++lb <- lb %>%
++  filter(LBTESTCD == "WBC", VISITNUM == 1)
+ 
++lb <- lb %>%
++  select(USUBJID, WBC = LBORRES)
+ ```
+ 
+ Убедитесь, что теперь на каждого субъекта (`USUBJID`) приходится одна строка.

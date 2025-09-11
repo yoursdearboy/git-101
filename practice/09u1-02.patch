@@ -1,0 +1,39 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index 3201a45..50233c8 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -96,13 +96,8 @@ data <- data %>%
+ 
+ ```{r}
+ data <- data %>%
+-<<<<<<< HEAD
+-  mutate(TEMP = parse_number(str_replace(TEMP, ",", ".")),
+-         WBC = WBC)
+-=======
+   mutate(TEMP = as.numeric(str_replace(TEMP, ",", ".")),
+          WBC = as.numeric(str_replace(WBC, ",", ".")))
+->>>>>>> main
+ ```
+ 
+ # 4. Визуализация
+@@ -113,11 +108,10 @@ data <- data %>%
+ 
+ ```{r}
+ 
+-<<<<<<< HEAD
+ ggplot(data, aes(SEX, TEMP)) +
+   geom_boxplot() +
+   labs(y = "Temperature, C")
+-=======
++
+ ggplot(data, aes(ACTARM, TEMP)) +
+   geom_boxplot() +
+   labs(y = "Temperature, C")
+@@ -126,7 +120,6 @@ ggplot(data, aes(ACTARM, WBC)) +
+   geom_boxplot() +
+   scale_y_log10() +
+   labs(y = "WBC, 10^9/L")
+->>>>>>> main
+ 
+ ```
+ 

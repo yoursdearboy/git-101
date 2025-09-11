@@ -1,0 +1,20 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index b529b70..1f790ec 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -82,10 +82,12 @@ lb <- lb %>%
+ Соедините их в один датасет `data` при помощи функции `left_join`.
+ 
+ ```{r}
++data <- dm %>%
++  left_join(vs, join_by(USUBJID)) %>%
++  left_join(lb, join_by(USUBJID))
+ 
+-# выполняет ведущий
+-# ветка join
+-
++data <- data %>%
++  filter(!is.na(TEMP) & !is.na(WBC))
+ ```
+ 
+ Убедитесь, что на каждого субъекта (`USUBJID`) приходится одна строка.

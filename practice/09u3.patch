@@ -1,0 +1,27 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index 1f790ec..aa3b322 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -96,7 +96,7 @@ data <- data %>%
+ 
+ ```{r}
+ data <- data %>%
+-  mutate(TEMP = TEMP,
++  mutate(TEMP = as.numeric(str_replace(TEMP, ",", ".")),
+          WBC = WBC)
+ ```
+ 
+@@ -108,9 +108,10 @@ data <- data %>%
+ 
+ ```{r}
+ 
+-# ветка boxplot-temp-sex
+-# ветка boxplot-temp-actarm
+-# ветка boxplot-wbc-actarm
++ggplot(data, aes(ACTARM, TEMP)) +
++  geom_boxplot() +
++  labs(y = "Temperature, C")
++
+ 
+ ```
+ 
