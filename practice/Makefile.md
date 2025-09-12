@@ -21,6 +21,7 @@ pre {
 ```sh
 FILES=$(pwd)
 ASSETS=$(pwd)/assets
+ASSETS2=$(pwd)/assets2
 ROOT=/tmp/practice
 REMOTE=https://github.com/yoursdearboy/automation_homework.git
 GITHUB=https://github.com/yoursdearboy/automation_homework
@@ -366,6 +367,24 @@ gh pr merge --merge boxplot-wbc-actarm
 ```
 
 **👮‍♂️👷‍♂️ ВСЕ** делают pull.
+
+```sh
+everybody_pull
+```
+
+# Дома
+
+```sh
+cd $USER1
+git checkout -b data
+cp $ASSETS2/data/raw/* data/raw/
+cp $ASSETS2/homework_notebook.Rmd homework_notebook.Rmd
+git add .
+git commit -m "Обновил файлы для домашнего задания"
+git push -u --force origin data
+gh pr create --title "Обновил файлы для домашнего задания" --body ""
+gh pr merge --merge data
+```
 
 ```sh
 everybody_pull
