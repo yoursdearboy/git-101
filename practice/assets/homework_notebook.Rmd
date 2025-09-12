@@ -94,9 +94,7 @@ data <- data %>%
 
 ```{r}
 # ветка boxplot-temp-sex
-
 # ветка boxplot-temp-actarm
-
 # ветка boxplot-wbc-actarm
 ```
 

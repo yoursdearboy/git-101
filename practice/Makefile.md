@@ -341,29 +341,29 @@ gh pr create --title "Построил боксплот кол-ва лейкоц
 <!-- на старых нужен fetch -->
 
 ```sh
-cd $USER1
-git fetch
-gh pr merge --merge boxplot-wbc-actarm
-# резолвим boxplot-temp-actarm
-git checkout main
-git pull origin main
-git checkout boxplot-temp-actarm
-git merge main
-git apply $FILES/09u1-01.patch
-git add .
-git commit -m "Resolved conflicts"
-git push
-gh pr merge --merge boxplot-temp-actarm
-# резолвим второй PR
-git checkout main
-git pull origin main
-git checkout boxplot-temp-sex
-git merge main || true
-git apply $FILES/09u1-02.patch
-git add .
-git commit -m "Resolved conflicts"
-git push
-gh pr merge --merge boxplot-temp-sex
+# cd $USER1
+# git fetch
+# gh pr merge --merge boxplot-temp-sex
+# # резолвим boxplot-temp-actarm
+# git checkout main
+# git pull origin main
+# git checkout boxplot-temp-actarm
+# git merge main
+# git apply $FILES/09u1-01.patch
+# git add .
+# git commit -m "Resolved conflicts"
+# git push
+# gh pr merge --merge boxplot-temp-actarm
+# # резолвим второй PR
+# git checkout main
+# git pull origin main
+# git checkout boxplot-temp-sex
+# git merge main || true
+# git apply $FILES/09u1-02.patch
+# git add .
+# git commit -m "Resolved conflicts"
+# git push
+# gh pr merge --merge boxplot-temp-sex
 ```
 
 **👮‍♂️👷‍♂️ ВСЕ** делают pull.

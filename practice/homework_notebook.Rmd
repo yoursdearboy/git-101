@@ -21,7 +21,7 @@ library(tidyverse)
 Это датасет в широком формате: на каждого субъекта (`USUBJID`) должна приходиться только одна строка.
 
 ```{r}
-dm <- read_csv2("data/raw/mini/dm.csv")
+dm <- read_csv2("data/raw/dm.csv")
 
 dm <- dm %>%
   select(USUBJID, SEX, ACTARM)
@@ -43,7 +43,7 @@ dm %>%
 Выберите столбец `USUBJID` и столбец `VSORRES` под именем `TEMP`.
 
 ```{r}
-vs <- read_csv("data/raw/mini/vs.csv")
+vs <- read_csv("data/raw/vs.csv")
 
 vs <- vs %>%
   filter(VSTESTCD == "TEMP", VISITNUM == 1)
@@ -70,7 +70,7 @@ vs %>%
 Выберите столбец `USUBJID` и столбец `LBORRES` под именем `WBC`.
 
 ```{r}
-lb <- readxl::read_excel("data/raw/mini/lb.xlsx")
+lb <- readxl::read_excel("data/raw/lb.xlsx")
 
 lb <- lb %>%
   filter(LBTESTCD == "WBC", VISITNUM == 1)
