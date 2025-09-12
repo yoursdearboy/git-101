@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>Глава 21 Webhooks | Основы Git</title>
+<meta name="author" content="Kirill Voronin">
+<meta name="description" content="Webhooks — это механизм GitHub для реагирования на события в репозитории. Когда что-то происходит (например, кто-то сделал push или создал Pull Request), GitHub отправит информацию о событии на...">
+<meta name="generator" content="bookdown 0.43 with bs4_book()">
+<meta property="og:title" content="Глава 21 Webhooks | Основы Git">
+<meta property="og:type" content="book">
+<meta property="og:url" content="https://yoursdearboy.github.io/git-101/webhooks.html">
+<meta property="og:description" content="Webhooks — это механизм GitHub для реагирования на события в репозитории. Когда что-то происходит (например, кто-то сделал push или создал Pull Request), GitHub отправит информацию о событии на...">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Глава 21 Webhooks | Основы Git">
+<meta name="twitter:description" content="Webhooks — это механизм GitHub для реагирования на события в репозитории. Когда что-то происходит (например, кто-то сделал push или создал Pull Request), GitHub отправит информацию о событии на...">
+<!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
+    
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+  </style>
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-spy="scroll" data-target="#toc">
+
+<div class="container-fluid">
+<div class="row">
+  <header class="col-sm-12 col-lg-3 sidebar sidebar-book"><a class="sr-only sr-only-focusable" href="#content">Skip to main content</a>
+
+    <div class="d-flex align-items-start justify-content-between">
+      <h1>
+        <a href="index.html" title="">Основы Git</a>
+      </h1>
+      <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Показать содержание</span></button>
+    </div>
+
+    <div id="main-nav" class="collapse-lg">
+      <form role="search">
+        <input id="search" class="form-control" type="search" placeholder="Search" aria-label="Search">
+</form>
+
+      <nav aria-label="Содержание"><h2>Содержание</h2>
+        <ul class="book-toc list-unstyled"><li><a class="" href="index.html"><span class="header-section-number">Глава 21</span> Webhooks</a></li></ul>
+
+        <div class="book-extra">
+          <p><a id="book-repo" href="https://github.com/yoursdearboy/git-101">Исходный код<i class="fab fa-github"></i></a></p>
+        </div>
+      </nav>
+</div>
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="webhooks" class="section level1" number="21">
+<h1>
+<span class="header-section-number">Глава 21</span> Webhooks<a class="anchor" aria-label="anchor" href="#webhooks"><i class="fas fa-link"></i></a>
+</h1>
+<p>Webhooks — это механизм GitHub для реагирования на события в репозитории.
+Когда что-то происходит (например, кто-то сделал push или создал Pull Request),
+GitHub отправит информацию о событии на указанный в настройках адрес.</p>
+<p>Для обработки событий по указанному адресу должна работать программа (веб-сервер).
+Многие сервисы, например Slack или Microsoft Teams, поддерживают таким образом отправку уведомлений в рабочий чат.
+Для Telegram можно воспользоваться ботом <a href="https://t.me/octo8bot"><span class="citation"><a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;&lt;strong&gt;octo8bot?&lt;/strong&gt;&lt;/p&gt;"><sup>1</sup></a></span></a>.</p>
+<p>Добавьте бота в чат и скопируйте присланный им адрес.</p>
+<div class="inline-figure"><img src="img/05-03-add-bot.png" width="400"></div>
+<p>Откройте репозиторий на Github и выберите <strong>Settings → Webhooks → Add webhook</strong>.
+Вставьте адрес в поле <strong>Payload URL</strong> и заполните форму как на скриншоте ниже.
+Нажмите <strong>Add webhook</strong>.</p>
+<div class="inline-figure"><img src="img/05-03-github.png" style="width:100.0%"></div>
+<p>Если webhook настроен правильно, в чат придет сообщение с текстом «Successfully installed».</p>
+
+</div>
+
+
+
+
+
+
+
+  <div class="chapter-nav">
+<div class="empty"></div>
+<div class="empty"></div>
+</div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
+    <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
+      <div id="book-on-this-page"></div>
+
+      <div class="book-extra">
+        <ul class="list-unstyled">
+          
+        </ul>
+</div>
+    </nav>
+</div>
+
+</div>
+</div> <!-- .container -->
+
+<footer class="mt-3"><div class="container"><div class="row">
+
+  <div class="col-12 col-md-6 mt-3">
+    <p>This book was built by the <a href="https://bookdown.org">bookdown</a> R package.</p>
+  </div>
+
+</div></div>
+</footer><!-- Cloudflare Web Analytics --><script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "afdb80068f6f4b6687d55d834b10fc4f"}'></script><!-- End Cloudflare Web Analytics -->
+</body>
+</html>
