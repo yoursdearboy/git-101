@@ -51,6 +51,10 @@ everybody_pull() {
     cd $USER3 && git checkout main && git pull
     cd $USER4 && git checkout main && git pull
 }
+
+rmarkdown_render() {
+    R -e "rmarkdown::render('homework_notebook.Rmd')"
+}
 ```
 
 # 0. Перед занятием
@@ -85,8 +89,7 @@ everybody_pull() {
 
 **👮‍♂️ КООРДИНАТОР**
 
-automation_homework
-<!-- TODO: Куда-то написать, чтобы они скопировали. -->
+Написать в чат, чтобы никто не ошибся: `automation_homework`
 
 ```sh
 unzip $ASSETS/project.zip -d $ROOT
@@ -182,6 +185,7 @@ everybody_pull
 cd $USER2
 git checkout -b user2
 git apply $FILES/06u2.patch
+# rmarkdown_render не выйдет - хорошо
 git add .
 git commit -m "Подписал задания"
 git push -u --force origin user2
@@ -192,6 +196,7 @@ gh pr create --title "Подписал задания" --body ""
 cd $USER3
 git checkout -b user3
 git apply $FILES/06u3.patch
+# rmarkdown_render не выйдет - хорошо
 git add .
 git commit -m "Подписал задания"
 git push -u --force origin user3
@@ -202,6 +207,7 @@ gh pr create --title "Подписал задания" --body ""
 cd $USER4
 git checkout -b user4
 git apply $FILES/06u4.patch
+# rmarkdown_render не выйдет - хорошо
 git add .
 git commit -m "Подписал задания"
 git push -u --force origin user4
@@ -237,6 +243,7 @@ everybody_pull
 cd $USER2
 git checkout -b dm
 git apply $FILES/07u2.patch
+# rmarkdown_render не выйдет - хорошо
 git add .
 git commit -m "Импортировал демографические данные"
 git push -u --force origin dm
@@ -247,6 +254,7 @@ gh pr create --title "Импортировал демографические д
 cd $USER3
 git checkout -b vs
 git apply $FILES/07u3.patch
+# rmarkdown_render не выйдет - хорошо
 git add .
 git commit -m "Импортировал vs"
 git push -u --force origin vs
@@ -257,6 +265,7 @@ gh pr create --title "Импортировал vs" --body ""
 cd $USER4
 git checkout -b lb
 git apply $FILES/07u4.patch
+# rmarkdown_render не выйдет - хорошо
 git add .
 git commit -m "Импортировал лабораторные измерения lb"
 git push -u --force origin lb
@@ -278,12 +287,14 @@ everybody_pull
 
 # 5. Объединение данных
 
-**👮‍♂️ КООРДИНАТОР** делает ВЕТКУ с join и `filter(!is.na())`
+**👮‍♂️ КООРДИНАТОР** делает ВЕТКУ с join и `filter(!is.na())` и **‼️ нитит Rmd**
+Сказать, что Rmd надо нитить — это best practices
 
 ```sh
 cd $USER1
 git checkout -b join
 git apply $FILES/08u1.patch
+rmarkdown_render
 git add .
 git commit -m "Объединил данные"
 git push -u --force origin join
@@ -299,7 +310,7 @@ everybody_pull
 
 # 6. Визуализация
 
-**👷‍♂️ УЧАСТНИКИ** делают свои задания в ветках.  
+**👷‍♂️ УЧАСТНИКИ** делают свои задания в ветках и **‼️ нитят Rmd**.  
 Сначала сливаю свой, потом Димы.
 
 **👮‍♂️ КООРДИНАТОР** их сливает, резолвя конфликты.
@@ -309,6 +320,7 @@ everybody_pull
 cd $USER2
 git checkout -b boxplot-temp-sex
 git apply $FILES/09u2.patch
+rmarkdown_render
 git add .
 git commit -m "Построил боксплот температуры тела от пола"
 git push -u --force origin boxplot-temp-sex
@@ -319,6 +331,7 @@ gh pr create --title "Построил боксплот температуры �
 cd $USER3
 git checkout -b boxplot-temp-actarm
 git apply $FILES/09u3.patch
+rmarkdown_render
 git add .
 git commit -m "Построил боксплот температуры тела от группы"
 git push -u --force origin boxplot-temp-actarm
@@ -330,6 +343,7 @@ cd $USER4
 git checkout -b boxplot-wbc-actarm
 git apply $FILES/09u4.patch
 git add .
+rmarkdown_render
 git commit -m "Построил боксплот кол-ва лейкоцитов от группы"
 git push -u --force origin boxplot-wbc-actarm
 gh pr create --title "Построил боксплот кол-ва лейкоцитов от группы" --body ""
@@ -350,6 +364,7 @@ git pull && git fetch
 git checkout boxplot-temp-actarm
 git merge main || true
 git apply $FILES/09u1-01.patch
+rmarkdown_render
 git add .
 git commit -m "Разрешил конфликты"
 git push
@@ -360,6 +375,7 @@ git pull && git fetch
 git checkout boxplot-wbc-actarm
 git merge main || true
 git apply $FILES/09u1-02.patch
+rmarkdown_render
 git add .
 git commit -m "Разрешил конфликты"
 git push
