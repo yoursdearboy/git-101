@@ -2,11 +2,11 @@ diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
 index f26d85b..754131c 100644
 --- a/homework_notebook.Rmd
 +++ b/homework_notebook.Rmd
-@@ -42,10 +42,13 @@ library(tidyverse)
+@@ -37,10 +37,13 @@ library(tidyverse)
  Выберите столбец `USUBJID` и столбец `VSORRES` под именем `TEMP`.
  
  ```{r}
-+vs <- read_csv("data/raw/mini/vs.csv")
++vs <- read_csv("data/raw/vs.csv")
  
 -# выполняет user3
 -# ветка vs
@@ -17,4 +17,4 @@ index f26d85b..754131c 100644
 +  select(USUBJID, TEMP = VSORRES)
  ```
  
- Убедитесь, что в итоге на каждого субъекта (`USUBJID`) приходится одна строка.
+ Убедитесь, что в результате на каждого субъекта (`USUBJID`) приходится только одна строка.

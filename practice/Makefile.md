@@ -36,7 +36,7 @@ USER4=$ROOT/user4
 ```sh
 rm -fr $ROOT
 mkdir -p $ROOT
-# gh repo delete $GITHUB
+gh repo delete $GITHUB
 ```
 
 # Полезные функции
@@ -298,14 +298,11 @@ everybody_pull
 
 # 6. Визуализация
 
-<!-- TODO: -->
-<!-- Ведущий резолвит конфликты? -->
-<!-- Или каждый участник резолвит? -->
-
 **👷‍♂️ УЧАСТНИКИ** делают свои задания в ветках.  
 Сначала сливаю свой, потом Димы.
 
 **👮‍♂️ КООРДИНАТОР** их сливает, резолвя конфликты.
+Сказать, что это обычный бранч и конфликты резолвить могут и **👷‍♂️ УЧАСТНИКИ** — по такой же схеме: делая `merge main`.
 
 ```sh
 cd $USER2
@@ -337,33 +334,35 @@ git push -u --force origin boxplot-wbc-actarm
 gh pr create --title "Построил боксплот кол-ва лейкоцитов от группы" --body ""
 ```
 
-<!-- TODO: у гитхаба инструкция работает не на всех версиях Git -->
-<!-- на старых нужен fetch -->
+Переключаемся на `main`.
+Делаем `pull` — RStudio сделает и `fetch`.
+Переключается на `branch-name`.
+Делаем в терминале `git merge main`.
+`commit`, `push`, мерджим PR.
 
 ```sh
-# cd $USER1
-# git fetch
-# gh pr merge --merge boxplot-temp-sex
-# # резолвим boxplot-temp-actarm
-# git checkout main
-# git pull origin main
-# git checkout boxplot-temp-actarm
-# git merge main
-# git apply $FILES/09u1-01.patch
-# git add .
-# git commit -m "Resolved conflicts"
-# git push
-# gh pr merge --merge boxplot-temp-actarm
-# # резолвим второй PR
-# git checkout main
-# git pull origin main
-# git checkout boxplot-temp-sex
-# git merge main || true
-# git apply $FILES/09u1-02.patch
-# git add .
-# git commit -m "Resolved conflicts"
-# git push
-# gh pr merge --merge boxplot-temp-sex
+cd $USER1
+gh pr merge --merge boxplot-temp-sex
+# резолвим boxplot-temp-actarm
+git checkout main
+git pull && git fetch
+git checkout boxplot-temp-actarm
+git merge main || true
+git apply $FILES/09u1-01.patch
+git add .
+git commit -m "Разрешил конфликты"
+git push
+gh pr merge --merge boxplot-temp-actarm
+# резолвим boxplot-wbc-actarm
+git checkout main
+git pull && git fetch
+git checkout boxplot-wbc-actarm
+git merge main || true
+git apply $FILES/09u1-02.patch
+git add .
+git commit -m "Разрешил конфликты"
+git push
+gh pr merge --merge boxplot-wbc-actarm
 ```
 
 **👮‍♂️👷‍♂️ ВСЕ** делают pull.

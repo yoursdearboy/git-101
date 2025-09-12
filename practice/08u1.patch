@@ -2,8 +2,8 @@ diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
 index b529b70..1f790ec 100644
 --- a/homework_notebook.Rmd
 +++ b/homework_notebook.Rmd
-@@ -82,10 +82,12 @@ lb <- lb %>%
- Соедините их в один датасет `data` при помощи функции `left_join`.
+@@ -77,10 +77,12 @@ lb <- lb %>%
+ Уберите строки с пропущенными данными в столбцах `TEMP` и `WBC`.
  
  ```{r}
 +data <- dm %>%
@@ -17,4 +17,4 @@ index b529b70..1f790ec 100644
 +  filter(!is.na(TEMP) & !is.na(WBC))
  ```
  
- Убедитесь, что на каждого субъекта (`USUBJID`) приходится одна строка.
+ # 3. Дальнейшая очистка данных

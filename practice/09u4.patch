@@ -1,27 +1,25 @@
 diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
-index 1f790ec..6038988 100644
+index 1f790ec..aa3b322 100644
 --- a/homework_notebook.Rmd
 +++ b/homework_notebook.Rmd
-@@ -97,7 +97,7 @@ data <- data %>%
- ```{r}
+@@ -91,7 +91,7 @@ data <- data %>%
+ # перекодирование данных здесь
+ 
  data <- data %>%
-   mutate(TEMP = TEMP,
--         WBC = WBC)
-+         WBC = as.numeric(str_replace(WBC, ",", ".")))
+-  mutate()
++  mutate(WBC = as.numeric(str_replace(WBC, ",", ".")))
  ```
  
  # 4. Визуализация
-@@ -108,9 +108,10 @@ data <- data %>%
+@@ -105,9 +105,8 @@ data <- data %>%
+ ‼️ Перекодирование данных выполните в общем чанке в главе 3 выше.
  
  ```{r}
- 
 -# ветка boxplot-temp-sex
 -# ветка boxplot-temp-actarm
 -# ветка boxplot-wbc-actarm
 +ggplot(data, aes(ACTARM, WBC)) +
-+  geom_boxplot() +
-+  scale_y_log10() +
-+  labs(y = "WBC, 10^9/L")
- 
++  geom_boxplot()
  ```
  
+ # Дополнительные задания
