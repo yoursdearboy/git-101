@@ -363,6 +363,9 @@ font-size: 20pt;
 h2 {
 font-size: 16pt;
 }
+pre {
+font-size: 9pt;
+}
 </style>
 <pre class="sh"><code>FILES=$(pwd)
 ASSETS=$(pwd)/assets
@@ -378,11 +381,11 @@ USER4=$ROOT/user4</code></pre>
 <h1>Сетап</h1>
 <pre class="sh"><code>rm -fr $ROOT
 mkdir -p $ROOT
-gh repo delete --yes $GITHUB</code></pre>
+# gh repo delete $GITHUB</code></pre>
 </div>
 <div id="полезные-функции" class="section level1">
 <h1>Полезные функции</h1>
-<p><strong>Периодически все синкаются, для практики, в том числе
+<p><strong>Периодически все синкаются, в том числе
 координатор.</strong></p>
 <pre class="sh"><code>everybody_pull() {
     cd $USER1 &amp;&amp; git checkout main &amp;&amp; git pull
@@ -410,7 +413,16 @@ gh repo delete --yes $GITHUB</code></pre>
 <li>Презентация — рефрешер и бест практисес.</li>
 <li>Перерыв 5-10 минут, я отвечаю на вопросы, Наташа раскидывает по
 комнатам.</li>
-<li>Практика.</li>
+<li>Практика. Объяснить правила:
+<ol style="list-style-type: decimal">
+<li>сначала я рассказываю, что нужно будет сделать</li>
+<li>показываю как сделать</li>
+<li>вы выполняете</li>
+<li>если будут проблемы, тэгайте в своем чате меня и Диму, в идеале с
+сообщением / скриншотом ошибки и мы зайдем в эту комнату если нужно
+повторить, то тоже тэгните в чате</li>
+<li>сказать, кто такой координатор.</li>
+</ol></li>
 </ol>
 </div>
 <div id="инициализируем-проект" class="section level1">
@@ -418,6 +430,8 @@ gh repo delete --yes $GITHUB</code></pre>
 <div id="создаем-проект" class="section level2">
 <h2>1.1 Создаем проект</h2>
 <p><strong>👮‍♂️ КООРДИНАТОР</strong></p>
+<p>automation_homework
+<!-- TODO: Куда-то написать, чтобы они скопировали. --></p>
 <pre class="sh"><code>unzip $ASSETS/project.zip -d $ROOT</code></pre>
 </div>
 <div id="коммитим-проект" class="section level2">
@@ -426,40 +440,38 @@ gh repo delete --yes $GITHUB</code></pre>
 <pre class="sh"><code>cd $USER1
 git add .
 git commit -m &quot;Создали проект R&quot;</code></pre>
+<p><strong>➕ ПЛЮСИКИ</strong></p>
 </div>
-<div id="создаем-приватный-репозиторий" class="section level2">
-<h2>1.3. Создаем ПРИВАТНЫЙ репозиторий</h2>
-<p><strong>👮‍♂️ КООРДИНАТОР</strong></p>
+<div id="создаем-репозиторий" class="section level2">
+<h2>1.3. Создаем репозиторий</h2>
+<p><strong>👮‍♂️🌐 КООРДИНАТОР</strong> создает ПРИВАТНЫЙ репозиторий.</p>
 <pre class="sh"><code>cd $USER1
 gh repo create --private $GITHUB</code></pre>
-<p>Пушим туда сделанный коммит.</p>
+<p><strong>👮‍♂️🌐 КООРДИНАТОР</strong> добавляет участников в репу.<br />
+Я добавлю Диму <code>Dmitrii-Belousov</code>. Они добавляют нас обоих
+<code>yoursdearboy</code>.</p>
+<p><strong>👷‍♂️🌐 УЧАСТНИКИ</strong> принимают инвайты.<br />
+Обратить внимание координаторов на то, чтобы инвайты были приняты.</p>
+<p><strong>➕ ПРОВЕРИТЬ РЕПЫ</strong></p>
+</div>
+<div id="пушим-и-клонируем-проект" class="section level2">
+<h2>1.4. Пушим и клонируем проект</h2>
+<p><strong>👮‍♂️🌐 КООРДИНАТОР</strong> пушит сделанный коммит.</p>
 <pre class="sh"><code>cd $USER1
 git remote add origin $REMOTE
 git branch -M main
 git push -u --force origin main</code></pre>
-</div>
-<div id="клонируем-репозиторий" class="section level2">
-<h2>1.4. Клонируем репозиторий</h2>
-<p><strong>👮‍♂️ КООРДИНАТОР</strong></p>
-<p>Добавляем участников в репу. Я добавлю Диму
-<code>Dmitrii-Belousov</code>. Они добавляют и Диму и меня
-<code>yoursdearboy</code>.</p>
-<!-- TODO: Или сначала добавляем, а потом пушим? -->
-<p>Обратить внимание координаторов на то, чтобы инвайты были
-приняты.</p>
-<p><strong>👷‍♂️ УЧАСТНИКИ</strong></p>
-<p>Клонируем.</p>
-<p>Показываю как клонировать.</p>
+<p><strong>👷‍♂️🌐 УЧАСТНИКИ</strong> клонируют.</p>
 <pre class="sh"><code>git clone $REMOTE $USER2
 git clone $REMOTE $USER3
 git clone $REMOTE $USER4</code></pre>
+<p><strong>➕ ПЛЮСИКИ</strong></p>
 </div>
 </div>
 <div id="добавляем-данные-и-шаблон" class="section level1">
 <h1>2. Добавляем данные и шаблон</h1>
-<p><strong>👮‍♂️ КООРДИНАТОР</strong></p>
-<p>Файлы берем с гугл диска. Делаем push, чтобы пока ведущий импортирует
-данные, у остальных было время сделать pull.</p>
+<p><strong>👮‍♂️ КООРДИНАТОР</strong> commit, push.<br />
+Файлы берем с гугл диска.</p>
 <pre class="sh"><code>cd $USER1
 mkdir -p data/raw
 cp $ASSETS/data/raw/* data/raw/
@@ -467,18 +479,20 @@ cp $ASSETS/homework_notebook.Rmd homework_notebook.Rmd
 git add .
 git commit -m &quot;Загрузили данные и шаблон&quot;
 git push</code></pre>
-<p><strong>👷‍♂️ УЧАСТНИКИ</strong></p>
-<p>Далем pull. После каждого этапа мы будем возвращаться к ветке
-<code>main</code> и делать pull.</p>
+<p><strong>👷‍♂️ УЧАСТНИКИ</strong> pull.</p>
 <pre class="sh"><code>everybody_pull</code></pre>
+<p>Сказать, что после каждого этапа мы будем возвращаться к ветке
+<code>main</code> и делать pull.</p>
+<p><strong>➕ ПЛЮСИКИ</strong></p>
+<p>Открываем Rmd и рассказываю про содержимое.</p>
 </div>
 <div id="подписываем-задания-для-импорта" class="section level1">
 <h1>3. Подписываем задания для импорта</h1>
 <p><strong>👷‍♂️ УЧАСТНИКИ</strong> создают ветку со своим именем,
-подписывают в чанке задание, делают пуш и PR.</p>
-<p><strong>👮‍♂️ КООРДИНАТОР</strong> их сливает. Проговорить, что надо
-смотреть изменения на вкладке Files.</p>
-<p><strong>👮‍♂️👷‍♂️ ВСЕ</strong> делают pull.</p>
+подписывают в чанке задание, делают пуш и PR.<br />
+Я беру <code>dm</code>, Дима берет <code>vs</code>.</p>
+<p><strong>👮‍♂️ КООРДИНАТОР</strong> их сливает.<br />
+Проговорить, что надо смотреть изменения на вкладке Files.</p>
 <pre class="sh"><code>cd $USER2
 git checkout -b user2
 git apply $FILES/06u2.patch
@@ -506,13 +520,15 @@ gh pr merge --merge user3
 gh pr merge --merge user4</code></pre>
 <p><strong>👮‍♂️👷‍♂️ ВСЕ</strong> делают pull.</p>
 <pre class="sh"><code>everybody_pull</code></pre>
+<p><strong>➕ ПЛЮСИКИ</strong></p>
 </div>
-<div id="каждый-делает-по-заданию-импорт-кроме-ведущего" class="section level1">
-<h1>4. Каждый делает по заданию — импорт (кроме ведущего)</h1>
-<p>Проговорить, что надо не только смотреть изменения, но и делать
-чекаут.</p>
-<!-- TODO: где-то Дима должен будет сделать push, а я checkout, чтобы показать как это работает -->
-<!-- TODO: еще бы координатор повзаимодействовал с исполнителем -->
+<div id="импорт-данных" class="section level1">
+<h1>4. Импорт данных</h1>
+<p><strong>👷‍♂️ УЧАСТНИКИ</strong> делают свои задания в ветках.<br />
+Дима делает намеренно ошибку.</p>
+<p><strong>👮‍♂️ КООРДИНАТОР</strong> их сливает.<br />
+Проговорить, что надо не только смотреть изменения, но и делать чекаут.
+Я нахожу ошибку, прошу исправить. Делаю pull, все ок, merge.</p>
 <pre class="sh"><code>cd $USER2
 git checkout -b dm
 git apply $FILES/07u2.patch
@@ -538,10 +554,13 @@ gh pr create --title &quot;Импортировал лабораторные и�
 gh pr merge --merge dm
 gh pr merge --merge vs
 gh pr merge --merge lb</code></pre>
+<p><strong>👮‍♂️👷‍♂️ ВСЕ</strong> делают pull.</p>
 <pre class="sh"><code>everybody_pull</code></pre>
 </div>
-<div id="ведущий-делает-join" class="section level1">
-<h1>5. Ведущий делает join</h1>
+<div id="объединение-данных" class="section level1">
+<h1>5. Объединение данных</h1>
+<p><strong>👮‍♂️ КООРДИНАТОР</strong> делает ВЕТКУ с join и
+<code>filter(!is.na())</code></p>
 <pre class="sh"><code>cd $USER1
 git checkout -b join
 git apply $FILES/08u1.patch
@@ -550,14 +569,17 @@ git commit -m &quot;Объединил данные&quot;
 git push -u --force origin join
 gh pr create --title &quot;Объединил данные&quot; --body &quot;&quot;
 gh pr merge --merge join</code></pre>
+<p><strong>👮‍♂️👷‍♂️ ВСЕ</strong> делают pull.</p>
 <pre class="sh"><code>everybody_pull</code></pre>
 </div>
-<div id="все-делают-боксплоты-кроме-ведущего" class="section level1">
-<h1>6. Все делают боксплоты (кроме ведущего)</h1>
+<div id="визуализация" class="section level1">
+<h1>6. Визуализация</h1>
 <!-- TODO: -->
 <!-- Ведущий резолвит конфликты? -->
 <!-- Или каждый участник резолвит? -->
-<!-- TODO: хорошо бы на экране показать как резолвить. -->
+<p><strong>👷‍♂️ УЧАСТНИКИ</strong> делают свои задания в ветках.<br />
+Сначала сливаю свой, потом Димы.</p>
+<p><strong>👮‍♂️ КООРДИНАТОР</strong> их сливает, резолвя конфликты.</p>
 <pre class="sh"><code>cd $USER2
 git checkout -b boxplot-temp-sex
 git apply $FILES/09u2.patch
@@ -604,6 +626,7 @@ git add .
 git commit -m &quot;Resolved conflicts&quot;
 git push
 gh pr merge --merge boxplot-temp-sex</code></pre>
+<p><strong>👮‍♂️👷‍♂️ ВСЕ</strong> делают pull.</p>
 <pre class="sh"><code>everybody_pull</code></pre>
 </div>
 
