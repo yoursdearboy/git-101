@@ -36,3 +36,5 @@ feature-branch
 force-push
 commits-to-branch
 references
+webhooks
+cover-image-path-to-the-social-sharing-image-like-imagescover.jpg
