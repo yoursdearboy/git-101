@@ -1,0 +1,36 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index 3201a45..50233c8 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -91,11 +91,8 @@ data <- data %>%
+ # перекодирование данных здесь
+ 
+ data <- data %>%
+-<<<<<<< HEAD
+-  mutate(WBC = as.numeric(str_replace(WBC, ",", ".")))
+-=======
+-  mutate(TEMP = as.numeric(str_replace(TEMP, ",", ".")))
+->>>>>>> main
++  mutate(WBC = as.numeric(str_replace(WBC, ",", ".")),
++         TEMP = as.numeric(str_replace(TEMP, ",", ".")))
+ ```
+ 
+ # 4. Визуализация
+@@ -109,14 +106,13 @@ data <- data %>%
+ ‼️ Перекодирование данных выполните в общем чанке в главе 3 выше.
+ 
+ ```{r}
+-<<<<<<< HEAD
+-ggplot(data, aes(ACTARM, WBC)) +
+-=======
+ ggplot(data, aes(SEX, TEMP)) +
+   geom_boxplot()
+ 
+ ggplot(data, aes(ACTARM, TEMP)) +
+->>>>>>> main
++  geom_boxplot()
++
++ggplot(data, aes(ACTARM, WBC)) +
+   geom_boxplot()
+ ```
+ 

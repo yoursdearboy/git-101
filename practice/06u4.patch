@@ -1,0 +1,12 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index 7490a42..c9107f3 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -58,6 +58,7 @@ library(tidyverse)
+ 
+ ```{r}
+ 
++# выполняет user4
+ # ветка lb
+ 
+ ```

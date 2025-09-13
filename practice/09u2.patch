@@ -1,0 +1,25 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index 1f790ec..2909b6b 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -91,7 +91,7 @@ data <- data %>%
+ # перекодирование данных здесь
+ 
+ data <- data %>%
+-  mutate()
++  mutate(TEMP = parse_number(str_replace(TEMP, ",", ".")))
+ ```
+ 
+ # 4. Визуализация
+@@ -105,9 +105,8 @@ data <- data %>%
+ ‼️ Перекодирование данных выполните в общем чанке в главе 3 выше.
+ 
+ ```{r}
+-# ветка boxplot-temp-sex
+-# ветка boxplot-temp-actarm
+-# ветка boxplot-wbc-actarm
++ggplot(data, aes(SEX, TEMP)) +
++  geom_boxplot()
+ ```
+ 
+ # Дополнительные задания

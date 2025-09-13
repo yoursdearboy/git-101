@@ -1,0 +1,18 @@
+diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+index f26d85b..e09f293 100644
+--- a/homework_notebook.Rmd
++++ b/homework_notebook.Rmd
+@@ -27,10 +27,11 @@ library(tidyverse)
+ Это датасет в широком формате: на каждого субъекта (`USUBJID`) должна приходиться только одна строка.
+ 
+ ```{r}
++dm <- read_csv2("data/raw/dm.csv")
+ 
+-# выполняет user2
+-# ветка dm
++dm <- dm %>%
++  select(USUBJID, SEX, ACTARM)
+ 
+ ```
+ 
+ ## 1.2. VS (Vital Signs)
