@@ -115,4 +115,4 @@ data <- data %>%
 
 # Домашнее задание
 
-5) Добавьте в чат своей команды телеграм бота [@octo8bot](t.me/octo8bot) и настройте уведомления об изменениях в Pull Request
+5) Добавьте в чат своей команды телеграм бота [@octo8bot](t.me/octo8bot) и настройте уведомления об изменениях в Pull Request. См. инструкцию в курсе по ссылке https://yoursdearboy.github.io/git-101/webhooks.html
