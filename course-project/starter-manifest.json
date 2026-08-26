@@ -1,0 +1,66 @@
+{
+  ".gitignore": {
+    "sha256": "a57247db5f9eae084a417e62d6977d54de690ef16026a773dc2771410d9b90dd",
+    "size": 62
+  },
+  "analysis.qmd": {
+    "sha256": "47a6a626f3ba7943b65c45c36c0cbe26319f74f0415df6d6df6183fd4bf813f2",
+    "size": 1460
+  },
+  "base.R": {
+    "sha256": "ea8717357591f98abf37f4ca76902af4e4dc0b3050dc9ed8b6fe2e61aaa21b50",
+    "size": 202
+  },
+  "coffee.R": {
+    "sha256": "cddb0a7bb8ac3692dc660f715841075e23bf564b318d9ef059e65f9fe35b94b2",
+    "size": 55
+  },
+  "data/data.rds": {
+    "sha256": "96e2953c8c11282cb984551dd5bebc0efbd75ed767ed845598731343677d4d28",
+    "size": 5183
+  },
+  "data/data_csv.csv": {
+    "sha256": "2bc1d926890c6364d0708198e738b3915976a8784aa26d297460cdbc710610b8",
+    "size": 10909
+  },
+  "data/data_csv2.csv": {
+    "sha256": "de4b324352f8ca173cd0a486eba481a1f9fcc2f4762d22dfaf205e141ee37c26",
+    "size": 12973
+  },
+  "data/data_excel.xlsx": {
+    "sha256": "e4a6280d6e9038f18f8b922be81587e27f944e9ec0e686e3080a20adbd0815dc",
+    "size": 19971
+  },
+  "data/data_rds.rds": {
+    "sha256": "ed3d699fd0415427dacb4c3bc23dd49775b51043d86af9e4aaa2278c87e826c1",
+    "size": 11661
+  },
+  "data/data_tsv.tsv": {
+    "sha256": "ad6c18f0977516f7c5ddee689dc6a8df31f46cc083fcbb49128f410ae75d3153",
+    "size": 10314
+  },
+  "data/penguins.csv": {
+    "sha256": "310b5783fe528ad4b7635bad2973b31ed0aafa02619492978bc14bab5c3d7f64",
+    "size": 17242
+  },
+  "out/hist.png": {
+    "sha256": "17adbf4165d1300c52fd228d328b28fcf23c1430c209aaec677b720a603a85c6",
+    "size": 24180
+  },
+  "penguins.R": {
+    "sha256": "50b476daf079ea372edf3e79e8338ad0b5f697e20009af9eeb6e2ac9a9370763",
+    "size": 206
+  },
+  "report.html": {
+    "sha256": "2267e9e1a963017b2f64aae888c0eb6ea444c1f84b100f806cb7c087fb037f92",
+    "size": 1200715
+  },
+  "report.qmd": {
+    "sha256": "f7b86181ea166cbed3e67dcc7cb4317b798592424435330ea80ed8fca2af43f4",
+    "size": 467
+  },
+  "tables.qmd": {
+    "sha256": "fbc78bd8d0c204944c3abd3fa5ecfc3b44e90d74edb5a277f699a4008afec5f9",
+    "size": 937
+  }
+}

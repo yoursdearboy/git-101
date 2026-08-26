@@ -1,19 +1,19 @@
-diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+diff --git a/homework_notebook.qmd b/homework_notebook.qmd
 index b529b70..1f790ec 100644
---- a/homework_notebook.Rmd
-+++ b/homework_notebook.Rmd
-@@ -77,10 +77,12 @@ lb <- lb %>%
+--- a/homework_notebook.qmd
++++ b/homework_notebook.qmd
+@@ -77,10 +77,12 @@ lb <- lb |>
  Уберите строки с пропущенными данными в столбцах `TEMP` и `WBC`.
  
  ```{r}
-+data <- dm %>%
-+  left_join(vs, join_by(USUBJID)) %>%
++data <- dm |>
++  left_join(vs, join_by(USUBJID)) |>
 +  left_join(lb, join_by(USUBJID))
  
 -# выполняет ведущий
 -# ветка join
 -
-+data <- data %>%
++data <- data |>
 +  filter(!is.na(TEMP) & !is.na(WBC))
  ```
  

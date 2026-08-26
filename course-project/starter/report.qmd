@@ -1,0 +1,23 @@
+---
+title: "Пингвины с острова Dream"
+format:
+  html:
+    embed-resources: true
+---
+
+Данные собраны на трёх островах архипелага Палмера.
+Возьмём пингвинов с острова Dream.
+
+```{r}
+penguins <- read.csv("data/penguins.csv")
+dream <- subset(penguins, island == "Dream")
+nrow(dream)
+```
+
+Самый длинный плавник:
+
+```{r}
+gigapeng <- max(dream$flipper_len)
+gigapeng
+```
+

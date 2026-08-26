@@ -1,22 +1,48 @@
-# Практикум по Git и тулам для ИБ 2024
+# Основы Git в Positron
 
-Слайды [slides.pptx](./slides.pptx) или [slides.pdf](./slides.pdf).
+Курс продолжает проект `r-course` из соседнего репозитория: студент фиксирует накопленные файлы без преобразований, а новую работу выполняет в `paper.qmd`.
 
-Использованные источники ниже.
+Источники книги остаются в Bookdown. Собрать сайт:
 
-## Софт
+```sh
+make build
+```
 
-- GitKraken - космический корабль по управлению гитом, но довольно friendly
-- GitHub Desktop - простой, но нету merge в 3-х окнах
-- [ClaudioZandonella/trackdown](https://github.com/ClaudioZandonella/trackdown) - workflow поверх Google Docs; клево для взаимодействия с коллабораторами не умеющими в git или для очень активного совместного редактирования (Google Docs)
+Запустить проверки генератора и учебного текста:
 
-## References
+```sh
+make test
+```
 
-- [Happy Git and GitHub for the useR](https://happygitwithr.com/)
-- [European Geosciences Union General Assembly 2018](https://vickysteeves.gitlab.io/repro-papers/git.html)
-- [CASA0005 Geographic Information Systems and Science](https://andrewmaclachlan.github.io/CASA0005repo/git-github-and-rmarkdown.html#recommended-listening-3)
-- [rstats-wtf/wtf-version-control-slides](https://github.com/rstats-wtf/wtf-version-control-slides)
-- [rstats-wtf/wtf-project-oriented-workflow-slides](https://github.com/rstats-wtf/wtf-project-oriented-workflow-slides)
-- [rstats-wtf/wtf-personal-radmin-slides](https://github.com/rstats-wtf/wtf-personal-radmin-slides)
-- [rstats-wtf/wtf-2022-rsc](https://github.com/rstats-wtf/wtf-2022-rsc) - более подробные презенташки, см. materials
-- [Billboard Hot 100 & more](https://www.kaggle.com/datasets/ludmin/billboard)
+## Генератор учебного проекта
+
+Стартовое дерево в `course-project/starter/` собрано по заданиям R-курса. В нём намеренно сохранены накопленные `.R`, `.qmd`, данные и результаты. Генератор копирует это дерево без переименования и проверяет размер и SHA-256 каждого файла по `course-project/starter-manifest.json`.
+
+```sh
+python3 bin/create_course_project.py /tmp/r-course-student --state starter
+```
+
+Локальные состояния:
+
+```text
+starter baseline paper histogram boxplot-branch dirty-main conflict merged
+```
+
+Например, воспроизвести незавершённый конфликт слияния:
+
+```sh
+python3 bin/create_course_project.py /tmp/r-course-conflict --state conflict
+```
+
+GitHub-состояния используют установленный [GitHub CLI](https://cli.github.com/) и создают настоящий репозиторий:
+
+```sh
+python3 bin/create_course_project.py /tmp/r-course-github \
+  --state github-pr \
+  --repo OWNER/REPOSITORY \
+  --visibility private
+```
+
+Доступны `github-published`, `github-pr`, `github-merged` и `github-webhook`. Для webhook добавьте `--webhook-url`; секрет можно передать через `--webhook-secret`.
+
+Если `gh auth status` не проходит, генератор запускает `gh auth login --web` и ждёт подтверждения в браузере. Он отказывается продолжать, если целевая папка или удалённый репозиторий уже существуют, и никогда не изменяет соседний репозиторий `r-course`.

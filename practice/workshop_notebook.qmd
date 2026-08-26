@@ -1,0 +1,162 @@
+---
+title: "automatization_notebook"
+date: today
+format: html
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE, message = F, warning = F)
+
+library(tidyverse)
+```
+
+В данном задании вы будете использовать датасеты `dm.csv`, `vs.csv` и `lb.xlsx`.
+
+# 1. Чтение и очистка данных
+
+## 1.1. DM (Demographics)
+
+Загрузите датасет `dm.csv` в переменную `dm` и выберите столбцы `USUBJID`, `SEX` и `ACTARM`.
+
+Это датасет в широком формате: на каждого субъекта (`USUBJID`) должна приходиться только одна строка.
+
+```{r}
+dm <- read_csv2("data/raw/dm.csv")
+
+dm <- dm |>
+  select(USUBJID, SEX, ACTARM)
+```
+
+```{r, eval=FALSE}
+dm |>
+  count(USUBJID) |>
+  filter(n > 1)
+```
+
+## 1.2. VS (Vital Signs)
+
+Загрузите датасет `vs.csv` в переменную `vs`.
+
+Данные в длинном формате: на каждого субъекта (`USUBJID`) приходится несколько строк с разными измерениями.
+
+Отфильтруйте измерения температуры тела на скрининге (`VSTESTCD` равен `TEMP`, `VISTINUM` равен `1`).
+Выберите столбец `USUBJID` и столбец `VSORRES` под именем `TEMP`.
+
+```{r}
+vs <- read_csv("data/raw/vs.csv")
+
+vs <- vs |>
+  filter(VSTESTCD == "TEMP", VISITNUM == 1)
+
+vs <- vs |>
+  select(USUBJID, TEMP = VSORRES)
+```
+
+Убедитесь, что в результате на каждого субъекта (`USUBJID`) приходится только одна строка.
+
+```{r}
+vs |>
+  count(USUBJID) |>
+  filter(n > 1)
+```
+
+## 1.3. LB (Laboratory Test Results)
+
+Загрузите датасет `lb.xlsx` в переменную `lb`;
+
+Данные в длинном формате: на каждого субъекта (`USUBJID`) приходится несколько строк с разными измерениями.
+
+Отфильтруйте измерения кол-ва лейкоцитов на скрининге (`LBTESTCD` равен `WBC`, `VISTINUM` равен `1`).
+Выберите столбец `USUBJID` и столбец `LBORRES` под именем `WBC`.
+
+```{r}
+lb <- readxl::read_excel("data/raw/lb.xlsx")
+
+lb <- lb |>
+  filter(LBTESTCD == "WBC", VISITNUM == 1)
+
+lb <- lb |>
+  select(USUBJID, WBC = LBORRES)
+```
+
+Убедитесь, что теперь на каждого субъекта (`USUBJID`) приходится только одна строка.
+
+```{r}
+lb |>
+  count(USUBJID) |>
+  filter(n > 1)
+```
+
+# 2. Объединение данных
+
+В переменных `dm`, `vs` и `lb` должно быть по 1 строке на 1 субъекта (`USUBJID`).
+Соедините их в один датасет `data` при помощи функции `left_join`.
+Уберите строки с пропущенными данными в столбцах `TEMP` и `WBC`.
+
+```{r}
+data <- dm |>
+  left_join(vs, join_by(USUBJID)) |>
+  left_join(lb, join_by(USUBJID))
+
+data <- data |>
+  filter(!is.na(TEMP) & !is.na(WBC))
+```
+
+# 3. Дальнейшая очистка данных
+
+```{r}
+# перекодирование данных здесь
+
+data <- data |>
+  mutate(SEX = recode(SEX, "M" = "Male", "F" = "Female"),
+         TEMP = as.numeric(str_replace(TEMP, ",", ".")),
+         WBC = as.numeric(str_replace(WBC, ",", "."))) |>
+  mutate(TEMP = (TEMP - 32) * 5 / 9)
+```
+
+# 4. Визуализация
+
+Сделайте боксплот для столбца, который импортировали вы:
+
+- **Автор dm**: боксплот температуры тела (`TEMP`) в зависимости от пола (`SEX`)
+- **Автор vs:** боксплот температуры тела (`TEMP`) в зависимости от группы (`ACTARM`)
+- **Автор lb:** боксплот кол-ва лейкоцитов (`WBC`) в зависимости от группы (`ACTARM`)
+
+‼️ Перекодирование данных выполните в общем чанке в главе 3 выше.
+
+```{r}
+ggplot(data, aes(SEX, TEMP)) +
+  geom_boxplot() +
+  labs(y = "Temperature, C")
+
+ggplot(data, aes(ACTARM, TEMP)) +
+  geom_boxplot() +
+  labs(y = "Temperature, C")
+
+ggplot(data, aes(ACTARM, WBC)) +
+  geom_boxplot() +
+  scale_y_log10() +
+  labs(y = "WBC, 10^9/L")
+
+ggplot(data, aes(SEX, fill = ACTARM)) +
+  geom_bar(position = position_dodge())
+```
+
+# Дополнительные задания
+
+1) Перекодируйте пол из кодов `M`, `F` в подписи `Male`, `Female`.
+   Постройте столбиковую диаграмму для пола в зависимости от группы (`ACTARM`) в том же чанке, что и боксплоты.
+
+2) Перекодируйте градусы из шкалы Фаренгейта в шкалу Цельсия.
+   Сделайте это в главе 3, в том же чанке, что и очистка данных.
+   Подпишите оси соответствующих боксплотов.
+
+3) Переведите боксплот количества лейкоцитов на логарифмическую шкалу.
+   Используйте функцию scale_y_log10().
+   Подпишите ось Y, указав единицы измерения — 10^9/L.
+
+4) Добавьте себя в список авторов в начале файла. Формат описан в [документации Quarto](https://quarto.org/docs/authoring/front-matter.html#authors-and-affiliations).
+
+# Домашнее задание
+
+5) Добавьте в чат своей команды телеграм бота [@octo8bot](t.me/octo8bot) и настройте уведомления об изменениях в Pull Request. См. инструкцию в курсе по ссылке https://yoursdearboy.github.io/git-101/webhooks.html

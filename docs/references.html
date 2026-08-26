@@ -4,20 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 21 Ссылки | Основы Git</title>
+<title>Глава 21 Ссылки | Основы Git в Positron</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Pro Git — небольшая книга рекомендованная разработчиками Git. Из нее вы узнаете о внутреннем устройстве Git и научитесь работать с командой git в терминале. Пригодятся главы 1-3 и глава 6. Happy...">
+<meta name="description" content="21.1 Positron  Welcome to Positron — исходная точка официальной документации. Git Version Control — Git, Source Control, ветки и конфликты в Positron. Command Palette — поиск и запуск команд....">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 21 Ссылки | Основы Git">
+<meta property="og:title" content="Глава 21 Ссылки | Основы Git в Positron">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/references.html">
-<meta property="og:description" content="Pro Git — небольшая книга рекомендованная разработчиками Git. Из нее вы узнаете о внутреннем устройстве Git и научитесь работать с командой git в терминале. Пригодятся главы 1-3 и глава 6. Happy...">
+<meta property="og:description" content="21.1 Positron  Welcome to Positron — исходная точка официальной документации. Git Version Control — Git, Source Control, ветки и конфликты в Positron. Command Palette — поиск и запуск команд....">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 21 Ссылки | Основы Git">
-<meta name="twitter:description" content="Pro Git — небольшая книга рекомендованная разработчиками Git. Из нее вы узнаете о внутреннем устройстве Git и научитесь работать с командой git в терминале. Пригодятся главы 1-3 и глава 6. Happy...">
+<meta name="twitter:title" content="Глава 21 Ссылки | Основы Git в Positron">
+<meta name="twitter:description" content="21.1 Positron  Welcome to Positron — исходная точка официальной документации. Git Version Control — Git, Source Control, ветки и конфликты в Positron. Command Palette — поиск и запуск команд....">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Основы Git</a>
+        <a href="index.html" title="">Основы Git в Positron</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Показать содержание</span></button>
     </div>
@@ -44,33 +44,32 @@
 
       <nav aria-label="Содержание"><h2>Содержание</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Основы Git</a></li>
-<li class="book-part">Введение</li>
-<li><a class="" href="about.html"><span class="header-section-number">2</span> Что такое Git</a></li>
-<li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
-<li><a class="" href="setup.html"><span class="header-section-number">4</span> Настройка</a></li>
-<li class="book-part">Основы</li>
-<li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
-<li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
-<li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></li>
-<li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Основы Git в Positron</a></li>
+<li class="book-part">Подготовка</li>
+<li><a class="" href="about-git.html"><span class="header-section-number">2</span> Зачем проекту Git</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">3</span> Установка Git</a></li>
+<li><a class="" href="git-identity.html"><span class="header-section-number">4</span> Имя автора</a></li>
+<li class="book-part">Коммиты</li>
+<li><a class="" href="open-project.html"><span class="header-section-number">5</span> Открытие проекта</a></li>
+<li><a class="" href="first-commit.html"><span class="header-section-number">6</span> Первый коммит</a></li>
+<li><a class="" href="commit-workflow.html"><span class="header-section-number">7</span> Рабочий цикл</a></li>
+<li><a class="" href="history-diff.html"><span class="header-section-number">8</span> История и различия</a></li>
 <li class="book-part">Ветки</li>
-<li><a class="" href="branch.html"><span class="header-section-number">9</span> Введение</a></li>
-<li><a class="" href="git-branch.html"><span class="header-section-number">10</span> Создание ветки</a></li>
-<li><a class="" href="git-checkout.html"><span class="header-section-number">11</span> Переключение веток</a></li>
-<li><a class="" href="git-merge.html"><span class="header-section-number">12</span> Слияние веток</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
+<li><a class="" href="branches.html"><span class="header-section-number">9</span> Альтернативный график</a></li>
+<li><a class="" href="switch-branches.html"><span class="header-section-number">10</span> Переключение веток</a></li>
+<li><a class="" href="merge-conflict.html"><span class="header-section-number">11</span> Слияние и конфликт</a></li>
+<li><a class="" href="branches-conclusion.html"><span class="header-section-number">12</span> Итог работы с ветками</a></li>
 <li class="book-part">GitHub</li>
-<li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
-<li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
-<li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
-<li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
+<li><a class="" href="github-part.html"><span class="header-section-number">13</span> Аккаунт и вход</a></li>
+<li><a class="" href="publish-github.html"><span class="header-section-number">14</span> Публикация репозитория</a></li>
+<li><a class="" href="sync-remote.html"><span class="header-section-number">15</span> Push, pull и синхронизация</a></li>
+<li><a class="" href="pull-request.html"><span class="header-section-number">16</span> Pull request</a></li>
+<li><a class="" href="clone-repository.html"><span class="header-section-number">17</span> Клонирование</a></li>
+<li><a class="" href="github-conclusion.html"><span class="header-section-number">18</span> Итог работы с GitHub</a></li>
+<li class="book-part">Дополнительно</li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Частые ситуации</a></li>
+<li><a class="" href="webhooks.html"><span class="header-section-number">20</span> Webhooks</a></li>
 <li><a class="active" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></li>
 </ul>
 
         <div class="book-extra">
@@ -82,21 +81,69 @@
 <h1>
 <span class="header-section-number">Глава 21</span> Ссылки<a class="anchor" aria-label="anchor" href="#references"><i class="fas fa-link"></i></a>
 </h1>
+<div id="positron" class="section level2" number="21.1">
+<h2>
+<span class="header-section-number">21.1</span> Positron<a class="anchor" aria-label="anchor" href="#positron"><i class="fas fa-link"></i></a>
+</h2>
 <ul>
 <li>
-<a href="https://git-scm.com/book/en/v2">Pro Git</a> — небольшая книга рекомендованная разработчиками Git. Из нее вы узнаете о внутреннем устройстве Git и научитесь работать с командой <code>git</code> в терминале. Пригодятся главы 1-3 и глава 6.</li>
+<a href="https://positron.posit.co/welcome.html">Welcome to Positron</a> — исходная точка официальной документации.</li>
 <li>
-<a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a> — материалы практического курса по Git с конференции Posit.</li>
+<a href="https://positron.posit.co/git.html">Git Version Control</a> — Git, Source Control, ветки и конфликты в Positron.</li>
 <li>
-<a href="https://ndpsoftware.com/git-cheatsheet.html#loc=local_repo;">Git Cheatsheet</a> - интерактивная шпаргалка.</li>
+<a href="https://positron.posit.co/command-palette.html">Command Palette</a> — поиск и запуск команд.</li>
+<li>
+<a href="https://positron.posit.co/quarto.html">Quarto</a> — выполнение и предпросмотр <code>.qmd</code>.</li>
+<li>
+<a href="https://positron.posit.co/folder-templates.html">Folder Templates</a> — состав проекта, включая <code>.git</code> и <code>.gitignore</code>.</li>
 </ul>
 </div>
+<div id="git-и-source-control" class="section level2" number="21.2">
+<h2>
+<span class="header-section-number">21.2</span> Git и Source Control<a class="anchor" aria-label="anchor" href="#git-%D0%B8-source-control"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/overview">Source Control overview</a>.</li>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/staging-commits">Staging and committing changes</a>.</li>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/history">Source Control history</a>.</li>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/branches-worktrees">Branches and worktrees</a>.</li>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/merge-conflicts">Merge conflicts</a>.</li>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/repos-remotes">Repositories and remotes</a>.</li>
+<li>
+<a href="https://code.visualstudio.com/docs/sourcecontrol/github">GitHub in Source Control</a>.</li>
+<li>
+<a href="https://git-scm.com/book/ru/v2">Pro Git</a> — подробная бесплатная книга.</li>
+</ul>
+</div>
+<div id="практика" class="section level2" number="21.3">
+<h2>
+<span class="header-section-number">21.3</span> Практика<a class="anchor" aria-label="anchor" href="#%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0"><i class="fas fa-link"></i></a>
+</h2>
+<ul>
+<li>
+<a href="https://learngitbranching.js.org/?locale=ru_RU">Learn Git Branching</a> — интерактивные упражнения с ветками.</li>
+<li>
+<a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a> — Git для проектов анализа данных.</li>
+</ul>
+</div>
+</div>
   <div class="chapter-nav">
-<div class="prev"><a href="faq.html"><span class="header-section-number">20</span> Best practices</a></div>
-<div class="next"><a href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></div>
+<div class="prev"><a href="webhooks.html"><span class="header-section-number">20</span> Webhooks</a></div>
+<div class="empty"></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#references"><span class="header-section-number">21</span> Ссылки</a></li></ul>
+      <ul class="nav navbar-nav">
+<li><a class="nav-link" href="#references"><span class="header-section-number">21</span> Ссылки</a></li>
+<li><a class="nav-link" href="#positron"><span class="header-section-number">21.1</span> Positron</a></li>
+<li><a class="nav-link" href="#git-%D0%B8-source-control"><span class="header-section-number">21.2</span> Git и Source Control</a></li>
+<li><a class="nav-link" href="#%D0%BF%D1%80%D0%B0%D0%BA%D1%82%D0%B8%D0%BA%D0%B0"><span class="header-section-number">21.3</span> Практика</a></li>
+</ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

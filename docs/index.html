@@ -4,20 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 1 Основы Git | Основы Git</title>
+<title>Глава 1 Основы Git в Positron | Основы Git в Positron</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="Руководство по Git для Института Биоинформатики.">
+<meta name="description" content="Практическое продолжение курса R: история проекта, ветки и совместная работа через GitHub.">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 1 Основы Git | Основы Git">
+<meta property="og:title" content="Глава 1 Основы Git в Positron | Основы Git в Positron">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101">
-<meta property="og:description" content="Руководство по Git для Института Биоинформатики.">
+<meta property="og:description" content="Практическое продолжение курса R: история проекта, ветки и совместная работа через GitHub.">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 1 Основы Git | Основы Git">
-<meta name="twitter:description" content="Руководство по Git для Института Биоинформатики.">
+<meta name="twitter:title" content="Глава 1 Основы Git в Positron | Основы Git в Positron">
+<meta name="twitter:description" content="Практическое продолжение курса R: история проекта, ветки и совместная работа через GitHub.">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Основы Git</a>
+        <a href="index.html" title="">Основы Git в Positron</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Показать содержание</span></button>
     </div>
@@ -44,33 +44,32 @@
 
       <nav aria-label="Содержание"><h2>Содержание</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="active" href="index.html"><span class="header-section-number">1</span> Основы Git</a></li>
-<li class="book-part">Введение</li>
-<li><a class="" href="about.html"><span class="header-section-number">2</span> Что такое Git</a></li>
-<li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
-<li><a class="" href="setup.html"><span class="header-section-number">4</span> Настройка</a></li>
-<li class="book-part">Основы</li>
-<li><a class="" href="git-init.html"><span class="header-section-number">5</span> Создание репозитория</a></li>
-<li><a class="" href="git-commit.html"><span class="header-section-number">6</span> Отслеживание изменений</a></li>
-<li><a class="" href="git-commit2.html"><span class="header-section-number">7</span> Рабочий процесс</a></li>
-<li><a class="" href="git-log.html"><span class="header-section-number">8</span> Просмотр истории</a></li>
+<li><a class="active" href="index.html"><span class="header-section-number">1</span> Основы Git в Positron</a></li>
+<li class="book-part">Подготовка</li>
+<li><a class="" href="about-git.html"><span class="header-section-number">2</span> Зачем проекту Git</a></li>
+<li><a class="" href="install-git.html"><span class="header-section-number">3</span> Установка Git</a></li>
+<li><a class="" href="git-identity.html"><span class="header-section-number">4</span> Имя автора</a></li>
+<li class="book-part">Коммиты</li>
+<li><a class="" href="open-project.html"><span class="header-section-number">5</span> Открытие проекта</a></li>
+<li><a class="" href="first-commit.html"><span class="header-section-number">6</span> Первый коммит</a></li>
+<li><a class="" href="commit-workflow.html"><span class="header-section-number">7</span> Рабочий цикл</a></li>
+<li><a class="" href="history-diff.html"><span class="header-section-number">8</span> История и различия</a></li>
 <li class="book-part">Ветки</li>
-<li><a class="" href="branch.html"><span class="header-section-number">9</span> Введение</a></li>
-<li><a class="" href="git-branch.html"><span class="header-section-number">10</span> Создание ветки</a></li>
-<li><a class="" href="git-checkout.html"><span class="header-section-number">11</span> Переключение веток</a></li>
-<li><a class="" href="git-merge.html"><span class="header-section-number">12</span> Слияние веток</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
+<li><a class="" href="branches.html"><span class="header-section-number">9</span> Альтернативный график</a></li>
+<li><a class="" href="switch-branches.html"><span class="header-section-number">10</span> Переключение веток</a></li>
+<li><a class="" href="merge-conflict.html"><span class="header-section-number">11</span> Слияние и конфликт</a></li>
+<li><a class="" href="branches-conclusion.html"><span class="header-section-number">12</span> Итог работы с ветками</a></li>
 <li class="book-part">GitHub</li>
-<li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
-<li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
-<li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
-<li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
+<li><a class="" href="github-part.html"><span class="header-section-number">13</span> Аккаунт и вход</a></li>
+<li><a class="" href="publish-github.html"><span class="header-section-number">14</span> Публикация репозитория</a></li>
+<li><a class="" href="sync-remote.html"><span class="header-section-number">15</span> Push, pull и синхронизация</a></li>
+<li><a class="" href="pull-request.html"><span class="header-section-number">16</span> Pull request</a></li>
+<li><a class="" href="clone-repository.html"><span class="header-section-number">17</span> Клонирование</a></li>
+<li><a class="" href="github-conclusion.html"><span class="header-section-number">18</span> Итог работы с GitHub</a></li>
+<li class="book-part">Дополнительно</li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Частые ситуации</a></li>
+<li><a class="" href="webhooks.html"><span class="header-section-number">20</span> Webhooks</a></li>
 <li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></li>
 </ul>
 
         <div class="book-extra">
@@ -78,50 +77,35 @@
         </div>
       </nav>
 </div>
-  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="основы-git" class="section level1" number="1">
+  </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><!--bookdown:title:end--><!--bookdown:title:start--><div id="основы-git-в-positron" class="section level1" number="1">
 <h1>
-<span class="header-section-number">Глава 1</span> Основы Git<a class="anchor" aria-label="anchor" href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-git"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 1</span> Основы Git в Positron<a class="anchor" aria-label="anchor" href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-git-%D0%B2-positron"><i class="fas fa-link"></i></a>
 </h1>
-<p>Привет!
-Перед вами краткое руководство по работе с системой контроля версий Git и сервисом GitHub, написанное для биоинформатиков, статистиков и других специалистов занимающихся анализом данных.</p>
-<div style="float: left; clear: both; width: 200px; margin-right: 20px;">
-<div class="inline-figure"><img src="img/git-logo.png" width="200"></div>
+<p>Вы закончили курс R и уже собрали проект <code>r-course</code>: в нём есть данные, скрипты, отчёты Quarto и результаты. Теперь научимся сохранять историю этого проекта и работать над ним вместе.</p>
+<p>Мы не будем перекладывать или переименовывать накопленные файлы. Первый коммит зафиксирует проект ровно в том состоянии, в котором он остался после R-курса. Затем создадим новый документ <code>paper.qmd</code> и на примере пингвинов пройдём основной рабочий цикл Git:</p>
+<ol style="list-style-type: decimal">
+<li>проверим и зафиксируем изменения;</li>
+<li>создадим ветку с альтернативным графиком;</li>
+<li>разрешим конфликт слияния;</li>
+<li>опубликуем проект на GitHub;</li>
+<li>предложим изменение через pull request.</li>
+</ol>
+<p>Основной маршрут выполняется в интерфейсе <strong>Source Control</strong> в Positron. Терминал понадобится только для проверки установки и устранения неполадок.</p>
+<div class="callout callout-info">
+<p>Этот курс использует Positron и Quarto. Не переносите сюда инструкции для другого редактора или другого формата отчётов: учебный анализ Git-курса находится в <code>paper.qmd</code>.</p>
 </div>
-<p>Эти инструменты пригодятся вам во время курса и при выполнении учебных проектов, хотя их настоящая ценность проявляется в ежедневной работе.
-Git помогает организовать процесс анализа данных, отслеживать изменения, наладить совместную работу и обеспечить воспроизводимость исследований.
-Он используется не только в крупных компаниях, но и небольшими командами и отдельными специалистами.</p>
-<p>Git очень простой инструмент, можно даже сказать, примитивный или глупый
-<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;именно это означает сленговое слово &lt;em&gt;git&lt;/em&gt; в английском&lt;/p&gt;"><sup>1</sup></a>,
-поэтому освоить его не составит труда.
-Однако спешу вас заверить, что даже те, кто сейчас эффективно использует Git, в первое время сталкивались с проблемами.
-Умение работать с Git — это практический навык, который приходит с опытом.</p>
-<div style="float: right; width: 50%; max-width: 250px">
-<div class="inline-figure"><img src="img/penguins2.png" style="width:100.0%"></div>
-</div>
-<p>Существует множество руководств и даже книг, ссылки на которые есть в последней главе,
-но предпочтительный способ изучения — больше использовать Git на практике.
-Поэтому от главы к главе выполняйте инструкции и команды приведенные в курсе.
-В качестве примера мы будем использовать данные о длине клюва пингвинов с антарктической станции Палмер.
-К концу у вас должен получиться полноценный проект с очень небольшим анализом.</p>
-<p>Курс состоит из четырех частей, рассчитанных в среднем на 1-2 часа.
-В первой части мы установим и настроим Git.
-Во второй части научимся записывать и просматривать историю версий.
-В третьей части научимся создавать альтернативные версии — это важная функция Git и основа для совместной работы.
-В последней четвёртой части зарегистрируемся на GitHub, выложим наш проект и научимся синхронизировать изменения с сервером, чтобы работать в команде.
-Этих навыков достаточно для работы с большинством реальных проектов.</p>
-<p><a href="faq.html#faq">В предпоследней главе</a> приведены советы, которые помогут эффективней работать с Git без страха что-то сломать. А в <a href="references.html#references">последней главе</a> вы найдете ссылки на другие руководства, книги и полезные ресурсы.</p>
+<p>Инструкции по интерфейсу сверены с официальной документацией <a href="https://positron.posit.co/welcome.html">Positron</a>. Positron построен на Code OSS и для общих возможностей редактора, включая Source Control, сам направляет читателя к <a href="https://code.visualstudio.com/docs/sourcecontrol/overview">документации VS Code</a>.</p>
 
 </div>
-
 
 
 
   <div class="chapter-nav">
 <div class="empty"></div>
-<div class="next"><a href="about.html"><span class="header-section-number">2</span> Что такое Git</a></div>
+<div class="next"><a href="about-git.html"><span class="header-section-number">2</span> Зачем проекту Git</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-git"><span class="header-section-number">1</span> Основы Git</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#%D0%BE%D1%81%D0%BD%D0%BE%D0%B2%D1%8B-git-%D0%B2-positron"><span class="header-section-number">1</span> Основы Git в Positron</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">
