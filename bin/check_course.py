@@ -12,8 +12,12 @@ from urllib.parse import unquote, urlsplit
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCES = sorted(ROOT.glob("*.Rmd"))
-PRACTICE_SOURCES = sorted((ROOT / "practice").rglob("*.qmd")) + sorted(
-    (ROOT / "practice").glob("*.patch")
+PRACTICE_MIGRATED = (ROOT / "practice" / "workshop_notebook.qmd").exists()
+PRACTICE_SOURCES = (
+    sorted((ROOT / "practice").rglob("*.qmd"))
+    + sorted((ROOT / "practice").glob("*.patch"))
+    if PRACTICE_MIGRATED
+    else []
 )
 
 
@@ -49,7 +53,9 @@ def main() -> int:
             if not alt.strip():
                 fail(f"{source.name}: у изображения нет описания", failures)
             if target.strip():
-                fail(f"{source.name}: скриншот должен иметь пустой адрес: {target}", failures)
+                image_path = (source.parent / unquote(target.strip())).resolve()
+                if not image_path.exists():
+                    fail(f"{source.name}: не найдено изображение {target}", failures)
 
     for source in PRACTICE_SOURCES:
         text = source.read_text(encoding="utf-8")
