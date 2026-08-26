@@ -1,17 +1,17 @@
-diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+diff --git a/homework_notebook.qmd b/homework_notebook.qmd
 index 1f790ec..aa3b322 100644
---- a/homework_notebook.Rmd
-+++ b/homework_notebook.Rmd
-@@ -91,7 +91,7 @@ data <- data %>%
+--- a/homework_notebook.qmd
++++ b/homework_notebook.qmd
+@@ -91,7 +91,7 @@ data <- data |>
  # перекодирование данных здесь
  
- data <- data %>%
+ data <- data |>
 -  mutate()
 +  mutate(TEMP = as.numeric(str_replace(TEMP, ",", ".")))
  ```
  
  # 4. Визуализация
-@@ -105,9 +105,8 @@ data <- data %>%
+@@ -105,9 +105,8 @@ data <- data |>
  ‼️ Перекодирование данных выполните в общем чанке в главе 3 выше.
  
  ```{r}

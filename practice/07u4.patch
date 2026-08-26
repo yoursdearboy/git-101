@@ -1,7 +1,7 @@
-diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+diff --git a/homework_notebook.qmd b/homework_notebook.qmd
 index f26d85b..64015ab 100644
---- a/homework_notebook.Rmd
-+++ b/homework_notebook.Rmd
+--- a/homework_notebook.qmd
++++ b/homework_notebook.qmd
 @@ -53,10 +53,13 @@ library(tidyverse)
  Выберите столбец `USUBJID` и столбец `LBORRES` под именем `WBC`.
  
@@ -10,10 +10,10 @@ index f26d85b..64015ab 100644
  
 -# выполняет user4
 -# ветка lb
-+lb <- lb %>%
++lb <- lb |>
 +  filter(LBTESTCD == "WBC", VISITNUM == 1)
  
-+lb <- lb %>%
++lb <- lb |>
 +  select(USUBJID, WBC = LBORRES)
  ```
  

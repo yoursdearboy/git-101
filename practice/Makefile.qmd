@@ -1,6 +1,6 @@
 ---
 title: "Makefile"
-output: html_document
+format: html
 ---
 
 <style>
@@ -52,8 +52,8 @@ everybody_pull() {
     cd $USER4 && git checkout main && git pull
 }
 
-rmarkdown_render() {
-    R -e "rmarkdown::render('homework_notebook.Rmd')"
+quarto_render() {
+    quarto render homework_notebook.qmd
 }
 ```
 
@@ -155,7 +155,7 @@ git clone $REMOTE $USER4
 cd $USER1
 mkdir -p data/raw
 cp $ASSETS/data/raw/* data/raw/
-cp $ASSETS/homework_notebook.Rmd homework_notebook.Rmd
+cp $ASSETS/workshop_notebook.qmd homework_notebook.qmd
 git add .
 git commit -m "Загрузили данные и шаблон"
 git push
@@ -185,7 +185,7 @@ everybody_pull
 cd $USER2
 git checkout -b user2
 git apply $FILES/06u2.patch
-# rmarkdown_render не выйдет - хорошо
+# quarto_render не выйдет - хорошо
 git add .
 git commit -m "Подписал задания"
 git push -u --force origin user2
@@ -196,7 +196,7 @@ gh pr create --title "Подписал задания" --body ""
 cd $USER3
 git checkout -b user3
 git apply $FILES/06u3.patch
-# rmarkdown_render не выйдет - хорошо
+# quarto_render не выйдет - хорошо
 git add .
 git commit -m "Подписал задания"
 git push -u --force origin user3
@@ -207,7 +207,7 @@ gh pr create --title "Подписал задания" --body ""
 cd $USER4
 git checkout -b user4
 git apply $FILES/06u4.patch
-# rmarkdown_render не выйдет - хорошо
+# quarto_render не выйдет - хорошо
 git add .
 git commit -m "Подписал задания"
 git push -u --force origin user4
@@ -243,7 +243,7 @@ everybody_pull
 cd $USER2
 git checkout -b dm
 git apply $FILES/07u2.patch
-# rmarkdown_render не выйдет - хорошо
+# quarto_render не выйдет - хорошо
 git add .
 git commit -m "Импортировал демографические данные"
 git push -u --force origin dm
@@ -254,7 +254,7 @@ gh pr create --title "Импортировал демографические д
 cd $USER3
 git checkout -b vs
 git apply $FILES/07u3.patch
-# rmarkdown_render не выйдет - хорошо
+# quarto_render не выйдет - хорошо
 git add .
 git commit -m "Импортировал vs"
 git push -u --force origin vs
@@ -265,7 +265,7 @@ gh pr create --title "Импортировал vs" --body ""
 cd $USER4
 git checkout -b lb
 git apply $FILES/07u4.patch
-# rmarkdown_render не выйдет - хорошо
+# quarto_render не выйдет - хорошо
 git add .
 git commit -m "Импортировал лабораторные измерения lb"
 git push -u --force origin lb
@@ -294,7 +294,7 @@ everybody_pull
 cd $USER1
 git checkout -b join
 git apply $FILES/08u1.patch
-rmarkdown_render
+quarto_render
 git add .
 git commit -m "Объединил данные"
 git push -u --force origin join
@@ -310,7 +310,7 @@ everybody_pull
 
 # 6. Визуализация
 
-**👷‍♂️ УЧАСТНИКИ** делают свои задания в ветках и **‼️ нитят Rmd**.  
+**👷‍♂️ УЧАСТНИКИ** делают свои задания в ветках и **‼️ собирают qmd**.
 Сначала сливаю свой, потом Димы.
 
 **👮‍♂️ КООРДИНАТОР** их сливает, резолвя конфликты.
@@ -320,7 +320,7 @@ everybody_pull
 cd $USER2
 git checkout -b boxplot-temp-sex
 git apply $FILES/09u2.patch
-rmarkdown_render
+quarto_render
 git add .
 git commit -m "Построил боксплот температуры тела от пола"
 git push -u --force origin boxplot-temp-sex
@@ -331,7 +331,7 @@ gh pr create --title "Построил боксплот температуры �
 cd $USER3
 git checkout -b boxplot-temp-actarm
 git apply $FILES/09u3.patch
-rmarkdown_render
+quarto_render
 git add .
 git commit -m "Построил боксплот температуры тела от группы"
 git push -u --force origin boxplot-temp-actarm
@@ -343,14 +343,14 @@ cd $USER4
 git checkout -b boxplot-wbc-actarm
 git apply $FILES/09u4.patch
 git add .
-rmarkdown_render
+quarto_render
 git commit -m "Построил боксплот кол-ва лейкоцитов от группы"
 git push -u --force origin boxplot-wbc-actarm
 gh pr create --title "Построил боксплот кол-ва лейкоцитов от группы" --body ""
 ```
 
 Переключаемся на `main`.
-Делаем `pull` — RStudio сделает и `fetch`.
+Делаем `pull` — Positron сделает и `fetch`.
 Переключается на `branch-name`.
 Делаем в терминале `git merge main`.
 `commit`, `push`, мерджим PR.
@@ -364,7 +364,7 @@ git pull && git fetch
 git checkout boxplot-temp-actarm
 git merge main || true
 git apply $FILES/09u1-01.patch
-rmarkdown_render
+quarto_render
 git add .
 git commit -m "Разрешил конфликты"
 git push
@@ -375,7 +375,7 @@ git pull && git fetch
 git checkout boxplot-wbc-actarm
 git merge main || true
 git apply $FILES/09u1-02.patch
-rmarkdown_render
+quarto_render
 git add .
 git commit -m "Разрешил конфликты"
 git push
@@ -394,7 +394,7 @@ everybody_pull
 cd $USER1
 git checkout -b data
 cp $ASSETS2/data/raw/* data/raw/
-cp $ASSETS2/homework_notebook.Rmd homework_notebook.Rmd
+cp $ASSETS2/homework_notebook.qmd homework_notebook.qmd
 git add .
 git commit -m "Обновил файлы для домашнего задания"
 git push -u --force origin data

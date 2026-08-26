@@ -1,7 +1,7 @@
-diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+diff --git a/homework_notebook.qmd b/homework_notebook.qmd
 index 7490a42..b052158 100644
---- a/homework_notebook.Rmd
-+++ b/homework_notebook.Rmd
+--- a/homework_notebook.qmd
++++ b/homework_notebook.qmd
 @@ -42,6 +42,7 @@ library(tidyverse)
  
  ```{r}
