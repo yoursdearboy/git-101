@@ -6,9 +6,9 @@
 ![Меню веток Positron: для переключения выбрана ветка main. Команда подготовки: python3 bin/create_course_project.py /tmp/git-course-checkout --state boxplot-branch]()
 
 Убедитесь, что код документа `paper.qmd` вернулся к прежнему состоянию и строит гистограмму,
-а в списке файлов находится файл с гистограммой `out/penguins-hist.png` и нету файла `out/penguins-boxplot.png`.
+а отчёт `paper.html` снова содержит гистограмму вместо ящика с усами.
 
-![Ветка main после переключения: paper.qmd снова содержит гистограмму, а в папке out находится penguins-hist.png. Подготовьте состояние boxplot-branch и выполните git switch main]()
+![Ветка main после переключения: paper.qmd и paper.html снова содержат гистограмму. Подготовьте состояние boxplot-branch и выполните git switch main]()
 
 Это было просто.
 Но есть один случай, когда
@@ -18,11 +18,10 @@ Git откажется переключать ветку --- если это п�
 
 ```{r, eval=FALSE}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
 
-png("out/penguins-hist.png")
+x <- data$bill_len
+
 hist(x, breaks = seq(30, 60, 2), xlab = "Bill length, mm")
-dev.off()
 ```
 
 Сохраните файл и попробуйте переключиться на ветку `boxplot`.

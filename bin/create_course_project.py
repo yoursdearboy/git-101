@@ -24,6 +24,7 @@ LOCAL_STATES = (
     "starter",
     "baseline",
     "paper",
+    "visualization",
     "histogram",
     "boxplot-branch",
     "dirty-main",
@@ -164,6 +165,23 @@ x <- data$bill_len
 hist(x, breaks = seq(30, 60, 2))
 ```
 ''',
+        "visualization": '''---
+title: "Длина клюва пингвинов"
+format:
+  html:
+    embed-resources: true
+---
+
+```{r}
+data <- read.csv("data/penguins.csv")
+
+x <- data$bill_len
+
+hist(x, breaks = seq(30, 60, 3))
+hist(x, breaks = seq(30, 60, 2))
+hist(x, breaks = seq(30, 60, 1))
+```
+''',
         "histogram-labelled": '''---
 title: "Длина клюва пингвинов"
 format:
@@ -175,9 +193,7 @@ format:
 data <- read.csv("data/penguins.csv")
 x <- data$bill_len
 
-png("out/penguins-hist.png")
 hist(x, breaks = seq(30, 60, 2), xlab = "Bill length, mm")
-dev.off()
 ```
 ''',
         "boxplot": '''---
@@ -191,9 +207,7 @@ format:
 data <- read.csv("data/penguins.csv")
 x <- data$bill_len
 
-png("out/penguins-boxplot.png")
 boxplot(x)
-dev.off()
 ```
 ''',
         "boxplot-labelled": '''---
@@ -207,9 +221,7 @@ format:
 data <- read.csv("data/penguins.csv")
 x <- data$bill_len
 
-png("out/penguins-boxplot.png")
 boxplot(x, ylab = "Bill length, mm")
-dev.off()
 ```
 ''',
         "by-sex": '''---
@@ -224,9 +236,7 @@ data <- read.csv("data/penguins.csv")
 x <- data$bill_len
 g <- data$sex
 
-png("out/penguins-boxplot.png")
 boxplot(x ~ g, xlab = "Sex", ylab = "Bill length, mm")
-dev.off()
 ```
 ''',
     }
@@ -241,6 +251,12 @@ def copy_output(target: Path, source: str, destination: str) -> None:
 
 def write_html_report(target: Path, chart: str) -> None:
     image = base64.b64encode((OUTPUTS / chart).read_bytes()).decode("ascii")
+    descriptions = {
+        "penguins-hist.png": "Гистограмма длины клюва пингвинов",
+        "penguins-boxplot.png": "Ящик с усами для длины клюва пингвинов",
+        "penguins-boxplot-labelled.png": "Ящик с усами с подписью оси",
+        "penguins-boxplot-by-sex.png": "Длина клюва пингвинов в зависимости от пола",
+    }
     (target / "paper.html").write_text(
         f'''<!doctype html>
 <html lang="ru">
@@ -251,7 +267,7 @@ def write_html_report(target: Path, chart: str) -> None:
 <body>
   <main>
     <h1>Длина клюва пингвинов</h1>
-    <img src="data:image/png;base64,{image}" alt="Гистограмма длины клюва пингвинов">
+    <img src="data:image/png;base64,{image}" alt="{descriptions[chart]}">
   </main>
 </body>
 </html>
@@ -265,7 +281,7 @@ def update_penguin_data(target: Path) -> None:
 
 
 def make_baseline(target: Path) -> None:
-    commit(target, "Зафиксировал результат курса R", 1)
+    commit(target, "Добавил файлы курса по R", 1)
 
 
 def make_paper(target: Path) -> None:
@@ -275,20 +291,25 @@ def make_paper(target: Path) -> None:
     commit(target, "Импортировал данные пингвинов", 2)
 
 
-def make_histogram(target: Path) -> None:
+def make_visualization(target: Path) -> None:
     make_paper(target)
+    write_paper(target, "visualization")
+    commit(target, "Добавил гистограммы для длины клюва", 3)
+
+
+def make_histogram(target: Path) -> None:
+    make_visualization(target)
     write_paper(target, "histogram")
     write_html_report(target, "penguins-hist.png")
-    commit(target, "Собрал HTML-отчёт о длине клюва", 3)
+    commit(target, "Собрал отчёт о длине клюва", 4)
 
 
 def make_boxplot_branch(target: Path) -> None:
     make_histogram(target)
     run(["git", "switch", "-c", "boxplot"], cwd=target, capture=True)
     write_paper(target, "boxplot")
-    (target / "out" / "penguins-hist.png").unlink(missing_ok=True)
-    copy_output(target, "penguins-boxplot.png", "penguins-boxplot.png")
-    commit(target, "Заменил гистограмму на ящик с усами", 4)
+    write_html_report(target, "penguins-boxplot.png")
+    commit(target, "Заменил гистограмму на ящик с усами", 5)
 
 
 def make_dirty_main(target: Path) -> None:
@@ -299,7 +320,7 @@ def make_dirty_main(target: Path) -> None:
 
 def make_conflict(target: Path) -> None:
     make_dirty_main(target)
-    commit(target, "Добавил подпись оси гистограммы", 5)
+    commit(target, "Добавил подпись оси гистограммы", 6)
     merged = run(["git", "merge", "boxplot"], cwd=target, check=False, capture=True)
     if merged.returncode == 0:
         raise CourseProjectError("Не удалось создать учебный конфликт слияния")
@@ -308,16 +329,16 @@ def make_conflict(target: Path) -> None:
 def make_merged(target: Path) -> None:
     make_conflict(target)
     write_paper(target, "boxplot-labelled")
-    copy_output(target, "penguins-boxplot-labelled.png", "penguins-boxplot.png")
-    commit(target, "Слил ветку boxplot", 6)
+    write_html_report(target, "penguins-boxplot-labelled.png")
+    commit(target, "Слил ветку boxplot", 7)
 
 
 def make_adjust_by_sex(target: Path) -> None:
     make_merged(target)
     run(["git", "switch", "-c", "adjust-by-sex"], cwd=target, capture=True)
     write_paper(target, "by-sex")
-    copy_output(target, "penguins-boxplot-by-sex.png", "penguins-boxplot.png")
-    commit(target, "Сгруппировал пингвинов по полу", 7)
+    write_html_report(target, "penguins-boxplot-by-sex.png")
+    commit(target, "Сгруппировал пингвинов по полу", 8)
 
 
 def build_local_state(target: Path, state: str) -> None:
@@ -325,6 +346,7 @@ def build_local_state(target: Path, state: str) -> None:
         "starter": lambda path: None,
         "baseline": make_baseline,
         "paper": make_paper,
+        "visualization": make_visualization,
         "histogram": make_histogram,
         "boxplot-branch": make_boxplot_branch,
         "dirty-main": make_dirty_main,
@@ -444,6 +466,9 @@ def build_github_state(
 
     make_adjust_by_sex(target)
     publish_repository(target, repository, visibility)
+
+    if state == "github-pr":
+        return
 
     if state == "github-webhook":
         if not webhook_url:

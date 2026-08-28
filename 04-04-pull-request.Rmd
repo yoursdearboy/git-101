@@ -15,21 +15,19 @@ data <- read.csv("data/penguins.csv")
 x <- data$bill_len
 g <- data$sex
 
-png("out/penguins-boxplot.png")
 boxplot(x ~ g, xlab = "Sex", ylab = "Bill length, mm")
-dev.off()
 ```
 
-Сохраните документ и выполните блок R.
-Создайте коммит, включив в него `paper.qmd` и обновленную диаграмму `out/penguins-boxplot.png`.
+Сохраните документ и нажмите [Preview]{.figtext}, чтобы обновить отчёт `paper.html`.
+Создайте коммит, включив в него `paper.qmd` и обновлённый отчёт `paper.html`.
 
-![Source Control перед коммитом в adjust-by-sex: изменены paper.qmd и out/penguins-boxplot.png. Подготовьте ветку adjust-by-sex, внесите изменения по заданию и добавьте оба файла в индекс]()
+![Source Control перед коммитом в adjust-by-sex: изменены paper.qmd и paper.html. Подготовьте ветку adjust-by-sex, внесите изменения по заданию, нажмите Preview и добавьте оба файла в индекс]()
 
 После создания коммита выберите [Publish Branch]{.figtext} на панели [Source Control]{.figtext}. Так как у вас полные права на редактирование репозитория, то новая ветка будет загружена на GitHub. Прохожему орнитологу пришлось бы создать свою копию репозитория или просить дать доступ средствами GitHub.
 
 Перейдите на страницу репозитория в GitHub и убедитесь, что ветка была загружена и содержит сделанные измнения, для этого выберите ее в выпадающем меню появляющемся при нажатии кнопки с названием ветки [main]{.figtext}.
 
-![Страница GitHub с выбранной веткой adjust-by-sex и обновлённым графиком. Команда подготовки: python3 bin/create_course_project.py /tmp/git-course-pr --state github-pr --repo OWNER/NAME --visibility public]()
+![Страница GitHub с выбранной веткой adjust-by-sex и обновлённым отчётом. Команда подготовки: python3 bin/create_course_project.py /tmp/git-course-pr --state github-pr --repo OWNER/NAME --visibility public]()
 
 При просмотре ветки отличной от основной, GitHub предложит создать из нее **Pull Request** --- предложение автору репозитория слить изменения из этой ветки. Нажмите кнопку [Contribute]{.figtext} и в выпадающем меню выберите [Open pull request]{.figtext}.
 
@@ -53,4 +51,4 @@ GitHub предложит ввести заголовок и описание п
 Вернемся к нашему проекту в Positron.
 Слияние было выполнено онлайн на GitHub, а значит необходимо загрузить изменения в наш локальный репозиторий, т.е. сделать pull.
 Переключитесь на ветку `main` при помощи строки состояния и выберите [Pull]{.figtext} на панели [Source Control]{.figtext}.
-Убедитесь, что теперь ветка `main` содержит актуальные изменения в файлах `paper.qmd` и `out/penguins-boxplot.png`.
+Убедитесь, что теперь ветка `main` содержит актуальные изменения в файлах `paper.qmd` и `paper.html`.

@@ -62,9 +62,10 @@ class CourseProjectTest(unittest.TestCase):
         expected = {
             "baseline": ("main", 1),
             "paper": ("main", 2),
-            "histogram": ("main", 3),
-            "boxplot-branch": ("boxplot", 4),
-            "merged": ("main", 6),
+            "visualization": ("main", 3),
+            "histogram": ("main", 4),
+            "boxplot-branch": ("boxplot", 5),
+            "merged": ("main", 7),
         }
         for state, (branch, commits) in expected.items():
             with self.subTest(state=state):
@@ -88,7 +89,20 @@ class CourseProjectTest(unittest.TestCase):
         target = self.make("histogram")
         changed = git(target, "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").stdout.splitlines()
         self.assertEqual(changed, ["paper.html", "paper.qmd"])
-        self.assertEqual(git(target, "log", "-1", "--format=%s").stdout.strip(), "Собрал HTML-отчёт о длине клюва")
+        self.assertEqual(git(target, "log", "-1", "--format=%s").stdout.strip(), "Собрал отчёт о длине клюва")
+
+    def test_visualization_contains_three_histograms(self) -> None:
+        target = self.make("visualization")
+        paper = (target / "paper.qmd").read_text(encoding="utf-8")
+        self.assertEqual(paper.count("hist("), 3)
+
+    def test_boxplot_branch_updates_quarto_and_html(self) -> None:
+        target = self.make("boxplot-branch")
+        paper = (target / "paper.qmd").read_text(encoding="utf-8")
+        report = (target / "paper.html").read_text(encoding="utf-8")
+        self.assertIn("boxplot(x)", paper)
+        self.assertNotIn("png(", paper)
+        self.assertIn("Ящик с усами для длины клюва пингвинов", report)
 
     def test_paper_state_updates_missing_bill_lengths(self) -> None:
         baseline = self.make("baseline")
@@ -115,7 +129,9 @@ class CourseProjectTest(unittest.TestCase):
     def test_conflict_is_an_unfinished_merge_in_paper(self) -> None:
         target = self.make("conflict")
         self.assertTrue((target / ".git" / "MERGE_HEAD").exists())
-        self.assertIn("UU paper.qmd", git(target, "status", "--short").stdout)
+        status = git(target, "status", "--short").stdout
+        self.assertIn("M  paper.html", status)
+        self.assertIn("UU paper.qmd", status)
         paper = (target / "paper.qmd").read_text(encoding="utf-8")
         self.assertIn("<<<<<<< HEAD", paper)
         self.assertIn(">>>>>>> boxplot", paper)

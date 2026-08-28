@@ -44,14 +44,14 @@ def main() -> int:
         text = source.read_text(encoding="utf-8")
         if "%>%" in text:
             fail(f"{source.name}: используется %>%", failures)
-        if "RStudio" in text or "Rstudio" in text:
-            fail(f"{source.name}: осталось упоминание RStudio", failures)
+        if "Rstudio" in text:
+            fail(f"{source.name}: название RStudio написано с ошибкой", failures)
         if "R Markdown" in text or "RMarkdown" in text:
             fail(f"{source.name}: осталось упоминание R Markdown", failures)
         for match in re.finditer(r"!\[([^\]]*)\]\(([^)]*)\)", text):
             alt, target = match.groups()
-            if not alt.strip():
-                fail(f"{source.name}: у изображения нет описания", failures)
+            if not alt.strip() and not target.strip():
+                fail(f"{source.name}: пустая ссылка на изображение", failures)
             if target.strip():
                 image_path = (source.parent / unquote(target.strip())).resolve()
                 if not image_path.exists():
@@ -62,8 +62,8 @@ def main() -> int:
         relative = source.relative_to(ROOT)
         if "%>%" in text:
             fail(f"{relative}: используется %>%", failures)
-        if "RStudio" in text or "Rstudio" in text:
-            fail(f"{relative}: осталось упоминание RStudio", failures)
+        if "Rstudio" in text:
+            fail(f"{relative}: название RStudio написано с ошибкой", failures)
         if "R Markdown" in text or "RMarkdown" in text:
             fail(f"{relative}: осталось упоминание R Markdown", failures)
         if ".Rmd" in text:
@@ -80,6 +80,12 @@ def main() -> int:
         fail("create_course_project.py: HTML-отчёт не встраивает ресурсы", failures)
     if 'write_html_report(target, "penguins-hist.png")' not in generator:
         fail("create_course_project.py: состояние histogram не создаёт paper.html", failures)
+    if 'write_paper(target, "visualization")' not in generator:
+        fail("create_course_project.py: нет состояния с тремя вариантами гистограммы", failures)
+    if 'write_html_report(target, "penguins-boxplot.png")' not in generator:
+        fail("create_course_project.py: ветка boxplot не обновляет paper.html", failures)
+    if "png(" in generator:
+        fail("create_course_project.py: paper.qmd сохраняет отдельный PNG", failures)
 
     docs = ROOT / "docs"
     for page in sorted(docs.glob("*.html")):

@@ -55,24 +55,20 @@ Positron переключится на ветку `boxplot`.
 
 ```{r, eval=FALSE}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
 
-png("out/penguins-boxplot.png")
+x <- data$bill_len
+
 boxplot(x)
-dev.off()
 ```
 
-Сохраните файл и выполните блок.
-Обратите внмание, что мы поменяли название файла.
-Старый файл `out/penguins-hist.png` в этой версии нам не нужен и его необходимо удалить.
-Не переживайте, благодаря Git, в основной ветке `main` он останется.
-В [Explorer]{.figtext} нажмите правой кнопкой на файл `out/penguins-hist.png` и выберите [Delete]{.figtext}.
+Сохраните файл и нажмите [Preview]{.figtext}, чтобы обновить отчёт `paper.html`.
+Не переживайте, благодаря Git в основной ветке `main` останется прежний отчёт с гистограммой.
 
-![Explorer в Positron перед удалением файла out/penguins-hist.png. Подготовьте состояние histogram, создайте ветку boxplot и выполните блок с boxplot]()
+![Отчёт paper.html с ящиком с усами. Подготовьте состояние histogram, создайте ветку boxplot, измените код и нажмите Preview]()
 
 Отметьте все изменения для фиксации и создайте коммит.
-Обратите внимание, что удаление файла это тоже изменение, которое надо отметить.
+Обратите внимание, что в коммит должны попасть и исходный документ `paper.qmd`, и обновлённый отчёт `paper.html`.
 
-![Source Control перед коммитом в ветке boxplot: изменён paper.qmd, удалена гистограмма и добавлен новый боксплот. Подготовьте состояние boxplot-branch и выполните git reset --soft HEAD^]()
+![Source Control перед коммитом в ветке boxplot: изменены paper.qmd и paper.html. Подготовьте состояние boxplot-branch и выполните git reset --soft HEAD^]()
 
 Теперь отложим эксперименты и вернемся к прежней версии.

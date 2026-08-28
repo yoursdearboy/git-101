@@ -15,13 +15,12 @@ Git не синхронизирует изменения автоматичес�
 
 ```{r, eval=FALSE}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
+
+x <- data$bill_len
 
 # Ящик с усами для длины клюва
 
-png("out/penguins-boxplot.png")
 boxplot(x, ylab = "Bill length, mm")
-dev.off()
 ```
 
 Сохраните и закомитьте файл `paper.qmd`.
@@ -56,7 +55,7 @@ GitHub позволяет вносить изменения в репозито�
 
 Содержимое репозитория:
 
-- out/penguins-boxplot.png — диаграмма ящик с усами, показывающая распределение длины клюва
+- paper.html — готовый отчёт с диаграммой, показывающей распределение длины клюва
 - paper.qmd — документ Quarto с кодом для построения диаграммы
 - data/penguins.csv — данные
 ```
