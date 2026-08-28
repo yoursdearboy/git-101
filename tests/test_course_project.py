@@ -1,6 +1,7 @@
 from __future__ import annotations
 
 import importlib.util
+import csv
 import json
 from pathlib import Path
 import subprocess
@@ -72,13 +73,39 @@ class CourseProjectTest(unittest.TestCase):
                 self.assertEqual(int(git(target, "rev-list", "--count", "--all").stdout), commits)
                 self.assertEqual(git(target, "status", "--porcelain").stdout, "")
 
-    def test_paper_uses_quarto_data_path_and_base_pipe(self) -> None:
+    def test_paper_uses_quarto_data_path(self) -> None:
         target = self.make("histogram")
         paper = (target / "paper.qmd").read_text(encoding="utf-8")
         self.assertIn('read.csv("data/penguins.csv")', paper)
-        self.assertIn("|>", paper)
+        self.assertIn("embed-resources: true", paper)
         self.assertNotIn("%>%", paper)
+        self.assertNotIn("png(", paper)
+        report = (target / "paper.html").read_text(encoding="utf-8")
+        self.assertIn("data:image/png;base64,", report)
         self.assertFalse((target / "paper.R").exists())
+
+    def test_histogram_commit_contains_html_report(self) -> None:
+        target = self.make("histogram")
+        changed = git(target, "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").stdout.splitlines()
+        self.assertEqual(changed, ["paper.html", "paper.qmd"])
+        self.assertEqual(git(target, "log", "-1", "--format=%s").stdout.strip(), "Собрал HTML-отчёт о длине клюва")
+
+    def test_paper_state_updates_missing_bill_lengths(self) -> None:
+        baseline = self.make("baseline")
+        paper = self.make("paper")
+
+        def bill_lengths(target: Path) -> list[str]:
+            with (target / "data" / "penguins.csv").open(encoding="utf-8", newline="") as source:
+                return [row["bill_len"] for row in csv.DictReader(source)]
+
+        self.assertEqual(bill_lengths(baseline).count(""), 2)
+        self.assertEqual(bill_lengths(paper).count(""), 0)
+        paper_source = (paper / "paper.qmd").read_text(encoding="utf-8")
+        self.assertIn("embed-resources: true", paper_source)
+        self.assertIn("mean(data$bill_len)", paper_source)
+        self.assertNotIn("mean(x)", paper_source)
+        changed = git(paper, "diff-tree", "--no-commit-id", "--name-only", "-r", "HEAD").stdout.splitlines()
+        self.assertEqual(changed, ["data/penguins.csv", "paper.qmd"])
 
     def test_dirty_main_contains_only_uncommitted_paper_change(self) -> None:
         target = self.make("dirty-main")

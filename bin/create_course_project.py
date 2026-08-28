@@ -4,6 +4,7 @@
 from __future__ import annotations
 
 import argparse
+import base64
 import hashlib
 import json
 import os
@@ -16,6 +17,7 @@ import sys
 ROOT = Path(__file__).resolve().parents[1]
 STARTER = ROOT / "course-project" / "starter"
 OUTPUTS = ROOT / "course-project" / "outputs"
+UPDATED_DATA = ROOT / "course-project" / "updates" / "penguins.csv"
 MANIFEST = ROOT / "course-project" / "starter-manifest.json"
 
 LOCAL_STATES = (
@@ -137,37 +139,41 @@ def write_paper(target: Path, version: str) -> None:
     bodies = {
         "paper": '''---
 title: "Длина клюва пингвинов"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ```{r}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
-x
+
+mean(data$bill_len)
 ```
 ''',
         "histogram": '''---
 title: "Длина клюва пингвинов"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ```{r}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
+x <- data$bill_len
 
-png("out/penguins-hist.png")
 hist(x, breaks = seq(30, 60, 2))
-dev.off()
 ```
 ''',
         "histogram-labelled": '''---
 title: "Длина клюва пингвинов"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ```{r}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
+x <- data$bill_len
 
 png("out/penguins-hist.png")
 hist(x, breaks = seq(30, 60, 2), xlab = "Bill length, mm")
@@ -176,12 +182,14 @@ dev.off()
 ''',
         "boxplot": '''---
 title: "Длина клюва пингвинов"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ```{r}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
+x <- data$bill_len
 
 png("out/penguins-boxplot.png")
 boxplot(x)
@@ -190,12 +198,14 @@ dev.off()
 ''',
         "boxplot-labelled": '''---
 title: "Длина клюва пингвинов"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ```{r}
 data <- read.csv("data/penguins.csv")
-x <- data$bill_len |> na.omit()
+x <- data$bill_len
 
 png("out/penguins-boxplot.png")
 boxplot(x, ylab = "Bill length, mm")
@@ -204,7 +214,9 @@ dev.off()
 ''',
         "by-sex": '''---
 title: "Длина клюва пингвинов"
-format: html
+format:
+  html:
+    embed-resources: true
 ---
 
 ```{r}
@@ -227,6 +239,31 @@ def copy_output(target: Path, source: str, destination: str) -> None:
     shutil.copy2(OUTPUTS / source, output)
 
 
+def write_html_report(target: Path, chart: str) -> None:
+    image = base64.b64encode((OUTPUTS / chart).read_bytes()).decode("ascii")
+    (target / "paper.html").write_text(
+        f'''<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8">
+  <title>Длина клюва пингвинов</title>
+</head>
+<body>
+  <main>
+    <h1>Длина клюва пингвинов</h1>
+    <img src="data:image/png;base64,{image}" alt="Гистограмма длины клюва пингвинов">
+  </main>
+</body>
+</html>
+''',
+        encoding="utf-8",
+    )
+
+
+def update_penguin_data(target: Path) -> None:
+    shutil.copy2(UPDATED_DATA, target / "data" / "penguins.csv")
+
+
 def make_baseline(target: Path) -> None:
     commit(target, "Зафиксировал результат курса R", 1)
 
@@ -234,21 +271,22 @@ def make_baseline(target: Path) -> None:
 def make_paper(target: Path) -> None:
     make_baseline(target)
     write_paper(target, "paper")
-    commit(target, "Добавил импорт данных в paper.qmd", 2)
+    update_penguin_data(target)
+    commit(target, "Импортировал данные пингвинов", 2)
 
 
 def make_histogram(target: Path) -> None:
     make_paper(target)
     write_paper(target, "histogram")
-    copy_output(target, "penguins-hist.png", "penguins-hist.png")
-    commit(target, "Сохранил гистограмму длины клюва", 3)
+    write_html_report(target, "penguins-hist.png")
+    commit(target, "Собрал HTML-отчёт о длине клюва", 3)
 
 
 def make_boxplot_branch(target: Path) -> None:
     make_histogram(target)
     run(["git", "switch", "-c", "boxplot"], cwd=target, capture=True)
     write_paper(target, "boxplot")
-    (target / "out" / "penguins-hist.png").unlink()
+    (target / "out" / "penguins-hist.png").unlink(missing_ok=True)
     copy_output(target, "penguins-boxplot.png", "penguins-boxplot.png")
     commit(target, "Заменил гистограмму на ящик с усами", 4)
 

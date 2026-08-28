@@ -1,4 +1,4 @@
-data <- read.csv("course-project/starter/data/penguins.csv")
+data <- read.csv("course-project/updates/penguins.csv")
 x <- data$bill_len
 g <- data$sex
 

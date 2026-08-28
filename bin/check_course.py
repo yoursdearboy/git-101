@@ -74,8 +74,12 @@ def main() -> int:
         fail("create_course_project.py: используется %>%", failures)
     if 'read.csv("data/penguins.csv")' not in generator:
         fail("create_course_project.py: paper.qmd читает данные не из data/penguins.csv", failures)
-    if "|>" not in generator:
-        fail("create_course_project.py: в новом R-коде нет базовой трубы |>", failures)
+    if "mean(data$bill_len)" not in generator:
+        fail("create_course_project.py: состояние paper не вычисляет среднюю длину клюва", failures)
+    if "embed-resources: true" not in generator:
+        fail("create_course_project.py: HTML-отчёт не встраивает ресурсы", failures)
+    if 'write_html_report(target, "penguins-hist.png")' not in generator:
+        fail("create_course_project.py: состояние histogram не создаёт paper.html", failures)
 
     docs = ROOT / "docs"
     for page in sorted(docs.glob("*.html")):
