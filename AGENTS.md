@@ -15,7 +15,7 @@ This is an onboarding course for the Institute of Bioinformatics programme «Б�
 - `make dev` serves the Bookdown site locally and rebuilds it while editing.
 - `R -e 'rmarkdown::render("practice/workshop_notebook.Rmd")'` renders an individual practice notebook when that material changes.
 
-There is no separate test suite. A clean successful render is the primary check; inspect the changed pages in `docs/` and verify chapter links, code blocks, citations, and image paths before committing.
+Do not build the book or update `docs/` while working on this repository: change the source Rmd files only. The user will render the book themselves.
 
 ## Writing, Code Style & Naming
 
@@ -23,4 +23,4 @@ Follow the existing R Markdown style: Russian prose, concise headings, and runna
 
 ## Commit & Pull Request Guidelines
 
-Recent history uses short, imperative Russian messages, e.g. `Добавил рендеринг Rmd` or `Поправил формулировки`. Keep commits focused; use merge commits only for merges. Pull requests should explain the instructional change, list affected chapters/practice files, and include rendered `docs/` updates for source changes. Add before/after screenshots for visual changes and link the relevant issue or lesson request when available.
+Recent history uses short, imperative Russian messages, e.g. `Добавил рендеринг Rmd` or `Поправил формулировки`. Keep commits focused; use merge commits only for merges. Pull requests should explain the instructional change and list affected chapters/practice files. Add before/after screenshots for visual changes and link the relevant issue or lesson request when available.
