@@ -1,7 +1,7 @@
-diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+diff --git a/homework_notebook.qmd b/homework_notebook.qmd
 index f26d85b..754131c 100644
---- a/homework_notebook.Rmd
-+++ b/homework_notebook.Rmd
+--- a/homework_notebook.qmd
++++ b/homework_notebook.qmd
 @@ -37,10 +37,13 @@ library(tidyverse)
  Выберите столбец `USUBJID` и столбец `VSORRES` под именем `TEMP`.
  
@@ -10,10 +10,10 @@ index f26d85b..754131c 100644
  
 -# выполняет user3
 -# ветка vs
-+vs <- vs %>%
++vs <- vs |>
 +  filter(VSTESTCD == "TEMP", VISITNUM == 1)
  
-+vs <- vs %>%
++vs <- vs |>
 +  select(USUBJID, TEMP = VSORRES)
  ```
  

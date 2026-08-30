@@ -1,7 +1,7 @@
 ---
 title: "automatization_notebook"
-date: "`r Sys.Date()`"
-output: html_document
+date: today
+format: html
 ---
 
 ```{r setup, include=FALSE}
@@ -21,16 +21,9 @@ library(tidyverse)
 Это датасет в широком формате: на каждого субъекта (`USUBJID`) должна приходиться только одна строка.
 
 ```{r}
-dm <- read_csv2("data/raw/dm.csv")
 
-dm <- dm %>%
-  select(USUBJID, SEX, ACTARM)
-```
+# ветка dm
 
-```{r, eval=FALSE}
-dm %>%
-  count(USUBJID) %>%
-  filter(n > 1)
 ```
 
 ## 1.2. VS (Vital Signs)
@@ -43,22 +36,12 @@ dm %>%
 Выберите столбец `USUBJID` и столбец `VSORRES` под именем `TEMP`.
 
 ```{r}
-vs <- read_csv("data/raw/vs.csv")
 
-vs <- vs %>%
-  filter(VSTESTCD == "TEMP", VISITNUM == 1)
+# ветка vs
 
-vs <- vs %>%
-  select(USUBJID, TEMP = VSORRES)
 ```
 
 Убедитесь, что в результате на каждого субъекта (`USUBJID`) приходится только одна строка.
-
-```{r}
-vs %>%
-  count(USUBJID) %>%
-  filter(n > 1)
-```
 
 ## 1.3. LB (Laboratory Test Results)
 
@@ -70,22 +53,12 @@ vs %>%
 Выберите столбец `USUBJID` и столбец `LBORRES` под именем `WBC`.
 
 ```{r}
-lb <- readxl::read_excel("data/raw/lb.xlsx")
 
-lb <- lb %>%
-  filter(LBTESTCD == "WBC", VISITNUM == 1)
+# ветка lb
 
-lb <- lb %>%
-  select(USUBJID, WBC = LBORRES)
 ```
 
 Убедитесь, что теперь на каждого субъекта (`USUBJID`) приходится только одна строка.
-
-```{r}
-lb %>%
-  count(USUBJID) %>%
-  filter(n > 1)
-```
 
 # 2. Объединение данных
 
@@ -94,12 +67,10 @@ lb %>%
 Уберите строки с пропущенными данными в столбцах `TEMP` и `WBC`.
 
 ```{r}
-data <- dm %>%
-  left_join(vs, join_by(USUBJID)) %>%
-  left_join(lb, join_by(USUBJID))
 
-data <- data %>%
-  filter(!is.na(TEMP) & !is.na(WBC))
+# выполняет ведущий
+# ветка join
+
 ```
 
 # 3. Дальнейшая очистка данных
@@ -107,11 +78,8 @@ data <- data %>%
 ```{r}
 # перекодирование данных здесь
 
-data <- data %>%
-  mutate(SEX = recode(SEX, "M" = "Male", "F" = "Female"),
-         TEMP = as.numeric(str_replace(TEMP, ",", ".")),
-         WBC = as.numeric(str_replace(WBC, ",", "."))) %>%
-  mutate(TEMP = (TEMP - 32) * 5 / 9)
+data <- data |>
+  mutate()
 ```
 
 # 4. Визуализация
@@ -125,21 +93,9 @@ data <- data %>%
 ‼️ Перекодирование данных выполните в общем чанке в главе 3 выше.
 
 ```{r}
-ggplot(data, aes(SEX, TEMP)) +
-  geom_boxplot() +
-  labs(y = "Temperature, C")
-
-ggplot(data, aes(ACTARM, TEMP)) +
-  geom_boxplot() +
-  labs(y = "Temperature, C")
-
-ggplot(data, aes(ACTARM, WBC)) +
-  geom_boxplot() +
-  scale_y_log10() +
-  labs(y = "WBC, 10^9/L")
-
-ggplot(data, aes(SEX, fill = ACTARM)) +
-  geom_bar(position = position_dodge())
+# ветка boxplot-temp-sex
+# ветка boxplot-temp-actarm
+# ветка boxplot-wbc-actarm
 ```
 
 # Дополнительные задания
@@ -155,7 +111,7 @@ ggplot(data, aes(SEX, fill = ACTARM)) +
    Используйте функцию scale_y_log10().
    Подпишите ось Y, указав единицы измерения — 10^9/L.
 
-4) Добавьте себя в список авторов в шапке файла. См. документацию к Rmarkdown по ссылке https://bookdown.org/yihui/rmarkdown-cookbook/multiple-authors.html)
+4) Добавьте себя в список авторов в начале файла. Формат описан в [документации Quarto](https://quarto.org/docs/authoring/front-matter.html#authors-and-affiliations).
 
 # Домашнее задание
 

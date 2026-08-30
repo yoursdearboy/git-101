@@ -1,7 +1,7 @@
-diff --git a/homework_notebook.Rmd b/homework_notebook.Rmd
+diff --git a/homework_notebook.qmd b/homework_notebook.qmd
 index f26d85b..e09f293 100644
---- a/homework_notebook.Rmd
-+++ b/homework_notebook.Rmd
+--- a/homework_notebook.qmd
++++ b/homework_notebook.qmd
 @@ -27,10 +27,11 @@ library(tidyverse)
  Это датасет в широком формате: на каждого субъекта (`USUBJID`) должна приходиться только одна строка.
  
@@ -10,7 +10,7 @@ index f26d85b..e09f293 100644
  
 -# выполняет user2
 -# ветка dm
-+dm <- dm %>%
++dm <- dm |>
 +  select(USUBJID, SEX, ACTARM)
  
  ```
