@@ -19,7 +19,7 @@ rmd_files:
   - 04-02-remote.Rmd
   - 04-03-push-pull.Rmd
   - 04-04-pull-request.Rmd
-  - 04-05-clone.Rmd
+  # - 04-05-clone.Rmd
   - 04-06-conclusion.Rmd
   - 05-01-faq.Rmd
   - 05-03-webhooks.Rmd

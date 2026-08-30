@@ -4,17 +4,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 16 Загрузка изменений | Основы Git в Positron</title>
+<title>Глава 16 Загрузка изменений | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
-<meta name="description" content="На предыдущем шаге мы загрузили изменения из нашего локального репозитория в удаленный репозиторий на GitHub при помощи операции push, которую выполнил Positron. Git не синхронизирует изменения...">
+<meta name="description" content="На предыдущем шаге мы загрузили изменения из локального репозитория в удалённый репозиторий на GitHub при помощи команды git push в терминале. Git не синхронизирует изменения автоматически, это...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 16 Загрузка изменений | Основы Git в Positron">
+<meta property="og:title" content="Глава 16 Загрузка изменений | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-push-pull.html">
-<meta property="og:description" content="На предыдущем шаге мы загрузили изменения из нашего локального репозитория в удаленный репозиторий на GitHub при помощи операции push, которую выполнил Positron. Git не синхронизирует изменения...">
+<meta property="og:description" content="На предыдущем шаге мы загрузили изменения из локального репозитория в удалённый репозиторий на GitHub при помощи команды git push в терминале. Git не синхронизирует изменения автоматически, это...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 16 Загрузка изменений | Основы Git в Positron">
-<meta name="twitter:description" content="На предыдущем шаге мы загрузили изменения из нашего локального репозитория в удаленный репозиторий на GitHub при помощи операции push, которую выполнил Positron. Git не синхронизирует изменения...">
+<meta name="twitter:title" content="Глава 16 Загрузка изменений | Основы Git">
+<meta name="twitter:description" content="На предыдущем шаге мы загрузили изменения из локального репозитория в удалённый репозиторий на GitHub при помощи команды git push в терминале. Git не синхронизирует изменения автоматически, это...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
 <script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Основы Git в Positron</a>
+        <a href="index.html" title="">Основы Git</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Показать содержание</span></button>
     </div>
@@ -44,7 +44,7 @@
 
       <nav aria-label="Содержание"><h2>Содержание</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Основы Git в Positron</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Основы Git</a></li>
 <li class="book-part">Введение</li>
 <li><a class="" href="about.html"><span class="header-section-number">2</span> Что такое Git</a></li>
 <li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
@@ -62,15 +62,14 @@
 <li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
+<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></li>
 <li><a class="active" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">21</span> Webhooks</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">22</span> Ссылки</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
+<li><a class="" href="webhooks.html"><span class="header-section-number">20</span> Webhooks</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -82,62 +81,53 @@
 <h1>
 <span class="header-section-number">Глава 16</span> Загрузка изменений<a class="anchor" aria-label="anchor" href="#git-push-pull"><i class="fas fa-link"></i></a>
 </h1>
-<p>На предыдущем шаге мы загрузили изменения из нашего локального репозитория в удаленный репозиторий на GitHub при помощи операции <code>push</code>, которую выполнил Positron.</p>
-<p>Git не синхронизирует изменения автоматически, это необходимо делать вручную, используя команду push или действие <span class="figtext">Push</span> на панели <span class="figtext">Source Control</span> в Positron.</p>
-<p>Создадим и загрузим еще один коммит. Например, добавим небольшой комментарий к коду, чтобы человеку открывшему его впервые было легче разобраться.</p>
-<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_len</span> <span class="op">|&gt;</span> <span class="fu"><a href="https://rdrr.io/r/stats/na.fail.html">na.omit</a></span><span class="op">(</span><span class="op">)</span></span>
-<span></span>
-<span><span class="co"># Ящик с усами для длины клюва</span></span>
-<span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"out/penguins-boxplot.png"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span>, ylab <span class="op">=</span> <span class="st">"Bill length, mm"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
+<p>На предыдущем шаге мы загрузили изменения из локального репозитория в удалённый репозиторий на GitHub при помощи команды <code>git push</code> в терминале.
+Git не синхронизирует изменения автоматически, это необходимо делать вручную.</p>
+<p>Создадим и загрузим ещё один коммит. Добавьте в <code>paper.qmd</code> перед чанком с графиком короткое пояснение, например:</p>
+<pre><code>Ящик с усами для длины клюва.</code></pre>
 <p>Сохраните и закомитьте файл <code>paper.qmd</code>.
-После чего выберите <span class="figtext">Push</span> на панели <span class="figtext">Source Control</span>.</p>
-<div class="float">
-<img src="" alt="Source Control перед Push: локальная ветка main содержит новый коммит с комментарием к коду. Подготовьте опубликованный репозиторий и создайте коммит по заданию, не выполняя Push"><div class="figcaption">Source Control перед Push: локальная ветка main содержит новый коммит с комментарием к коду. Подготовьте опубликованный репозиторий и создайте коммит по заданию, не выполняя Push</div>
-</div>
+После чего нажмите кнопку <span class="figtext">Sync Changes</span> на панели <span class="figtext">Source Control</span>.</p>
+<div class="inline-figure"><img src="img/SCR-20260830-dpri.png" style="width:100.0%"></div>
 <p>Перейдите на страницу репозитория на GitHub и убедитесь, что коммит был загружен.
 Это можно понять по тексту сообщения над списком файлов и по тексту и времени изменения напротив файла <code>paper.qmd</code>.</p>
-<div class="float">
-<img src="" alt="Страница GitHub после Push: над списком файлов показано сообщение нового коммита, а у paper.qmd обновлено время. Чтобы получить состояние, выполните Push после предыдущего снимка"><div class="figcaption">Страница GitHub после Push: над списком файлов показано сообщение нового коммита, а у paper.qmd обновлено время. Чтобы получить состояние, выполните Push после предыдущего снимка</div>
-</div>
+<div class="inline-figure"><img src="img/SCR-20260830-dqwa.png" style="width:100.0%"></div>
 <p>GitHub позволяет вносить изменения в репозиторий из веб-интерфейса.
 Эта функция используется редко, потому что код необходимо запускать и проверять на компьютере, но она полезна для небольших правок или загрузки файлов.
 Создадим при помощи нее новый файл.
 Файл README — это файл, который отображается на главной странице репозитория для краткого описания проекта. Обычно он включает описание данных и кода, как начать работу с проектом и тому подобное.</p>
-<p>Нажмите кнопку <span class="figtext">Add a README</span>. В открывшемся файле введите текст в формате Markdown<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;в документе Quarto используется тот же синтаксис разметки, но README не выполняет код на R&lt;/p&gt;"><sup>3</sup></a> (используйте или измените текст ниже)
+<p>Нажмите кнопку <span class="figtext">Add a README</span>. В открывшемся файле введите текст в формате Markdown<a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;в документе Quarto используется тот же синтаксис разметки, но README не выполняет код на R&lt;/p&gt;"><sup>2</sup></a> (используйте или измените текст ниже)
 и нажмите кнопку <span class="figtext">Commit changes</span> в верхнем правом углу.
 Откроется окно создания коммита, оставьте текст по умолчанию и подтвердите создание коммита нажатием кнопки <span class="figtext">Commit changes</span></p>
-<div class="float">
-<img src="" alt="Редактор README.md на GitHub: введено описание проекта и доступна кнопка Commit changes. Чтобы получить состояние, нажмите Add a README в опубликованном репозитории"><div class="figcaption">Редактор README.md на GitHub: введено описание проекта и доступна кнопка Commit changes. Чтобы получить состояние, нажмите Add a README в опубликованном репозитории</div>
+<div class="inline-figure"><img src="img/SCR-20260830-dtys.png" style="width:100.0%"></div>
+<div class="sourceCode" id="cb20"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb20-1"><a href="git-push-pull.html#cb20-1" tabindex="-1"></a><span class="fu"># Учебный проект</span></span>
+<span id="cb20-2"><a href="git-push-pull.html#cb20-2" tabindex="-1"></a></span>
+<span id="cb20-3"><a href="git-push-pull.html#cb20-3" tabindex="-1"></a>Этот репозиторий был создан в рамках курса <span class="co">[</span><span class="ot">«Основы Git»</span><span class="co">](https://yoursdearboy.github.io/git-101/)</span>,</span>
+<span id="cb20-4"><a href="git-push-pull.html#cb20-4" tabindex="-1"></a>чтобы познакомиться с фиксацией изменений, ветвлением и работой с GitHub.</span>
+<span id="cb20-5"><a href="git-push-pull.html#cb20-5" tabindex="-1"></a></span>
+<span id="cb20-6"><a href="git-push-pull.html#cb20-6" tabindex="-1"></a>В качестве примера использованы данные о длине клюва 🐧 пингвинов,</span>
+<span id="cb20-7"><a href="git-push-pull.html#cb20-7" tabindex="-1"></a>собранные доктором Кристен Горман на станции «Палмер» в Антарктиде.</span>
+<span id="cb20-8"><a href="git-push-pull.html#cb20-8" tabindex="-1"></a></span>
+<span id="cb20-9"><a href="git-push-pull.html#cb20-9" tabindex="-1"></a>Файлы проекта:</span>
+<span id="cb20-10"><a href="git-push-pull.html#cb20-10" tabindex="-1"></a></span>
+<span id="cb20-11"><a href="git-push-pull.html#cb20-11" tabindex="-1"></a><span class="ss">- </span><span class="in">`paper.html`</span> — готовый отчёт</span>
+<span id="cb20-12"><a href="git-push-pull.html#cb20-12" tabindex="-1"></a><span class="ss">- </span><span class="in">`paper.qmd`</span> — документ Quarto с кодом</span>
+<span id="cb20-13"><a href="git-push-pull.html#cb20-13" tabindex="-1"></a><span class="ss">- </span><span class="in">`data/penguins.csv`</span> — данные</span></code></pre></div>
+<p>Загрузить изменения из удалённого репозитория можно двумя способами: выполнить команду <code>git pull</code> в терминале или нажать кнопку <span class="figtext">Pull</span> справа от заголовка <span class="figtext">Graph</span> на панели <span class="figtext">Source Control</span> в Positron.</p>
+<div style="float: left; clear: both; width: 200px; margin-right: 20px;">
+<div class="inline-figure"><img src="img/SCR-20260830-dzhz.png" style="width:100.0%"></div>
 </div>
-<div class="sourceCode" id="cb22"><pre class="sourceCode md"><code class="sourceCode markdown"><span id="cb22-1"><a href="git-push-pull.html#cb22-1" tabindex="-1"></a><span class="fu"># Пингвины «Палмер» 🐧</span></span>
-<span id="cb22-2"><a href="git-push-pull.html#cb22-2" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="git-push-pull.html#cb22-3" tabindex="-1"></a>Этот репозиторий был создан в рамках курса от <span class="co">[</span><span class="ot">Института биоинформатики</span><span class="co">](bioinf.me/education/stat)</span>,</span>
-<span id="cb22-4"><a href="git-push-pull.html#cb22-4" tabindex="-1"></a>чтобы познакомиться с основами Git — фиксацией изменений, ветвлением и работой с GitHub.</span>
-<span id="cb22-5"><a href="git-push-pull.html#cb22-5" tabindex="-1"></a></span>
-<span id="cb22-6"><a href="git-push-pull.html#cb22-6" tabindex="-1"></a>В качестве примера использованы данные о длине клюва пингвинов,</span>
-<span id="cb22-7"><a href="git-push-pull.html#cb22-7" tabindex="-1"></a>собранные доктором Кристен Горман на станции «Палмер» в Антарктиде.</span>
-<span id="cb22-8"><a href="git-push-pull.html#cb22-8" tabindex="-1"></a></span>
-<span id="cb22-9"><a href="git-push-pull.html#cb22-9" tabindex="-1"></a>Содержимое репозитория:</span>
-<span id="cb22-10"><a href="git-push-pull.html#cb22-10" tabindex="-1"></a></span>
-<span id="cb22-11"><a href="git-push-pull.html#cb22-11" tabindex="-1"></a><span class="ss">- </span>out/penguins-boxplot.png — диаграмма ящик с усами, показывающая распределение длины клюва</span>
-<span id="cb22-12"><a href="git-push-pull.html#cb22-12" tabindex="-1"></a><span class="ss">- </span>paper.qmd — документ Quarto с кодом для построения диаграммы</span>
-<span id="cb22-13"><a href="git-push-pull.html#cb22-13" tabindex="-1"></a><span class="ss">- </span>data/penguins.csv — данные</span></code></pre></div>
-<p>Чтобы загрузить изменения из удаленного репозитория на компьютер используется команда <strong>pull</strong>.</p>
-<p>Вернитесь в Positron и выберите <span class="figtext">Pull</span> на панели <span class="figtext">Source Control</span>.
-Если команда выполнилась успешно, в списке файлов появится файл <code>README.md</code>,
-а в журнале — коммит созданный через GitHub.</p>
+<p>Загрузите изменения любым из этих способов.
+Если загрузка прошла успешно, в журнале появится коммит созданный через GitHub, а в списке файлов <code>README.md</code>.</p>
+<div class="clearfix">
+
+</div>
 <p>Как и в случае с переключением веток, Git откажется загружать изменения и выдаст ошибку, если в рабочей папке имеются незафиксированные изменения, которые конфликтуют с загружаемыми.</p>
 <p>Теперь вы умеете загружать изменения в удалённый репозиторий и из него. Рекомендуем делать это регулярно, чтобы синхронизироваться с другими участниками проекта, по крайней мере, в конце рабочего дня или рабочей сессии.</p>
 
 </div>
 
   <div class="chapter-nav">
-<div class="prev"><a href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></div>
+<div class="prev"><a href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></div>
 <div class="next"><a href="pr.html"><span class="header-section-number">17</span> Pull Request</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>

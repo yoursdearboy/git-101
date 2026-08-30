@@ -1,4 +1,4 @@
-основы-git-в-positron
+основы-git
 about
 install
 terminal
@@ -22,12 +22,9 @@ git-merge
 долгоживущие-ветки-long-running-branches
 когда-не-стоит-использовать-ветки
 github
-регистрация-на-github
-вход-из-positron
 git-remote
 git-push-pull
 pr
-git-clone
 заключение-1
 faq
 gitignore

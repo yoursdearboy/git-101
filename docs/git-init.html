@@ -4,16 +4,16 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 5 Создание репозитория | Основы Git в Positron</title>
+<title>Глава 5 Создание репозитория | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
 <meta name="description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 5 Создание репозитория | Основы Git в Positron">
+<meta property="og:title" content="Глава 5 Создание репозитория | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-init.html">
 <meta property="og:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 5 Создание репозитория | Основы Git в Positron">
+<meta name="twitter:title" content="Глава 5 Создание репозитория | Основы Git">
 <meta name="twitter:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
@@ -32,7 +32,7 @@
 
     <div class="d-flex align-items-start justify-content-between">
       <h1>
-        <a href="index.html" title="">Основы Git в Positron</a>
+        <a href="index.html" title="">Основы Git</a>
       </h1>
       <button class="btn btn-outline-primary d-lg-none ml-2 mt-1" type="button" data-toggle="collapse" data-target="#main-nav" aria-expanded="true" aria-controls="main-nav"><i class="fas fa-bars"></i><span class="sr-only">Показать содержание</span></button>
     </div>
@@ -44,7 +44,7 @@
 
       <nav aria-label="Содержание"><h2>Содержание</h2>
         <ul class="book-toc list-unstyled">
-<li><a class="" href="index.html"><span class="header-section-number">1</span> Основы Git в Positron</a></li>
+<li><a class="" href="index.html"><span class="header-section-number">1</span> Основы Git</a></li>
 <li class="book-part">Введение</li>
 <li><a class="" href="about.html"><span class="header-section-number">2</span> Что такое Git</a></li>
 <li><a class="" href="install.html"><span class="header-section-number">3</span> Установка</a></li>
@@ -62,15 +62,14 @@
 <li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
+<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></li>
 <li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">21</span> Webhooks</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">22</span> Ссылки</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
+<li><a class="" href="webhooks.html"><span class="header-section-number">20</span> Webhooks</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -86,14 +85,14 @@
 Для этого нужно инициализировать в ней Git репозиторий.
 <strong>Репозиторий</strong> — это скрытая подпапка <code>.git</code>, в которой хранятся версии проекта и информация об изменениях.
 Всё необходимое для работы Git содержится непосредственно в ней.</p>
-<p>Проект для этого курса уже создан в конце курса R. Откройте Positron и на экране Welcome выберите <span class="figtext">Open Folder</span>, затем укажите папку проекта <code>r-course</code>.
-Не создавайте новый проект, не переносите и не переименовывайте накопленные файлы.</p>
-<p>Убедитесь в том, что проект загружен: в панели <span class="figtext">Explorer</span> должна быть открыта папка с файлами проекта, в том числе с папкой <code>data</code>.
-Откройте <span class="figtext">Source Control</span> на панели активности. Если там уже перечислены файлы проекта, репозиторий готов.</p>
-<div class="float">
-<img src="" alt="Окно Positron с открытой папкой r-course: в Explorer видны накопленные файлы и папка data, а в Source Control перечислены незафиксированные файлы. Команда подготовки: python3 bin/create_course_project.py /tmp/git-course-starter –state starter"><div class="figcaption">Окно Positron с открытой папкой r-course: в Explorer видны накопленные файлы и папка data, а в Source Control перечислены незафиксированные файлы. Команда подготовки: python3 bin/create_course_project.py /tmp/git-course-starter –state starter</div>
-</div>
-<p>Когда в Positron открыта папка проекта, R и Git ищут файлы в ней — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
+<p>Мы продолжим проект из курса «Введение в автоматизацию обработки данных на R». Откройте его в Positron по <a href="https://stepik.org/lesson/2482459/step/5?unit=2520221">инструкции из курса</a>: нажмите <span class="figtext">Open</span> на верхней панели, выберите Open Folder… и найдите нужную папку.</p>
+<p>Если проекта нет, создайте его, как показано <a href="https://stepik.org/lesson/2482459/step/2?unit=2520221">в курсе</a>. Затем создайте папку <code>data</code>, скачайте файл <a href="https://stepik.org/media/attachments/lesson/2482459/penguins.csv"><code>penguins.csv</code></a> и поместите его туда.</p>
+<p>Убедитесь, что папка открыта: в панели <span class="figtext">(1) Explorer</span> должны быть видны файлы, в том числе папка <code>data</code>.
+Откройте пункт <span class="figtext">(2) Source Control</span> на панели слева и нажмите <span class="figtext">Initialize Repository</span>.
+Positron создаст репозиторий в папке проекта. На панели в разделе <span class="figtext">Changes</span> появится список файлов.</p>
+<p>Если у вас нет кнопки <span class="figtext">Initialize Repository</span>, <a href="install.html#install">проверьте установку Git</a>.</p>
+<div class="inline-figure"><img src="img/SCR-20260826-rxxf.png" style="width:100.0%"></div>
+<p>Когда в Positron открыт проект, R и Git ищут файлы в ней — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
 <details><summary>
 Подробнее про поиск и адреса файлов.
 </summary><p>На разных компьютерах, например у разных участников, проект может находиться в разных местах.
@@ -107,16 +106,16 @@
 Чтобы он работал у всех, нужно указывать адрес файла относительно рабочей папки.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span></span></code></pre></div>
-</details><p>Рассмотрим служебные файлы проекта:</p>
-<ul>
-<li>
-<code>.gitignore</code> — содержит список файлов, которые Git не будет отслеживать; о том, зачем это нужно и как настроить <a href="faq.html#gitignore">смотри в отдельном разделе</a>
-</li>
-<li>
-<code>.git</code> — репозиторий; это скрытая папка, в которой Git будет хранить версии проекта</li>
-</ul>
-<p>Если вместо списка файлов Source Control показывает кнопку <span class="figtext">Initialize Repository</span>, нажмите её один раз. Positron создаст репозиторий в уже существующей папке, не меняя остальные файлы.</p>
-<p>Итак, у нас есть проект — папка, в которой мы будем работать, и
+</details><p>Внутри папки проекта создана папка репозитория <code>.git</code>. Открывать или изменять её содержимое не нужно, поэтому она скрыта. Для работы с репозиторием используют панель <span class="figtext">Source Control</span> и команды в терминале.</p>
+<details><summary>
+Как увидеть скрытую папку.
+</summary><p>Positron не показывает некоторые служебные папки на панели Explorer.
+Чтобы увидеть их, откройте терминал и выполните команду:</p>
+<pre class="shell"><code>ls -la</code></pre>
+<p>В Windows может потребоваться другая команда:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb12-1"><a href="git-init.html#cb12-1" tabindex="-1"></a><span class="fu">Get-ChildItem</span> <span class="op">-</span>Force</span></code></pre></div>
+Появится список файлов проекта, в том числе папка <code>.git</code>.
+</details><p>Итак, у нас есть проект — папка, в которой мы будем работать, и
 внутри нее Git репозиторий — скрытая папка, в которой будут храниться версии проекта.
 Приступим к созданию первой версии.</p>
 

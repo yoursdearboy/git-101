@@ -4,13 +4,14 @@
 Команды для терминала вы встретите в документации и в интернете, ими легко поделиться и использовать в скриптах.
 Кроме терминала есть много других способов и их даже можно использовать одновременно.
 
-Графические интерфейсы --- все они имеют ограничения и реализуют только часть возможностей Git, но достаточны для решения большинства задач. Это может быть интерфейс, встроенный в другие программы (например [Positron](https://positron.posit.co/git.html), [Pycharm](https://www.jetbrains.com/help/pycharm/using-git-integration.html), [VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview)) или самостоятельная программа (например [GitHub Desktop](https://github.com/apps/desktop), [GitKraken](https://www.gitkraken.com) [и многие другие](https://git-scm.com/downloads/guis));
+Графические интерфейсы --- все они имеют ограничения и реализуют только часть возможностей Git, но достаточны для решения большинства задач. Это может быть интерфейс, встроенный в другие программы (например [Positron](https://positron.posit.co/git.html), [Pycharm](https://www.jetbrains.com/help/pycharm/using-git-integration.html), [VS Code](https://code.visualstudio.com/docs/sourcecontrol/overview), [RStudio](https://docs.posit.co/ide/user/ide/guide/tools/version-control.html)) или самостоятельная программа (например [GitHub Desktop](https://github.com/apps/desktop), [GitKraken](https://www.gitkraken.com) [и многие другие](https://git-scm.com/downloads/guis));
 
 Веб-интерфейсы --- прямо на сайте GitHub можно редактировать отдельные файлы, а также выполнять некоторые команды.
 
-В этом курсе мы будем работать с Git одновременно в интерфейсе Positron и в терминале, как это делает большинство пользователей R каждый день, а также через GitHub.
-Поэтому запомните, как запустить терминал в Positron ---
-в палитре команд выберите **Terminal: Create New Terminal** ([см. скриншот в предыдущей главе](#terminal)).
+В этом курсе мы будем работать с Git одновременно в интерфейсе Positron и в терминале, как это делает большинство пользователей каждый день, а также через GitHub.
+К терминалу можно вернуться в любой момент, переключаясь между вкладками **(1) CONSOLE** и **(2) TERMINAL** на нижней панели Positron.
+
+![](./img/SCR-20260826-ofub-2.png){width="100%"}
 
 Перед началом работы необходимо сделать несколько настроек.
 Укажите свое имя и адрес электронной почты, чтобы Git верно записывал информацию об авторе изменений.
