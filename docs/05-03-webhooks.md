@@ -10,16 +10,16 @@ GitHub отправит информацию о событии на указан
 
 Добавьте бота в чат и скопируйте присланный им адрес.
 
-![Чат с ботом: после добавления показан адрес webhook, который нужно скопировать. Чтобы получить состояние, добавьте \@octo8bot в учебный чат]()
+![](./img/05-03-add-bot.png){width=400px}
 
 Откройте репозиторий на Github и выберите **Settings → Webhooks → Add webhook**.
 Вставьте адрес в поле **Payload URL** и заполните форму как на скриншоте ниже.
 Нажмите **Add webhook**.
 
-![Форма Add webhook на GitHub: заполнен Payload URL и выбраны события pull request. Откройте Settings → Webhooks → Add webhook и заполните форму по заданию]()
+![](./img/05-03-github.png){width=100%}
 
 Если webhook настроен правильно, в чат придет сообщение с текстом «Successfully installed».
 
 Когда создаётся новый Pull Request, в него вносятся изменения или он сливается (merge), бот пришлет уведомление с ссылкой на этот Pull Request.
 
-![Уведомления бота о создании, изменении и слиянии pull request. Команда подготовки: python3 bin/create_course_project.py /tmp/git-course-webhook --state github-webhook --repo OWNER/NAME --webhook-url URL]()
+![](./img/05-03-notifications.png){width=400px}

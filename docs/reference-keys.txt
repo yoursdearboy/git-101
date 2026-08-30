@@ -25,6 +25,7 @@ github
 git-remote
 git-push-pull
 pr
+git-clone
 заключение-1
 faq
 gitignore
