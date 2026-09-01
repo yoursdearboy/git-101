@@ -10,25 +10,14 @@
 Нажмите кнопку [Code]{.figtext} на странице репозитория,
 убедитесь что выбрана опция **HTTPS** и скопируйте адрес.
 
-![](./img/04-03-05-new-project.png){width="600px"}
+![Меню Code на GitHub: выбрана вкладка HTTPS и показан адрес репозитория. Откройте опубликованный репозиторий и нажмите Code]()
 
-Создадим проект RStudio.
-В верхнем меню выберите [File → New Project]{.figtext}.
-В появившемся окне выберите [Version Control]{.figtext} и далее [Git]{.figtext}.
-В поле [Repository URL]{.figtext} вставьте адрес репозитория.
-В поле [Project directory name]{.figtext} укажите название папки для проекта ---
-т.к. папка `penguins` уже существует, используем название `penguins2`.
-Откроется окно проекта, RStudio готова к работе.
+Создадим копию проекта в Positron.
+Откройте новое окно без проекта и в палитре команд выберите [Workspaces: New Folder from Git…]{.figtext}.
+Выберите [Clone from GitHub]{.figtext} и свой репозиторий `r-course` или вставьте скопированный адрес.
+Укажите другую родительскую папку, чтобы новая копия не оказалась внутри уже открытого проекта.
+После загрузки нажмите [Open]{.figtext}.
 
-<table class="table table-borderless">
-    <tr>
-        <td>![](./img/04-03-01-new-project.png){width="320px"}</td>
-        <td>![](./img/04-03-02-new-project.png){width="320px"}</td>
-    </tr>
-    <tr>
-        <td>![](./img/04-03-03-new-project.png){width="320px"}</td>
-        <td>![](./img/04-03-04-new-project.png){width="320px"}</td>
-    </tr>
-</table>
+![Окно Workspaces: New Folder from Git в Positron: выбран репозиторий r-course и папка для новой копии. Выполните Workspaces: New Folder from Git… в новом окне Positron]()
 
 Мы склонировали удаленный репозиторий на компьютер и теперь можем работать с ним как с оригинальным проектом --- делать коммиты, загружать изменения в удаленный репозиторий (push) и из него (pull).

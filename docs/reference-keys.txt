@@ -22,12 +22,9 @@ git-merge
 долгоживущие-ветки-long-running-branches
 когда-не-стоит-использовать-ветки
 github
-регистрация-на-github
-создание-токена
 git-remote
 git-push-pull
 pr
-git-clone
 заключение-1
 faq
 gitignore
@@ -36,5 +33,3 @@ feature-branch
 force-push
 commits-to-branch
 references
-webhooks
-cover-image-path-to-the-social-sharing-image-like-imagescover.jpg

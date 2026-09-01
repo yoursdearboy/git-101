@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="До этого мы просматривали изменения только по сравнению с последней версией в момент создания коммита. Предыдущие коммиты можно посмотреть в журнале (log). Журнал позволяет изучить изменения от...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -62,15 +62,13 @@
 <li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
+<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></li>
 <li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">20</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -86,22 +84,15 @@
 <p>Журнал позволяет изучить изменения от других участников или вспомнить свои собственные, и зачем они сделаны.
 Поэтому так важно писать ясные и содержательные описания коммитов.
 Используя журнал, можно найти, когда сделаны изменения, приведшие к ошибке, и вернуть проект к предыдущему состоянию.
-В конце концов, его можно использовать для отчетности и бизнесс-аналитики по проекту.</p>
-<p>Чтобы открыть журнал, нажмите кнопку <span class="figtext">History</span> на панели <span class="figtext">Git</span>.
-В открывшемся окне выводится список коммитов в обратном порядке — последние коммиты находятся вверху.
-В списке выводится краткая информация о коммите, а под списком подробная информация по выделенному коммиту.</p>
-<div class="inline-figure"><img src="img/02-04-02-history.png" width="690"></div>
-<ul>
-<li>SHA — так называемый хэш коммита, который является его уникальным идентификатором в репозитории</li>
-<li>Author — автор коммита &lt;email&gt;, <a href="setup.html#setup">которые были указаны в настройках</a>
-</li>
-<li>Date — дата и время создания коммита</li>
-<li>Subject — описание коммита</li>
-<li>Parent — хэш (идентификатор) предыдущего коммита</li>
-</ul>
-<p>Еще ниже показан дифф — изменения, сделанные в этом коммите по сравнению с предыдущим.
-Для больших файлов выводятся только те строки, которые поменялись, а также несколько строк выше и ниже, чтобы был понятен контекст.
-Если нажать кнопку <span class="figtext">View file</span> справа от названия файла, можно увидеть его полное содержимое, каким оно было зафиксировано создания коммита.</p>
+В конце концов, его можно использовать для отчетности и бизнес-аналитики по проекту.</p>
+<p>Чтобы открыть журнал, на панели <span class="figtext">Source Control</span> разверните раздел <span class="figtext">Graph</span> внизу.
+В открывшемся окне выводится список коммитов в обратном порядке — последние коммиты находятся вверху.</p>
+<p>При наведении на коммит появляется краткая информация: имя автора, которое <a href="setup.html#setup">мы указали в настройках</a>, дата и описание, и самое важное — хэш коммита, его уникальный идентификатор. В примере это <code>967f8ad</code>, у вас он будет другим.</p>
+<p>Кликните на коммит, чтобы посмотреть список изменений. Выберите файл, чтобы открыть дифф — изменения, сделанные в этом коммите по сравнению с предыдущей версией.</p>
+<div class="inline-figure"><img src="img/SCR-20260828-dmxx.png" style="width:100.0%"></div>
+<p>Если нужна история только одного файла, выберите его на панели <span class="figtext">Explorer</span> и откройте раздел <span class="figtext">Timeline</span> внизу той же панели.
+Выберите коммит, чтобы посмотреть изменения.
+В разделе <span class="figtext">Timeline</span> также есть автоматические контрольные точки, которые создаются при сохранении файла. Они не входят в Git-репозиторий и исчезнут через некоторое время.</p>
 <p>Даже если вы работаете в одиночку, полезно иметь под рукой историю изменений.
 Но по настоящему эта функция полезна,
 когда приходится работать с несколькими версиями одновременно,

@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Git может отслеживать изменения в любой папке на вашем компьютере. Для этого нужно инициализировать в ней Git репозиторий. Репозиторий — это скрытая подпапка .git, в которой хранятся версии...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -62,15 +62,13 @@
 <li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
+<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></li>
 <li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">20</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -86,65 +84,37 @@
 Для этого нужно инициализировать в ней Git репозиторий.
 <strong>Репозиторий</strong> — это скрытая подпапка <code>.git</code>, в которой хранятся версии проекта и информация об изменениях.
 Всё необходимое для работы Git содержится непосредственно в ней.</p>
-<p>Самый простой способ создать репозиторий — вместе с проектом RStudio.<br>
-В верхнем меню выберите <span class="figtext">File → New Project</span>.
-В появившемся окне выберите <span class="figtext">New directory</span>, а затем <span class="figtext">New Project</span>.
-На последнем шаге в поле <span class="figtext">Directory name</span> введите название папки для проекта: <span class="figtext">penguins</span>.
-Она будет создана на вашем компьютере по адресу, указанному в поле <span class="figtext">Create project as subdirectory of</span>.<br>
-‼️ Не забудьте поставить галочку напротив опции <span class="figtext"><input type="checkbox" checked disabled> Create a git repository</span>, иначе проект будет создан без Git репозитория.<br>
-После нажатия кнопки <span class="figtext">Create Project</span> окно RStudio перезагрузится с открытым проектом.</p>
-<div class="inline-table"><table class="table table-borderless">
-<tr>
-<td>
-<img src="img/02-01-01-new-project.png" width="320">
-</td>
-<td>
-<img src="img/02-01-02-new-project.png" width="320">
-</td>
-</tr>
-<tr>
-<td>
-<img src="img/02-01-03-new-project.png" width="320">
-</td>
-<td>
-<img src="img/02-01-04-new-project.png" width="320">
-</td>
-</tr>
-</table></div>
-<p>При следующем запуске RStudio откроет последний проект.
-Если этого не произойдет, чтобы открыть проект в верхнем меню выберите <span class="figtext">File → Open Project</span> или <span class="figtext">File → Recent Projects</span>.</p>
-<p>Убедитесь в том, что проект загружен, для этого обратите внимание на следующие элементы интерфейса:
-В правом верхнем углу указано название проекта <span class="figref">(A)</span>.
-На панели файлов (по умолчанию она в нижнем правом углу) открыта папка с файлами проекта <span class="figref">(B)</span>.</p>
-<div class="inline-figure"><img src="img/02-01-05-window.png" width="680"></div>
-<p>Когда в RStudio открыт проект, R и Git ищут файлы в папке проекта — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
+<p>Мы продолжим проект из курса «Введение в автоматизацию обработки данных на R». Откройте его в Positron по <a href="https://stepik.org/lesson/2482459/step/5?unit=2520221">инструкции из курса</a>: нажмите <span class="figtext">Open</span> на верхней панели, выберите Open Folder… и найдите нужную папку.</p>
+<p>Если проекта нет, создайте его, как показано <a href="https://stepik.org/lesson/2482459/step/2?unit=2520221">в курсе</a>. Затем создайте папку <code>data</code>, скачайте файл <a href="https://stepik.org/media/attachments/lesson/2482459/penguins.csv"><code>penguins.csv</code></a> и поместите его туда.</p>
+<p>Убедитесь, что папка открыта: в панели <span class="figtext">(1) Explorer</span> должны быть видны файлы, в том числе папка <code>data</code>.
+Откройте пункт <span class="figtext">(2) Source Control</span> на панели слева и нажмите <span class="figtext">Initialize Repository</span>.
+Positron создаст репозиторий в папке проекта. На панели в разделе <span class="figtext">Changes</span> появится список файлов.</p>
+<p>Если у вас нет кнопки <span class="figtext">Initialize Repository</span>, <a href="install.html#install">проверьте установку Git</a>.</p>
+<div class="inline-figure"><img src="img/SCR-20260826-rxxf.png" style="width:100.0%"></div>
+<p>Когда в Positron открыт проект, R и Git ищут файлы в ней — это так называемая <strong>рабочая папка или рабочая область</strong>.</p>
 <details><summary>
 Подробнее про поиск и адреса файлов.
 </summary><p>На разных компьютерах, например у разных участников, проект может находиться в разных местах.
 У пользователя с именем <code>mjordan</code> это может быть <code>/Users/mjordan/penguins</code>,
 а у пользователя <code>scruz</code> допустим<br><code>C:\Users\scruz\penguins</code>.</p>
-<p>Если в скрипте использовать полный адрес файла, например:</p>
+<p>Если в документе использовать полный адрес файла, например:</p>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="st">"/Users/mjordan/penguins/data/sample.csv"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"/Users/mjordan/r-course/data/penguins.csv"</span><span class="op">)</span></span></code></pre></div>
 <p>то он будет работать только у пользователя <code>mjordan</code>.
 У других полный адрес будет отличаться, и код «сломается».
 Чтобы он работал у всех, нужно указывать адрес файла относительно рабочей папки.</p>
 <div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu">read_csv</span><span class="op">(</span><span class="st">"data/sample.csv"</span><span class="op">)</span></span></code></pre></div>
-</details><p>Рассмотрим созданные RStudio файлы:</p>
-<ul>
-<li>
-<code>hello-git.Rproj</code> — содержит настройки проекта</li>
-<li>
-<code>.gitignore</code> — содержит список файлов, которые Git не будет отслеживать; о том, зачем это нужно и как настроить <a href="faq.html#gitignore">смотри в отдельном разделе</a>
-</li>
-<li>
-<code>.git</code> — репозиторий; это скрытая папка, чтобы ее увидеть, в меню на панели файлов выберите <span class="figtext">More → Show Hidden Files</span>
-</li>
-</ul>
-<p>Если файл <code>.gitignore</code> отсутствует, значит, вы не отметили галочку <span class="figtext"><input type="checkbox" checked disabled> Create a git repository</span> при создании проекта или не установили Git.
-<a href="install.html#install">Проверьте наличие Git</a> и создайте проект заново.</p>
-<p>Итак, у нас есть проект RStudio — папка, в которой мы будем работать, и
+<code class="sourceCode R"><span><span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span></span></code></pre></div>
+</details><p>Внутри папки проекта создана папка репозитория <code>.git</code>. Открывать или изменять её содержимое не нужно, поэтому она скрыта. Для работы с репозиторием используют панель <span class="figtext">Source Control</span> и команды в терминале.</p>
+<details><summary>
+Как увидеть скрытую папку.
+</summary><p>Positron не показывает некоторые служебные папки на панели Explorer.
+Чтобы увидеть их, откройте терминал и выполните команду:</p>
+<pre class="shell"><code>ls -la</code></pre>
+<p>В Windows может потребоваться другая команда:</p>
+<div class="sourceCode" id="cb12"><pre class="sourceCode powershell"><code class="sourceCode powershell"><span id="cb12-1"><a href="git-init.html#cb12-1" tabindex="-1"></a><span class="fu">Get-ChildItem</span> <span class="op">-</span>Force</span></code></pre></div>
+Появится список файлов проекта, в том числе папка <code>.git</code>.
+</details><p>Итак, у нас есть проект — папка, в которой мы будем работать, и
 внутри нее Git репозиторий — скрытая папка, в которой будут храниться версии проекта.
 Приступим к созданию первой версии.</p>
 

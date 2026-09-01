@@ -1,0 +1,35 @@
+---
+title: "Статистическая таблица"
+format: html
+---
+
+```{r}
+library(tidyverse)
+library(flextable)
+```
+
+```{r}
+data <- read_tsv("data/data_tsv.tsv", show_col_types = FALSE)
+data$Группа <- factor(data$Группа)
+
+statistics <- list(
+  `Количество субъектов` = ~ length(.x),
+  `Ср. знач.` = ~ mean(.x, na.rm = TRUE),
+  `Станд. отклон.` = ~ sd(.x, na.rm = TRUE),
+  `Медиана` = ~ median(.x, na.rm = TRUE)
+)
+
+table <- data |>
+  select(`Группа`, where(is.numeric)) |>
+  group_by(`Группа`) |>
+  summarise(across(where(is.numeric), statistics, .names = "{.col}__{.fn}")) |>
+  mutate(across(-`Группа`, function(x) round(x, 2))) |>
+  pivot_longer(!`Группа`) |>
+  separate(name, into = c("Переменная", "Статистика"), sep = "__")
+
+table |>
+  flextable() |>
+  theme_box() |>
+  merge_v(c("Группа", "Переменная"))
+```
+

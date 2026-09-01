@@ -17,7 +17,7 @@
 <meta name="twitter:description" content="Pull Request — это механизм GitHub для слияния веток загруженных в удаленный репозиторий, позволяющий просмотреть, обсудить и проверить предлагаемые изменения перед слиянием. Похожий механизм...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -62,15 +62,13 @@
 <li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
+<li><a class="" href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></li>
 <li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="active" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">20</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -84,41 +82,40 @@
 </h1>
 <p>Pull Request — это механизм GitHub для слияния веток загруженных в удаленный репозиторий, позволяющий просмотреть, обсудить и проверить предлагаемые изменения перед слиянием. Похожий механизм существует и на других платформах.</p>
 <p>Орнитолог проходящий мимо нашего репозитория обратит внимание, что длину клюва пингвина лучше рассматривать в зависимости от пола. Он даже может предложить необходимые изменения при помощи Pull Request.</p>
-<p>Создайте ветку с названием <code>adjust-by-sex</code> при помощи кнопки <span class="figtext">New branch</span> на панели <span class="figtext">Git</span> в RStudio. Убедитесь, что справа от кнопки вместо названия ветки по умолчанию <code>main</code> выводится название созданной ветки <code>adjust-by-sex</code>.</p>
-<div class="inline-figure"><img src="img/04-04-01-add-branch.png" width="200"></div>
-<p>Отредактируйте скрипт <code>penguins.R</code>, добавив пол в код для построения ящика с усами. Код приведен ниже, не забывайте, что вы можете сравнить изменения по сравнению с оригиналом при помощи кнопки <span class="figtext">Diff</span> на панели <span class="figtext">Git</span>.</p>
-<div class="sourceCode" id="cb22"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"penguins.csv"</span><span class="op">)</span></span>
-<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_length_mm</span></span>
+<p>Создайте ветку с названием <code>adjust-by-sex</code>, как показано в <a href="git-branch.html#git-branch">разделе «Создание ветки»</a>: нажмите <code>main</code>в строке состояния Positron и выберите <span class="figtext">Create new branch…</span> Убедитесь, что вместо <code>main</code> выводится название созданной ветки <code>adjust-by-sex</code>.</p>
+<p>Замените код в чанке на приведённый ниже. Чтобы посмотреть, что изменилось, выберите файл <code>paper.qmd</code> на панели <span class="figtext">Source Control</span>.</p>
+<div class="sourceCode" id="cb21"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="va">data</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/utils/read.table.html">read.csv</a></span><span class="op">(</span><span class="st">"data/penguins.csv"</span><span class="op">)</span></span>
+<span></span>
+<span><span class="va">x</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">bill_len</span></span>
 <span><span class="va">g</span> <span class="op">&lt;-</span> <span class="va">data</span><span class="op">$</span><span class="va">sex</span></span>
 <span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/png.html">png</a></span><span class="op">(</span><span class="st">"penguins-boxplot.png"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span> <span class="op">~</span> <span class="va">g</span>, xlab <span class="op">=</span> <span class="st">"Sex"</span>, ylab <span class="op">=</span> <span class="st">"Bill length, mm"</span><span class="op">)</span></span>
-<span><span class="fu"><a href="https://rdrr.io/r/grDevices/dev.html">dev.off</a></span><span class="op">(</span><span class="op">)</span></span></code></pre></div>
-<p>Сохраните и выполните скрипт <code>penguins.R</code>.
-Создайте коммит включив в него скрипт и обновленную диаграмму <code>penguins-boxplot.png</code>.</p>
-<div class="inline-figure"><img src="img/04-04-02-git-commit.png" style="width:100.0%"></div>
-<p>После создания коммита нажмите кнопку <span class="figtext">Push</span> в верхнем правом углу или на панели <span class="figtext">Git</span>. Так как у вас полные права на редактирование репозитория, то новая ветка будет загружена на GitHub. Прохожему орнитологу пришлось бы создать свою копию репозитория или просить дать доступ средствами GitHub.</p>
-<p>Перейдите на страницу репозитория в GitHub и убедитесь, что ветка была загружена и содержит сделанные измнения, для этого выберите ее в выпадающем меню появляющемся при нажатии кнопки с названием ветки <span class="figtext">main</span>.</p>
-<div class="inline-figure"><img src="img/04-04-03-github-branch.png" style="width:100.0%"></div>
+<span><span class="fu"><a href="https://rdrr.io/r/graphics/boxplot.html">boxplot</a></span><span class="op">(</span><span class="va">x</span> <span class="op">~</span> <span class="va">g</span>, xlab <span class="op">=</span> <span class="st">"Sex"</span>, ylab <span class="op">=</span> <span class="st">"Bill length, mm"</span><span class="op">)</span></span></code></pre></div>
+<p>Сохраните файл и нажмите <span class="figtext">Preview</span>, чтобы обновить отчёт.
+Создайте коммит, включив в него <code>paper.qmd</code> и <code>paper.html</code>.
+После создания коммита выберите <span class="figtext">Publish Branch</span> на панели <span class="figtext">Source Control</span>.</p>
+<div class="inline-figure"><img src="img/SCR-20260830-ejim.png" style="width:100.0%"></div>
+<p>Так как у вас полные права на редактирование репозитория, то новая ветка будет загружена на GitHub.
+Прохожему орнитологу пришлось бы создать свою копию репозитория или просить дать доступ средствами GitHub.</p>
+<p>Перейдите на страницу репозитория в GitHub и убедитесь, что ветка содержит сделанные измнения, для этого выберите ее в выпадающем меню появляющемся при нажатии кнопки с названием ветки <span class="figtext">main</span>.</p>
+<div class="inline-figure"><img src="img/SCR-20260830-ekqj.png" style="width:100.0%"></div>
 <p>При просмотре ветки отличной от основной, GitHub предложит создать из нее <strong>Pull Request</strong> — предложение автору репозитория слить изменения из этой ветки. Нажмите кнопку <span class="figtext">Contribute</span> и в выпадающем меню выберите <span class="figtext">Open pull request</span>.</p>
-<div class="inline-figure"><img src="img/04-04-04-github-pr.png" style="width:100.0%"></div>
+<div class="inline-figure"><img src="img/SCR-20260830-ektf.png" style="width:100.0%"></div>
 <p>GitHub предложит ввести заголовок и описание предлагаемых изменений, правило хорошего тона кратко описать причину изменений и суть предлагаемого решения. А также, прокрутите страницу создания Pull Request и проверьте изменения, которые вы предлагаете, после чего нажмите кнопку <span class="figtext">Create pull Request</span> под полем с описанием.</p>
-<div class="inline-figure"><img src="img/04-04-05-github-pr.png" style="width:100.0%"></div>
+<div class="inline-figure"><img src="img/SCR-20260830-elgi.png" style="width:100.0%"></div>
 <p>На странице Pull Request владельцу репозитория доступна опция слить предложенные изменения.
 Нажмите кнопку <span class="figtext">Merge pull request</span> внизу страницы.
-В открывшемся окне GitHub предложить ввести текст коммита, как если бы мы делали слияние ветки в терминале. Оставьте или измените текст и нажмите кнопку <span class="figtext">Confirm merge</span>
+В открывшемся окне GitHub предложить ввести текст коммита, как если бы мы делали слияние ветки в Positron. Оставьте или измените текст и нажмите кнопку <span class="figtext">Confirm merge</span>
 После успешного слияния ветку можно удалить.</p>
 <p><img src="img/04-04-06-merge-pr.png" style="width:100.0%"><img src="img/04-04-07-merge-pr.png" style="width:100.0%"><img src="img/04-04-08-merge-pr.png" style="width:100.0%"></p>
-<p>Вернемся к нашему проекту в RStudio.
-Слияние было выполнено онлайн на GitHub, а значит необходимо загрузить изменения в наш локальный репозиторий, т.е. сделать pull.
-Переключитесь на ветку <code>main</code> при помощи панели <span class="figtext">Git</span> и нажмите кнопку <span class="figtext">Pull</span>.
-Убедитесь, что теперь ветка <code>main</code> содержит актуальные изменения в файлах <code>penguins.R</code> и <code>penguins-boxplot.png</code>.</p>
+<p>Вернёмся к проекту в Positron. Мы выполнили слияние на GitHub, поэтому локальный репозиторий ещё не содержит новых изменений.
+Переключитесь на <code>main</code> при помощи строки состояния и загрузите изменения, как в <a href="git-push-pull.html#git-push-pull">предыдущей главе</a>, нажав <span class="figtext">Pull</span>.
+Убедитесь, что файлы <code>paper.qmd</code> и <code>paper.html</code> обновились.</p>
 
 </div>
   <div class="chapter-nav">
 <div class="prev"><a href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></div>
-<div class="next"><a href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></div>
+<div class="next"><a href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
       <ul class="nav navbar-nav"><li><a class="nav-link" href="#pr"><span class="header-section-number">17</span> Pull Request</a></li></ul>

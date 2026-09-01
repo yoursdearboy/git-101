@@ -4,20 +4,20 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>Глава 15 Удаленный репозиторий | Основы Git</title>
+<title>Глава 15 Удалённый репозиторий | Основы Git</title>
 <meta name="author" content="Kirill Voronin">
 <meta name="description" content="Для загрузки репозитория с вашего компьютера (он называется локальный репозиторий) на Github необходимо создать удаленный репозиторий на сайте. На верхней панели в правом углу нажмите кнопку + и...">
 <meta name="generator" content="bookdown 0.43 with bs4_book()">
-<meta property="og:title" content="Глава 15 Удаленный репозиторий | Основы Git">
+<meta property="og:title" content="Глава 15 Удалённый репозиторий | Основы Git">
 <meta property="og:type" content="book">
 <meta property="og:url" content="https://yoursdearboy.github.io/git-101/git-remote.html">
 <meta property="og:description" content="Для загрузки репозитория с вашего компьютера (он называется локальный репозиторий) на Github необходимо создать удаленный репозиторий на сайте. На верхней панели в правом углу нажмите кнопку + и...">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Глава 15 Удаленный репозиторий | Основы Git">
+<meta name="twitter:title" content="Глава 15 Удалённый репозиторий | Основы Git">
 <meta name="twitter:description" content="Для загрузки репозитория с вашего компьютера (он называется локальный репозиторий) на Github необходимо создать удаленный репозиторий на сайте. На верхней панели в правом углу нажмите кнопку + и...">
 <!-- JS --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://kit.fontawesome.com/6ecbd6c532.js" crossorigin="anonymous"></script><script src="libs/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="libs/bootstrap-4.6.0/bootstrap.min.css" rel="stylesheet">
-<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.9.0/transition.js"></script><script src="libs/bs3compat-0.9.0/tabs.js"></script><script src="libs/bs3compat-0.9.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
+<script src="libs/bootstrap-4.6.0/bootstrap.bundle.min.js"></script><script src="libs/bs3compat-0.11.0/transition.js"></script><script src="libs/bs3compat-0.11.0/tabs.js"></script><script src="libs/bs3compat-0.11.0/bs3compat.js"></script><link href="libs/bs4_book-1.0.0/bs4_book.css" rel="stylesheet">
 <script src="libs/bs4_book-1.0.0/bs4_book.js"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- CSS --><style type="text/css">
     
     div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
@@ -62,15 +62,13 @@
 <li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5.html"><span class="header-section-number">13</span> Заключение</a></li>
 <li class="book-part">GitHub</li>
 <li><a class="" href="github.html"><span class="header-section-number">14</span> Настройка</a></li>
-<li><a class="active" href="git-remote.html"><span class="header-section-number">15</span> Удаленный репозиторий</a></li>
+<li><a class="active" href="git-remote.html"><span class="header-section-number">15</span> Удалённый репозиторий</a></li>
 <li><a class="" href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></li>
 <li><a class="" href="pr.html"><span class="header-section-number">17</span> Pull Request</a></li>
-<li><a class="" href="git-clone.html"><span class="header-section-number">18</span> Клонирование репозитория</a></li>
-<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">19</span> Заключение</a></li>
+<li><a class="" href="%D0%B7%D0%B0%D0%BA%D0%BB%D1%8E%D1%87%D0%B5%D0%BD%D0%B8%D0%B5-1.html"><span class="header-section-number">18</span> Заключение</a></li>
 <li class="book-part">Дополнительные материалы</li>
-<li><a class="" href="faq.html"><span class="header-section-number">20</span> Best practices</a></li>
-<li><a class="" href="references.html"><span class="header-section-number">21</span> Ссылки</a></li>
-<li><a class="" href="webhooks.html"><span class="header-section-number">22</span> Webhooks</a></li>
+<li><a class="" href="faq.html"><span class="header-section-number">19</span> Best practices</a></li>
+<li><a class="" href="references.html"><span class="header-section-number">20</span> Ссылки</a></li>
 </ul>
 
         <div class="book-extra">
@@ -80,47 +78,51 @@
 </div>
   </header><main class="col-sm-12 col-md-9 col-lg-7" id="content"><div id="git-remote" class="section level1" number="15">
 <h1>
-<span class="header-section-number">Глава 15</span> Удаленный репозиторий<a class="anchor" aria-label="anchor" href="#git-remote"><i class="fas fa-link"></i></a>
+<span class="header-section-number">Глава 15</span> Удалённый репозиторий<a class="anchor" aria-label="anchor" href="#git-remote"><i class="fas fa-link"></i></a>
 </h1>
 <p>Для загрузки репозитория с вашего компьютера (он называется локальный репозиторий) на Github необходимо создать удаленный репозиторий на сайте.
 На верхней панели в правом углу нажмите кнопку <span class="figtext">+</span> и выберите пункт <span class="figtext">New repository</span>.</p>
 <div class="inline-figure"><img src="img/04-02-01-new-repository.png" width="400"></div>
-<p>В открывшейся форме достаточно заполнить только название репозитория в поле <strong>Repository name</strong>, например <code>penguins</code>.
+<p>В открывшейся форме достаточно заполнить только название репозитория в поле <strong>Repository name</strong>, например <code>r-course</code>.
 Остальные поля оставьте по умолчанию, мы только разберем за что они отвечают.</p>
 <ul>
-<li>Description — краткое описание</li>
-<li>Public / Private — настройка доступа
+<li>
+<strong>Description</strong> — краткое описание</li>
+<li>
+<strong>Choose visibility</strong> — настройка доступа
 <ul>
 <li>Public — кто угодно сможет просматривать ваши файлы, но только отдельно добавленные пользователи смогут их изменять</li>
 <li>Private — только отдельно добавленные пользователи смогут просматривать и изменять файлы</li>
 </ul>
 </li>
-<li>Initialize this repository with — этот раздел позволяет добавить в создаваемый репозиторий несколько типовых файлов <code>README</code> <code>.gitignore</code> и <code>LICENSE</code>; не отмечайте ни один из них, потому что в нашем репозитории на компьютере уже есть файлы и они будут конфликтовать с этими.</li>
+<li>
+<strong>Add README</strong>, <strong>.gitignore</strong>, <strong>license</strong> добавляет в создаваемый репозиторий шаблоны этих файлов; не отмечайте ни один, потому что в нашем репозитории на компьютере уже есть файлы и они будут конфликтовать с этими.</li>
 </ul>
 <p>Внизу страницы нажмите <span class="figtext">Create repository</span>.</p>
 <details><summary>
 Пример заполненной формы
-</summary><img src="img/04-02-02-new-repository.png" width="600"></details><p><em>Удалить это? Там и так на форме все написано, только что на англ. Оставить только предупреждение, чтобы не жали Initialize this repository with.</em></p>
-<p><em>Со скрином формы репозитория тоже ту мач?</em></p>
-<p>Для созданного репозитория GitHub сгенерировал набор команд быстрой настройки, воспользуемся ими.
-Сначала необходимо убедиться, что напротив адреса репозитория выбрана опция доступа через <span class="figtext">HTTPS</span> <span class="figref">(A)</span>.
-Далее скопируйте все три команды из раздела для существующего репозитория (<strong>… or push an existing repository from the command line</strong>, <span class="figref">B</span>) и выполните в терминале <a class="footnote-ref" tabindex="0" data-toggle="popover" data-content="&lt;p&gt;В меню RStudio выберите Tools → Terminal → New Terminal&lt;/p&gt;"><sup>3</sup></a>.
-На запрос пароля скопируйте и вставьте сгенерированный в предыдущей главе токен.</p>
-<div class="inline-figure"><img src="img/04-02-03-git-push.png" style="width:100.0%"></div>
-<p>Мы связали наш локальный репозиторий с удаленным при помощи команды <strong>remote add</strong> — это необходимо было сделать один раз.
-И выполнили команду <strong>push</strong> — отправить сделанные фиксации в удаленный репозиторий, это необходимо делать регулярно и для этого в интерфейсе RStudio есть кнопка на панели <span class="figtext">Git</span>.
-Если команды выполнились успешно, файлы были загружены на GitHub.
+</summary><img src="img/SCR-20260829-obrj.png" width="600"></details><p>Для созданного репозитория GitHub сгенерировал набор команд для быстрой настройки, воспользуемся ими.
+Сначала необходимо убедиться, что напротив адреса репозитория выбрана опция доступа через <span class="figtext">HTTPS</span> <span class="figref">(1)</span>.</p>
+<div class="inline-figure"><img src="img/SCR-20260830-cmvs.png" style="width:100.0%"></div>
+<p>Далее скопируйте все три команды из раздела для существующего репозитория (<strong>… or push an existing repository from the command line</strong>, <span class="figref">2</span>) и выполните их в терминале. Если закрыли терминал или он занят Quarto, <a href="install.html#terminal">создайте новый терминал</a>.</p>
+<p>Positron предложит войти в GitHub. Выберите <span class="figtext">Allow</span>,
+запомните код появившийся в новом окне, затем нажмите <span class="figtext">Copy &amp; Continue to Browser</span>.</p>
+<div class="inline-figure"><img src="img/SCR-20260830-coos.png" style="width:100.0%"></div>
+<p>В открывшемся окне браузера разрешите доступ, введите код и завершите вход.
+Вернитесь в Positron.</p>
+<p>Мы связали наш локальный репозиторий с удаленным при помощи команды <code>git remote add</code> — это необходимо было сделать один раз.
+И выполнили команду <code>git push</code> — отправить локальные коммиты в удаленный репозиторий, это необходимо делать регулярно и для этого Positron есть интерфейс.</p>
+<p>Если команды выполнились успешно, файлы были загружены на GitHub.
 Обновите страницу репозитория и проверьте содержимое файлов.</p>
-<div class="inline-figure"><img src="img/04-02-04-github.png" style="width:100.0%"></div>
+<div class="inline-figure"><img src="img/SCR-20260830-dcfe.png" style="width:100.0%"></div>
 
 </div>
-
   <div class="chapter-nav">
 <div class="prev"><a href="github.html"><span class="header-section-number">14</span> Настройка</a></div>
 <div class="next"><a href="git-push-pull.html"><span class="header-section-number">16</span> Загрузка изменений</a></div>
 </div></main><div class="col-md-3 col-lg-2 d-none d-md-block sidebar sidebar-chapter">
     <nav id="toc" data-toggle="toc" aria-label="On this page"><h2>On this page</h2>
-      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-remote"><span class="header-section-number">15</span> Удаленный репозиторий</a></li></ul>
+      <ul class="nav navbar-nav"><li><a class="nav-link" href="#git-remote"><span class="header-section-number">15</span> Удалённый репозиторий</a></li></ul>
 
       <div class="book-extra">
         <ul class="list-unstyled">

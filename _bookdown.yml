@@ -2,6 +2,28 @@ book_filename: "git-101"
 new_session: true
 before_chapter_script: _common.R
 delete_merged_file: true
+rmd_files:
+  - index.Rmd
+  - 01-01-about.Rmd
+  - 01-02-install.Rmd
+  - 01-03-shell.Rmd
+  - 02-01-init.Rmd
+  - 02-02-commit.Rmd
+  - 02-03-practice.Rmd
+  - 02-04-log-n-diff.Rmd
+  - 03-01-branches.Rmd
+  - 03-02-checkout.Rmd
+  - 03-03-merge.Rmd
+  - 03-04-conclusion.Rmd
+  - 04-01-github.Rmd
+  - 04-02-remote.Rmd
+  - 04-03-push-pull.Rmd
+  - 04-04-pull-request.Rmd
+  # - 04-05-clone.Rmd
+  - 04-06-conclusion.Rmd
+  - 05-01-faq.Rmd
+  - 05-03-webhooks.Rmd
+  - 05-02-references.Rmd
 language:
   ui:
     chapter_name: "Глава "
