@@ -46,7 +46,7 @@ mean(data$bill_len)
 Выполните чанк.
 Функция `mean()` вернёт `NA`, потому что в данных нет двух значений длины клюва.
 Пока вы проходили предыдущий курс, мы поймали этих двух пингвинов и измерили их клювы.
-Скачайте [обновлённые данные](https://raw.githubusercontent.com/yoursdearboy/git-101/tutorial/course-project/updates/penguins.csv) и замените ими файл `data/penguins.csv`. Снова выполните чанк и убедитесь, что средняя длина клюва равна `43.91802`.
+Скачайте [обновлённые данные](https://raw.githubusercontent.com/yoursdearboy/git-101/positron/course-project/updates/penguins.csv) и замените ими файл `data/penguins.csv`. Снова выполните чанк и убедитесь, что средняя длина клюва равна `43.91802`.
 
 На панели [Source Control]{.figtext} появятся два изменения: новый документ `paper.qmd` и обновлённый файл `penguins.csv`.
 Выберите его и проверьте, чем новая версия отличается от прежней:
