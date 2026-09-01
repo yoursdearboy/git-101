@@ -25,7 +25,6 @@ github
 git-remote
 git-push-pull
 pr
-git-clone
 заключение-1
 faq
 gitignore
@@ -33,5 +32,4 @@ feature-branch
 комитьте-и-пушьте-чаще
 force-push
 commits-to-branch
-webhooks
 references
